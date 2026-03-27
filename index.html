@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>芝芝要健康 — 藥師的保健殿堂</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage: #7B9E87;
+    --sage-light: #A8C4B0;
+    --sage-dark: #4D7A5A;
+    --cream: #FAF6F0;
+    --warm-white: #FDF9F4;
+    --amber: #D4A847;
+    --amber-light: #F0C870;
+    --deep-brown: #3D2B1A;
+    --soft-brown: #8A6A4E;
+    --text-dark: #2C2416;
+    --text-mid: #5C4A34;
+    --text-light: #9B8570;
+    --border: rgba(123,158,135,0.25);
+    --shadow: 0 4px 30px rgba(61,43,26,0.08);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--text-dark);
+    font-family: 'Noto Sans TC', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: sticky; top:0; z-index:100;
+    background: rgba(250,246,240,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5vw;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 70px;
+  }
+
+  .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    color: var(--sage-dark);
+    letter-spacing: 0.02em;
+  }
+  .logo span { color: var(--amber); }
+
+  nav { display: flex; gap: 1.8rem; }
+  nav a {
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-mid);
+    letter-spacing: 0.05em;
+    transition: color .25s;
+    position: relative;
+  }
+  nav a::after {
+    content:''; position:absolute; bottom:-4px; left:0;
+    width:0; height:2px; background:var(--sage);
+    transition: width .3s;
+  }
+  nav a:hover { color: var(--sage-dark); }
+  nav a:hover::after { width:100%; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 88vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 6rem 8vw 4rem;
+    gap: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content:'';
+    position:absolute; top:-100px; right:-150px;
+    width: 700px; height:700px;
+    border-radius:50%;
+    background: radial-gradient(circle, rgba(123,158,135,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items:center; gap:.5rem;
+    background: rgba(123,158,135,0.12);
+    border: 1px solid rgba(123,158,135,0.3);
+    border-radius: 50px;
+    padding: .35rem 1rem;
+    font-size: .75rem;
+    color: var(--sage-dark);
+    letter-spacing:.08em;
+    font-weight:600;
+    margin-bottom: 1.5rem;
+    animation: fadeUp .6s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    line-height: 1.3;
+    color: var(--text-dark);
+    font-weight: 700;
+    animation: fadeUp .7s .1s ease both;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--sage-dark);
+  }
+
+  .hero p {
+    margin-top: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text-mid);
+    line-height: 1.9;
+    max-width: 480px;
+    animation: fadeUp .7s .2s ease both;
+  }
+
+  .hero-cta {
+    margin-top: 2rem;
+    display: flex; gap: 1rem; flex-wrap:wrap;
+    animation: fadeUp .7s .3s ease both;
+  }
+
+  .btn-primary {
+    background: var(--sage-dark);
+    color: white;
+    padding: .8rem 2rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-size: .9rem;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 500;
+    letter-spacing:.04em;
+    transition: all .3s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-primary:hover {
+    background: var(--sage);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(77,122,90,0.35);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--sage-dark);
+    padding: .8rem 2rem;
+    border-radius: 50px;
+    border: 1.5px solid var(--sage-dark);
+    cursor: pointer;
+    font-size: .9rem;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 500;
+    letter-spacing:.04em;
+    transition: all .3s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-outline:hover {
+    background: var(--sage-dark);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  .hero-visual {
+    display: grid; grid-template-columns: 1fr 1fr; gap:1rem;
+    animation: fadeUp .8s .2s ease both;
+  }
+
+  .herb-card {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    transition: transform .3s;
+    cursor: default;
+  }
+  .herb-card:hover { transform: translateY(-6px); }
+  .herb-card:nth-child(2) { margin-top: 1.5rem; }
+  .herb-card:nth-child(4) { margin-top: -1.5rem; }
+
+  .herb-icon { font-size: 2rem; margin-bottom:.8rem; }
+  .herb-card h3 { font-size:.9rem; font-weight:600; color:var(--text-dark); }
+  .herb-card p { font-size:.75rem; color:var(--text-light); margin-top:.3rem; line-height:1.6; }
+
+  /* ── SECTION COMMON ── */
+  section {
+    padding: 5rem 8vw;
+  }
+
+  .section-label {
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .15em;
+    color: var(--sage);
+    text-transform: uppercase;
+    margin-bottom: .8rem;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    max-width: 600px;
+  }
+
+  /* ── TABS (Products) ── */
+  #products { background: var(--warm-white); }
+
+  .tabs {
+    display: flex; gap: .5rem; flex-wrap:wrap;
+    margin: 2.5rem 0 2rem;
+  }
+
+  .tab {
+    padding: .55rem 1.3rem;
+    border-radius: 50px;
+    border: 1.5px solid var(--border);
+    background: white;
+    cursor: pointer;
+    font-size: .82rem;
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--text-mid);
+    font-weight: 500;
+    transition: all .25s;
+  }
+  .tab:hover, .tab.active {
+    background: var(--sage-dark);
+    color: white;
+    border-color: var(--sage-dark);
+  }
+
+  .tab-content { display:none; }
+  .tab-content.active { display:block; animation: fadeUp .4s ease both; }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .product-card {
+    background: white;
+    border-radius: 24px;
+    padding: 2rem;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: all .3s;
+    cursor: pointer;
+  }
+  .product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(61,43,26,0.12);
+    border-color: var(--sage-light);
+  }
+
+  .product-icon {
+    width: 54px; height:54px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--sage-light), var(--sage));
+    display: flex; align-items:center; justify-content:center;
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .product-card h3 { font-size: 1.05rem; font-weight:700; color:var(--text-dark); }
+  .product-card .tag {
+    display:inline-block;
+    margin-top:.5rem;
+    padding:.2rem .7rem;
+    background:rgba(123,158,135,0.12);
+    color:var(--sage-dark);
+    border-radius:50px;
+    font-size:.72rem;
+    font-weight:600;
+  }
+  .product-card p { margin-top:.8rem; font-size:.85rem; color:var(--text-mid); line-height:1.7; }
+
+  .expand-btn {
+    margin-top: 1rem;
+    background: none; border:none; cursor:pointer;
+    color: var(--sage-dark);
+    font-size:.82rem;
+    font-weight:600;
+    font-family:'Noto Sans TC',sans-serif;
+    display:flex; align-items:center; gap:.3rem;
+    padding:0;
+    transition: gap .2s;
+  }
+  .expand-btn:hover { gap:.6rem; }
+
+  .detail-panel {
+    display:none; margin-top:1rem;
+    border-top:1px solid var(--border);
+    padding-top:1rem;
+  }
+  .detail-panel.open { display:block; animation:fadeUp .3s ease both; }
+
+  .detail-row {
+    display:flex; gap:.5rem; margin-bottom:.7rem;
+    align-items:flex-start;
+  }
+  .detail-label {
+    font-size:.72rem; font-weight:700; letter-spacing:.06em;
+    color: var(--sage-dark); white-space:nowrap;
+    padding-top:.1rem;
+  }
+  .detail-text { font-size:.82rem; color:var(--text-mid); line-height:1.7; }
+
+  /* ── INTERACTIVE CHECKER ── */
+  #checker { background: var(--cream); }
+
+  .checker-wrap {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 3rem; margin-top: 3rem;
+  }
+
+  .checker-form {
+    background:white; border-radius:24px; padding:2.5rem;
+    border:1px solid var(--border); box-shadow:var(--shadow);
+  }
+
+  .form-group { margin-bottom: 1.5rem; }
+  .form-group label {
+    display:block; font-size:.82rem; font-weight:600;
+    color:var(--text-dark); margin-bottom:.5rem; letter-spacing:.03em;
+  }
+
+  .checkbox-group {
+    display: grid; grid-template-columns: 1fr 1fr; gap:.5rem;
+  }
+
+  .check-item {
+    display:flex; align-items:center; gap:.5rem;
+    padding:.5rem .8rem;
+    border-radius:10px; border:1.5px solid var(--border);
+    cursor:pointer; transition:all .2s;
+    font-size:.8rem; color:var(--text-mid);
+  }
+  .check-item:hover { border-color:var(--sage); color:var(--sage-dark); }
+  .check-item input { accent-color:var(--sage-dark); }
+
+  .checker-result {
+    background:white; border-radius:24px; padding:2.5rem;
+    border:1px solid var(--border); box-shadow:var(--shadow);
+    min-height:200px;
+  }
+
+  .result-placeholder {
+    text-align:center; padding:3rem 1rem;
+    color:var(--text-light); font-size:.9rem;
+  }
+  .result-placeholder .big-icon { font-size:3rem; margin-bottom:1rem; opacity:.4; }
+
+  .result-item {
+    padding:1rem; border-radius:14px;
+    border:1px solid var(--border);
+    margin-bottom:.8rem;
+    background:rgba(123,158,135,0.06);
+    animation: fadeUp .3s ease both;
+  }
+  .result-item h4 { font-size:.9rem; font-weight:700; color:var(--text-dark); }
+  .result-item p { font-size:.8rem; color:var(--text-mid); margin-top:.3rem; line-height:1.6; }
+  .result-match {
+    font-size:.7rem; font-weight:700; color:var(--sage-dark);
+    background:rgba(123,158,135,0.15); border-radius:50px;
+    padding:.15rem .6rem; display:inline-block; margin-top:.5rem;
+  }
+
+  /* ── EDUCATION ── */
+  #education { background: var(--warm-white); }
+
+  .edu-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(340px,1fr));
+    gap:1.5rem; margin-top:2.5rem;
+  }
+
+  .edu-card {
+    background:white; border-radius:24px;
+    border:1px solid var(--border); overflow:hidden;
+    box-shadow:var(--shadow); transition:all .3s;
+  }
+  .edu-card:hover { transform:translateY(-5px); box-shadow:0 16px 40px rgba(61,43,26,0.12); }
+
+  .edu-banner {
+    height:120px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:3rem;
+    position:relative;
+    overflow:hidden;
+  }
+  .edu-banner.green { background:linear-gradient(135deg,#D4EDD9,#A8C4B0); }
+  .edu-banner.amber { background:linear-gradient(135deg,#F5E6C3,#EAC96A); }
+  .edu-banner.rose  { background:linear-gradient(135deg,#F5D4D4,#E8A8A8); }
+  .edu-banner.blue  { background:linear-gradient(135deg,#D4DEF0,#A8BADC); }
+
+  .edu-body { padding:1.8rem; }
+  .edu-cat {
+    font-size:.7rem; font-weight:700; letter-spacing:.1em;
+    color:var(--sage); text-transform:uppercase; margin-bottom:.5rem;
+  }
+  .edu-card h3 { font-size:1rem; font-weight:700; color:var(--text-dark); margin-bottom:.5rem; }
+  .edu-card p { font-size:.83rem; color:var(--text-mid); line-height:1.75; }
+
+  .edu-expand {
+    margin-top:1.2rem;
+  }
+
+  .edu-expand-content {
+    display:none; margin-top:.8rem;
+    border-top:1px solid var(--border); padding-top:.8rem;
+  }
+  .edu-expand-content.open { display:block; animation:fadeUp .3s ease; }
+
+  .edu-points { list-style:none; }
+  .edu-points li {
+    font-size:.82rem; color:var(--text-mid); line-height:1.7;
+    padding:.3rem 0 .3rem 1.2rem; position:relative;
+  }
+  .edu-points li::before {
+    content:'✦'; position:absolute; left:0; color:var(--sage); font-size:.6rem; top:.5rem;
+  }
+
+  /* ── QUIZ ── */
+  #quiz { background:var(--cream); }
+
+  .quiz-wrap {
+    max-width:720px; margin:2.5rem auto 0;
+    background:white; border-radius:28px; padding:3rem;
+    border:1px solid var(--border); box-shadow:var(--shadow);
+  }
+
+  .quiz-progress {
+    display:flex; gap:.5rem; margin-bottom:2.5rem;
+  }
+  .quiz-progress-bar {
+    height:4px; border-radius:4px; background:var(--border); flex:1;
+    transition: background .4s;
+  }
+  .quiz-progress-bar.done { background:var(--sage); }
+  .quiz-progress-bar.current { background:var(--sage-light); }
+
+  .quiz-q {
+    font-family:'Noto Serif TC',serif;
+    font-size:1.15rem; font-weight:600;
+    color:var(--text-dark); margin-bottom:1.5rem; line-height:1.6;
+  }
+
+  .quiz-options { display:flex; flex-direction:column; gap:.8rem; }
+
+  .quiz-opt {
+    padding:.9rem 1.3rem;
+    border-radius:14px; border:1.5px solid var(--border);
+    cursor:pointer; font-size:.9rem; font-family:'Noto Sans TC',sans-serif;
+    color:var(--text-mid); background:white;
+    transition:all .2s; text-align:left;
+  }
+  .quiz-opt:hover { border-color:var(--sage); color:var(--sage-dark); background:rgba(123,158,135,0.05); }
+  .quiz-opt.correct { border-color:#4CAF50; background:rgba(76,175,80,0.08); color:#2d7a2d; }
+  .quiz-opt.wrong { border-color:#EF5350; background:rgba(239,83,80,0.08); color:#c0392b; }
+
+  .quiz-feedback {
+    margin-top:1.2rem; padding:1rem 1.2rem;
+    border-radius:14px; font-size:.88rem; line-height:1.7;
+    display:none;
+  }
+  .quiz-feedback.show { display:block; animation:fadeUp .3s ease; }
+  .quiz-feedback.ok { background:rgba(76,175,80,0.1); color:#2d7a2d; border:1px solid rgba(76,175,80,0.2); }
+  .quiz-feedback.err { background:rgba(239,83,80,0.1); color:#c0392b; border:1px solid rgba(239,83,80,0.2); }
+
+  .quiz-next {
+    margin-top:1.5rem; display:none;
+  }
+  .quiz-next.show { display:block; }
+
+  .quiz-score {
+    text-align:center; padding:2rem 0;
+    display:none;
+  }
+  .quiz-score.show { display:block; animation:fadeUp .4s ease; }
+  .quiz-score .score-num {
+    font-family:'DM Serif Display',serif;
+    font-size:4rem; color:var(--sage-dark);
+  }
+  .quiz-score h3 { font-size:1.4rem; font-weight:700; margin:.5rem 0; }
+  .quiz-score p { color:var(--text-mid); margin-bottom:1.5rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep-brown);
+    color: rgba(255,255,255,0.7);
+    padding: 3rem 8vw;
+    text-align:center;
+  }
+  footer .logo { color:white; margin-bottom:.5rem; display:block; }
+  footer p { font-size:.8rem; line-height:1.8; }
+  footer a { color: var(--sage-light); text-decoration:none; }
+
+  /* ── DISCLAIMER BANNER ── */
+  .disclaimer {
+    background: rgba(212,168,71,0.12);
+    border: 1px solid rgba(212,168,71,0.3);
+    border-radius:16px;
+    padding:1rem 1.5rem;
+    margin-bottom:2rem;
+    font-size:.82rem;
+    color:var(--soft-brown);
+    display:flex; gap:.8rem; align-items:flex-start;
+  }
+  .disclaimer .icon { font-size:1.2rem; flex-shrink:0; }
+
+  /* ── KIDS SECTION ── */
+  #kids { background: var(--cream); }
+
+  .kids-intro-banner {
+    background: linear-gradient(135deg, #FFF8E7 0%, #E8F5E9 100%);
+    border: 1px solid rgba(212,168,71,0.3);
+    border-radius: 24px;
+    padding: 2rem 2.5rem;
+    margin-bottom: 2.5rem;
+    display: flex; gap: 1.5rem; align-items: center;
+  }
+  .kids-intro-banner .banner-icon { font-size:3.5rem; flex-shrink:0; }
+  .kids-intro-banner h3 { font-size:1.1rem; font-weight:700; color:var(--text-dark); margin-bottom:.4rem; }
+  .kids-intro-banner p { font-size:.87rem; color:var(--text-mid); line-height:1.8; }
+
+  .kids-nav-tabs {
+    display:flex; gap:.6rem; flex-wrap:wrap;
+    margin-bottom: 2.5rem;
+  }
+  .kids-tab {
+    padding:.6rem 1.4rem;
+    border-radius: 50px;
+    border: 1.5px solid var(--border);
+    background: white;
+    cursor:pointer;
+    font-size:.83rem;
+    font-family:'Noto Sans TC',sans-serif;
+    color:var(--text-mid);
+    font-weight:500;
+    transition:all .25s;
+    display:flex; align-items:center; gap:.4rem;
+  }
+  .kids-tab:hover, .kids-tab.active {
+    background: #F59E0B;
+    color: white;
+    border-color: #F59E0B;
+  }
+  .kids-tab-content { display:none; }
+  .kids-tab-content.active { display:block; animation:fadeUp .4s ease both; }
+
+  .kids-topic-grid {
+    display:grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    gap:1.5rem;
+  }
+
+  .kids-card {
+    background:white; border-radius:24px;
+    border:1px solid var(--border); overflow:hidden;
+    box-shadow:var(--shadow); transition:all .3s;
+  }
+  .kids-card:hover { transform:translateY(-5px); box-shadow:0 16px 40px rgba(61,43,26,0.12); }
+
+  .kids-card-header {
+    padding: 1.4rem 1.8rem 1rem;
+    border-bottom: 1px solid var(--border);
+    display:flex; align-items:center; gap:.8rem;
+  }
+  .kids-card-emoji { font-size:2rem; }
+  .kids-card-meta {}
+  .kids-card-age {
+    font-size:.68rem; font-weight:700; letter-spacing:.08em;
+    color: #F59E0B; text-transform:uppercase;
+  }
+  .kids-card-meta h3 { font-size:.95rem; font-weight:700; color:var(--text-dark); margin-top:.1rem; }
+
+  .kids-card-body { padding:1.2rem 1.8rem 1.6rem; }
+  .kids-card-body p { font-size:.83rem; color:var(--text-mid); line-height:1.75; margin-bottom:1rem; }
+
+  .kids-tips { list-style:none; }
+  .kids-tips li {
+    font-size:.81rem; color:var(--text-mid); line-height:1.7;
+    padding:.3rem 0 .3rem 1.4rem; position:relative;
+  }
+  .kids-tips li::before {
+    content:'🌟'; position:absolute; left:0; font-size:.65rem; top:.4rem;
+  }
+
+  .kids-feature-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap:1.5rem;
+    margin-bottom:1.5rem;
+  }
+  .kids-feature-card {
+    background:white; border-radius:20px; padding:1.8rem;
+    border:1px solid var(--border); box-shadow:var(--shadow);
+  }
+  .kids-feature-card .feat-icon { font-size:2.2rem; margin-bottom:.8rem; }
+  .kids-feature-card h4 { font-size:.95rem; font-weight:700; color:var(--text-dark); margin-bottom:.5rem; }
+  .kids-feature-card p { font-size:.82rem; color:var(--text-mid); line-height:1.75; }
+
+  .milestone-timeline {
+    position:relative; padding-left:2rem;
+    border-left: 2px solid var(--border);
+  }
+  .milestone {
+    position:relative; margin-bottom:1.6rem;
+  }
+  .milestone::before {
+    content:''; position:absolute; left:-2.4rem; top:.35rem;
+    width:14px; height:14px; border-radius:50%;
+    background: var(--sage); border:3px solid white;
+    box-shadow:0 0 0 2px var(--sage-light);
+  }
+  .milestone-age {
+    font-size:.72rem; font-weight:700; letter-spacing:.08em;
+    color:var(--sage-dark); text-transform:uppercase; margin-bottom:.2rem;
+  }
+  .milestone-title { font-size:.95rem; font-weight:700; color:var(--text-dark); margin-bottom:.3rem; }
+  .milestone-desc { font-size:.82rem; color:var(--text-mid); line-height:1.7; }
+
+  .faq-list { display:flex; flex-direction:column; gap:.8rem; }
+  .faq-item {
+    background:white; border-radius:16px;
+    border:1px solid var(--border); overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .faq-q {
+    padding:1.1rem 1.5rem;
+    cursor:pointer;
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:.9rem; font-weight:600; color:var(--text-dark);
+    transition:background .2s;
+  }
+  .faq-q:hover { background:rgba(123,158,135,0.05); }
+  .faq-q .faq-icon { font-size:1.1rem; transition:transform .3s; flex-shrink:0; }
+  .faq-item.open .faq-icon { transform:rotate(45deg); }
+  .faq-a {
+    display:none; padding:0 1.5rem 1.2rem;
+    font-size:.85rem; color:var(--text-mid); line-height:1.8;
+  }
+  .faq-item.open .faq-a { display:block; animation:fadeUp .3s ease; }
+
+  @media (max-width:860px) {
+    .kids-feature-row { grid-template-columns:1fr; }
+    .kids-intro-banner { flex-direction:column; text-align:center; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(18px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 860px) {
+    .hero { grid-template-columns:1fr; min-height:auto; }
+    .hero-visual { display:none; }
+    .checker-wrap { grid-template-columns:1fr; }
+    nav { display:none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">芝芝<span>♡</span>健康</div>
+  <nav>
+    <a href="#products">保健食品</a>
+    <a href="#checker">健康配對</a>
+    <a href="#education">衛教知識</a>
+    <a href="#kids">學童教養</a>
+    <a href="#quiz">小測驗</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-badge">🌿 藥師親身推薦・專業把關</div>
+    <h1>讓<em>保健</em>成為<br>每天的日常</h1>
+    <p>芝芝藥師以專業知識，帶您認識各類保健食品的成分、功能、適應症及注意事項，讓您做出最明智的健康選擇。</p>
+    <div class="hero-cta">
+      <a href="#products" class="btn-primary">探索保健品 →</a>
+      <a href="#checker" class="btn-outline">找適合我的</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="herb-card">
+      <div class="herb-icon">🫐</div>
+      <h3>花青素</h3>
+      <p>強效抗氧化，保護眼睛與血管健康</p>
+    </div>
+    <div class="herb-card">
+      <div class="herb-icon">🐟</div>
+      <h3>魚油 Omega-3</h3>
+      <p>維護心血管，降低三酸甘油酯</p>
+    </div>
+    <div class="herb-card">
+      <div class="herb-icon">🌞</div>
+      <h3>維生素D</h3>
+      <p>骨骼健康、免疫調節不可缺少</p>
+    </div>
+    <div class="herb-card">
+      <div class="herb-icon">🦠</div>
+      <h3>益生菌</h3>
+      <p>平衡腸道菌叢，提升消化功能</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="section-label">🌱 保健食品圖書館</div>
+  <h2 class="section-title">成分・功能・注意事項</h2>
+  <p class="section-sub">點選分類標籤，深入了解各項保健成分的專業知識，做出最適合自己的選擇。</p>
+
+  <div class="disclaimer">
+    <span class="icon">⚠️</span>
+    <span>本頁資訊僅供衛教參考，無法取代醫師或藥師個別評估。服用前請諮詢專業醫療人員，特別是孕婦、哺乳婦及慢性病患者。</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('all',this)">全部</button>
+    <button class="tab" onclick="switchTab('antioxidant',this)">抗氧化</button>
+    <button class="tab" onclick="switchTab('immunity',this)">免疫</button>
+    <button class="tab" onclick="switchTab('bone',this)">骨骼關節</button>
+    <button class="tab" onclick="switchTab('gut',this)">腸胃</button>
+    <button class="tab" onclick="switchTab('heart',this)">心血管</button>
+    <button class="tab" onclick="switchTab('brain',this)">腦部</button>
+  </div>
+
+  <div id="tab-all" class="tab-content active">
+    <div class="product-grid" id="all-grid"></div>
+  </div>
+  <div id="tab-antioxidant" class="tab-content">
+    <div class="product-grid" id="antioxidant-grid"></div>
+  </div>
+  <div id="tab-immunity" class="tab-content">
+    <div class="product-grid" id="immunity-grid"></div>
+  </div>
+  <div id="tab-bone" class="tab-content">
+    <div class="product-grid" id="bone-grid"></div>
+  </div>
+  <div id="tab-gut" class="tab-content">
+    <div class="product-grid" id="gut-grid"></div>
+  </div>
+  <div id="tab-heart" class="tab-content">
+    <div class="product-grid" id="heart-grid"></div>
+  </div>
+  <div id="tab-brain" class="tab-content">
+    <div class="product-grid" id="brain-grid"></div>
+  </div>
+</section>
+
+<!-- CHECKER -->
+<section id="checker">
+  <div class="section-label">🔍 個人化配對</div>
+  <h2 class="section-title">找到最適合你的<br>保健食品</h2>
+  <p class="section-sub">勾選您目前關注的健康需求，芝芝藥師幫您推薦最適合的保健方向。</p>
+
+  <div class="checker-wrap">
+    <div class="checker-form">
+      <div class="form-group">
+        <label>🙋 我的健康需求</label>
+        <div class="checkbox-group">
+          <label class="check-item"><input type="checkbox" value="eye"> 👁 護眼</label>
+          <label class="check-item"><input type="checkbox" value="heart"> ❤️ 心臟</label>
+          <label class="check-item"><input type="checkbox" value="bone"> 🦴 骨骼</label>
+          <label class="check-item"><input type="checkbox" value="gut"> 🫙 消化</label>
+          <label class="check-item"><input type="checkbox" value="brain"> 🧠 腦力</label>
+          <label class="check-item"><input type="checkbox" value="immunity"> 🛡 免疫</label>
+          <label class="check-item"><input type="checkbox" value="sleep"> 😴 睡眠</label>
+          <label class="check-item"><input type="checkbox" value="skin"> ✨ 皮膚</label>
+          <label class="check-item"><input type="checkbox" value="energy"> ⚡ 體力</label>
+          <label class="check-item"><input type="checkbox" value="joint"> 🦵 關節</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>📋 特殊情況（多選）</label>
+        <div class="checkbox-group">
+          <label class="check-item"><input type="checkbox" value="pregnant"> 🤰 孕期</label>
+          <label class="check-item"><input type="checkbox" value="senior"> 👴 銀髮族</label>
+          <label class="check-item"><input type="checkbox" value="blood-thinner"> 💊 服抗凝血藥</label>
+          <label class="check-item"><input type="checkbox" value="diabetes"> 🩸 血糖問題</label>
+        </div>
+      </div>
+      <button class="btn-primary" onclick="runChecker()" style="width:100%">🔍 立即配對</button>
+    </div>
+
+    <div class="checker-result" id="checker-result">
+      <div class="result-placeholder">
+        <div class="big-icon">🌿</div>
+        <p>勾選您的健康需求<br>並點擊「立即配對」</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">📚 衛教專欄</div>
+  <h2 class="section-title">健康知識・教育教養</h2>
+  <p class="section-sub">藥師精選衛教主題，從兒童營養到老年保健，讓全家人都能獲得正確知識。</p>
+
+  <div class="edu-grid" id="edu-grid"></div>
+</section>
+
+<!-- KIDS EDUCATION -->
+<section id="kids">
+  <div class="section-label">🎒 學童教養與教育</div>
+  <h2 class="section-title">陪伴孩子健康成長</h2>
+  <p class="section-sub">芝芝藥師整合兒童發展、營養教育與教養策略，協助家長與老師打造孩子最好的成長環境。</p>
+
+  <div class="kids-intro-banner">
+    <div class="banner-icon">👨‍👩‍👧‍👦</div>
+    <div>
+      <h3>為什麼學童教養如此重要？</h3>
+      <p>0–12歲是兒童身心發展的黃金期。正確的營養補充、情緒引導與學習策略，能為孩子奠定一生健康的基礎。這裡整合了藥師的營養專業與教育心理學知識，提供家長實用可行的參考。</p>
+    </div>
+  </div>
+
+  <div class="kids-nav-tabs">
+    <button class="kids-tab active" onclick="switchKidsTab('nutrition',this)">🥦 兒童營養</button>
+    <button class="kids-tab" onclick="switchKidsTab('development',this)">📈 發展里程碑</button>
+    <button class="kids-tab" onclick="switchKidsTab('parenting',this)">💬 教養策略</button>
+    <button class="kids-tab" onclick="switchKidsTab('learning',this)">📚 學習力培養</button>
+    <button class="kids-tab" onclick="switchKidsTab('faq',this)">❓ 家長常問</button>
+  </div>
+
+  <!-- 兒童營養 -->
+  <div id="kids-nutrition" class="kids-tab-content active">
+    <div class="kids-topic-grid" id="kids-nutrition-grid"></div>
+  </div>
+
+  <!-- 發展里程碑 -->
+  <div id="kids-development" class="kids-tab-content">
+    <div class="kids-feature-row">
+      <div class="kids-feature-card">
+        <div class="feat-icon">🧠</div>
+        <h4>腦部發育黃金期</h4>
+        <p>0–3歲是大腦神經突觸連結最旺盛的時期，充足的DHA、鐵質和鋅對認知功能發展至關重要。這個時期的感官刺激與語言環境將影響一生的學習潛能。</p>
+      </div>
+      <div class="kids-feature-card">
+        <div class="feat-icon">🦷</div>
+        <h4>骨骼與牙齒發育</h4>
+        <p>學齡前（3–6歲）恆牙開始在牙齦下形成，鈣質與維生素D的攝取決定未來牙齒健康。骨骼在青春期前需要充分的鈣磷攝取，運動更能刺激骨骼密度增加。</p>
+      </div>
+    </div>
+    <div style="background:white;border-radius:24px;padding:2.5rem;border:1px solid var(--border);box-shadow:var(--shadow)">
+      <h3 style="font-family:'Noto Serif TC',serif;font-size:1.2rem;margin-bottom:2rem;color:var(--text-dark)">📍 兒童發展重要里程碑</h3>
+      <div class="milestone-timeline" id="milestone-list"></div>
+    </div>
+  </div>
+
+  <!-- 教養策略 -->
+  <div id="kids-parenting" class="kids-tab-content">
+    <div class="kids-topic-grid" id="kids-parenting-grid"></div>
+  </div>
+
+  <!-- 學習力培養 -->
+  <div id="kids-learning" class="kids-tab-content">
+    <div class="kids-topic-grid" id="kids-learning-grid"></div>
+  </div>
+
+  <!-- FAQ -->
+  <div id="kids-faq" class="kids-tab-content">
+    <div class="faq-list" id="faq-list"></div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+  <div class="section-label">🎯 互動測驗</div>
+  <h2 class="section-title">考考你的保健知識</h2>
+  <p class="section-sub">完成小測驗，檢視自己對保健食品的認知是否正確！</p>
+
+  <div class="quiz-wrap" id="quiz-wrap">
+    <div class="quiz-progress" id="quiz-progress"></div>
+    <div id="quiz-question-area"></div>
+    <div class="quiz-score" id="quiz-score">
+      <div class="score-num" id="score-num">0/0</div>
+      <h3 id="score-title"></h3>
+      <p id="score-desc"></p>
+      <button class="btn-primary" onclick="restartQuiz()">再玩一次 🔄</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="logo">芝芝♡健康</span>
+  <p>本網站由藥師專業製作，資訊僅供衛教參考，不可取代醫療診斷。<br>
+  如有健康疑慮請諮詢您的<a href="#">醫師或藥師</a>。</p>
+  <p style="margin-top:1rem;font-size:.75rem;opacity:.5;">© 2025 芝芝要健康藥師網站・All Rights Reserved</p>
+</footer>
+
+<script>
+// ───────────────────────────────────────────
+// DATA
+// ───────────────────────────────────────────
+const products = [
+  {
+    id:'p1', cat:'antioxidant', icon:'🫐', name:'花青素（Anthocyanin）',
+    tag:'抗氧化 • 護眼',
+    summary:'強效抗氧化成分，廣泛存在於藍莓、紫葡萄、蔓越莓等深色漿果中。',
+    ingredient:'花青素為多酚類植化素，以前花青素（OPC）為主要活性型態，常見來源：葡萄籽萃取物、山桑子、藍莓萃取物。',
+    function:'保護視網膜、改善視力疲勞；清除自由基、延緩細胞氧化；維持微血管彈性；改善循環、減少夜盲問題。',
+    indication:'長期用眼疲勞者（如電腦族、學生）、糖尿病性視網膜病變輔助保健、紫外線傷害高風險族群。',
+    caution:'極少發生不良反應；高劑量可能造成輕微腸胃不適；孕婦使用建議諮詢醫師；花粉過敏者慎用山桑子。',
+    note:'建議劑量80–160mg/天；與維生素C合用可增強抗氧化效果；飯後服用吸收更佳。',
+    need:['eye','immunity']
+  },
+  {
+    id:'p2', cat:'heart', icon:'🐟', name:'魚油（Omega-3 / EPA＋DHA）',
+    tag:'心血管 • 抗發炎',
+    summary:'富含EPA與DHA的不飽和脂肪酸，對心血管健康與抗發炎有顯著益處。',
+    ingredient:'EPA（二十碳五烯酸）、DHA（二十二碳六烯酸），來源為深海魚（鮭魚、沙丁魚）或藻油。',
+    function:'降低三酸甘油酯（TG）、調節血脂；抗發炎，減少心臟病風險；DHA維持腦神經及視網膜健康；EPA改善情緒。',
+    indication:'高三酸甘油酯血症、心血管疾病風險者、素食者補充DHA（藻油）、孕婦補充DHA（促進胎兒腦發育）。',
+    caution:'高劑量（>3g/天）可能增加出血風險；服用抗凝血藥（如warfarin）者須與醫師討論；可能有魚腥嗝氣。',
+    note:'EPA+DHA合計≥1000mg/天；手術前兩週停用；冷凍或餐後服用可減少嗝氣；建議選擇第三方認證品牌。',
+    need:['heart','brain','eye']
+  },
+  {
+    id:'p3', cat:'bone', icon:'🌞', name:'維生素D3（Vitamin D3）',
+    tag:'骨骼 • 免疫',
+    summary:'「陽光維生素」，對骨骼健康、免疫調節及情緒穩定均扮演重要角色。',
+    ingredient:'膽鈣化醇（Cholecalciferol），由皮膚照射紫外線B合成，或由動物性食物攝取。',
+    function:'促進鈣磷吸收，強化骨骼；調節免疫細胞功能；降低自體免疫疾病風險；改善情緒，降低憂鬱風險。',
+    indication:'陽光照射不足者（室內工作者、北方居民）、骨質疏鬆症患者、老年人（>70歲）、免疫功能低下者。',
+    caution:'過量攝取（>4000IU/天長期）可能導致高鈣血症，出現噁心、腎結石；與鈣同補效果更佳。',
+    note:'一般成人建議800–2000IU/天；檢測血清25(OH)D濃度可精準補充；脂溶性，建議隨餐服用。',
+    need:['bone','immunity']
+  },
+  {
+    id:'p4', cat:'gut', icon:'🦠', name:'益生菌（Probiotics）',
+    tag:'腸胃 • 免疫',
+    summary:'活的微生物菌株，能改善腸道菌叢平衡，對消化健康與免疫力有正面影響。',
+    ingredient:'乳酸桿菌（Lactobacillus）、雙歧桿菌（Bifidobacterium）等，常搭配益生元（Prebiotics）使用。',
+    function:'改善腹瀉與便秘；緩解腸躁症（IBS）症狀；減少抗生素相關腹瀉；增強腸道免疫屏障；改善乳糖不耐。',
+    indication:'腸躁症患者、長期服用抗生素後、過敏體質調整、嬰幼兒腸絞痛輔助。',
+    caution:'免疫嚴重受損者（如化療患者）需謹慎，可能引發菌血症；初期使用可能有脹氣；少數人初期腸胃不適。',
+    note:'建議餐前30分鐘或餐後服用；與抗生素間隔2小時；選擇有臨床證實菌株（如LGG、BB-12）；冷藏保存。',
+    need:['gut','immunity']
+  },
+  {
+    id:'p5', cat:'bone', icon:'🦷', name:'鈣質（Calcium）',
+    tag:'骨骼 • 牙齒',
+    summary:'人體含量最多的礦物質，對骨骼、牙齒、神經傳導及肌肉收縮不可或缺。',
+    ingredient:'碳酸鈣（含鈣量高）、檸檬酸鈣（吸收率佳、胃酸少也能吸收）。',
+    function:'構成骨骼與牙齒；維持心肌正常收縮；神經信號傳遞；凝血功能調節。',
+    indication:'骨質疏鬆高風險族群、停經後女性、純素食者、乳製品過敏或不耐者。',
+    caution:'每次攝取不超過500mg（分次補充吸收較好）；高劑量可能增加腎結石風險；與鐵劑需間隔2小時服用。',
+    note:'需搭配維生素D才能有效吸收；建議從飲食（牛奶、豆腐、小魚乾）補充優先；碳酸鈣需隨餐服用。',
+    need:['bone','joint']
+  },
+  {
+    id:'p6', cat:'brain', icon:'🧠', name:'磷脂醯絲胺酸（PS）',
+    tag:'腦力 • 記憶',
+    summary:'大腦細胞膜的重要磷脂成分，有助於維持認知功能與記憶力。',
+    ingredient:'磷脂醯絲胺酸（Phosphatidylserine），現多由大豆卵磷脂萃取。',
+    function:'維護腦神經細胞膜流動性；改善老年人記憶力及認知功能；可能降低阿茲海默症風險；輔助注意力提升。',
+    indication:'老年人認知退化預防、長期腦力密集工作者、學習壓力大的學生輔助。',
+    caution:'少見副作用，高劑量可能有輕微腸胃不適；與血液稀釋劑合用需注意；自身免疫疾病患者建議諮詢醫師。',
+    note:'建議劑量100–300mg/天；需持續使用至少3個月才有明顯效果；隨餐服用。',
+    need:['brain']
+  },
+  {
+    id:'p7', cat:'immunity', icon:'🍄', name:'靈芝萃取物',
+    tag:'免疫 • 抗疲勞',
+    summary:'東方傳統藥材，含有多醣體（β-葡聚醣）和三萜類，具有免疫調節及抗疲勞功效。',
+    ingredient:'靈芝多醣體（Polysaccharides）、靈芝酸（Ganoderic acid，三萜類），子實體或菌絲體萃取。',
+    function:'調節免疫功能（增強T細胞、NK細胞活性）；抗疲勞；輔助降低過敏反應；部分研究顯示抗腫瘤輔助效果。',
+    indication:'免疫力低下、慢性疲勞、過敏體質改善輔助、癌症治療輔助（需與醫師溝通）。',
+    caution:'可能有輕微腸胃不適、口乾；與抗凝血藥（warfarin）可能交互作用，請告知醫師；孕婦避免使用。',
+    note:'選擇有明確多醣體含量標示的產品；子實體萃取物優於純菌絲體；長期使用前先諮詢藥師。',
+    need:['immunity','energy']
+  },
+  {
+    id:'p8', cat:'antioxidant', icon:'🍵', name:'葉黃素（Lutein）',
+    tag:'護眼 • 抗氧化',
+    summary:'天然類胡蘿蔔素，集中存在於視網膜黃斑部，是眼睛的天然防護屏障。',
+    ingredient:'葉黃素（Lutein）及玉米黃素（Zeaxanthin），來源為金盞花萃取物（FloraGLO等標準化原料）。',
+    function:'過濾藍光，保護視網膜黃斑；降低老年性黃斑部退化（AMD）風險；抗氧化，減少眼部氧化傷害；改善對比敏感度。',
+    indication:'老年性黃斑部退化高風險者（>50歲）、長時間3C使用者、煙霧曝露者（吸菸者）。',
+    caution:'高劑量可能使皮膚輕微泛黃（無害，停用後消退）；非常少見過敏反應；一般安全性高。',
+    note:'建議劑量10–20mg/天（葉黃素）+ 2mg玉米黃素；脂溶性，隨餐服用吸收更好；吸菸者β胡蘿蔔素補充需謹慎。',
+    need:['eye','immunity']
+  },
+  {
+    id:'p9', cat:'gut', icon:'🥣', name:'膳食纖維（Dietary Fiber）',
+    tag:'腸胃 • 血糖',
+    summary:'促進腸胃蠕動、調節血糖與血脂的重要營養素，現代人普遍攝取不足。',
+    ingredient:'水溶性纖維（如β-葡聚醣、果膠、菊苣纖維）及非水溶性纖維（如纖維素、木質素）。',
+    function:'促進腸胃蠕動，改善便秘；降低飯後血糖上升速度；降低膽固醇；促進益生菌生長（益生元）；增加飽足感。',
+    indication:'便秘困擾者、血糖偏高者（前糖尿病）、體重控制、高膽固醇輔助。',
+    caution:'初期增加攝取可能有脹氣、腹痛，建議循序漸進；需充分補充水分（每日≥2000ml）；腸阻塞患者禁止使用。',
+    note:'台灣成人建議每日25–35g膳食纖維；優先從天然食物補充（蔬菜、全穀、豆類）；服藥前後2小時避免大量攝取。',
+    need:['gut','heart']
+  },
+  {
+    id:'p10', cat:'brain', icon:'💊', name:'B群維生素（Vitamin B Complex）',
+    tag:'腦力 • 能量',
+    summary:'八種水溶性維生素的組合，是能量代謝、神經傳導及紅血球生成的關鍵輔酶。',
+    ingredient:'B1（硫胺素）、B2（核黃素）、B3（菸鹼酸）、B5（泛酸）、B6（吡哆醇）、B7（生物素）、B9（葉酸）、B12（鈷胺素）。',
+    function:'促進能量代謝，緩解疲勞；維護神經健康；葉酸預防神經管缺陷；B12預防惡性貧血；生物素維持毛髮健康。',
+    indication:'飲食不均衡者、純素食者（B12缺乏風險）、孕婦（葉酸）、老年人（B12吸收下降）、長期高壓工作者。',
+    caution:'高劑量B3（菸鹼酸）可能引起皮膚潮紅；高劑量B6長期使用可能引起神經毒性；尿液可能變黃（正常現象）。',
+    note:'水溶性，多餘量由尿液排出；B12素食者需特別補充（動物性食物才含有）；葉酸備孕期至少補充400μg/天。',
+    need:['brain','energy']
+  },
+  {
+    id:'p11', cat:'bone', icon:'🦵', name:'葡萄糖胺（Glucosamine）',
+    tag:'關節 • 軟骨',
+    summary:'軟骨的天然成分，有助於維持關節健康，緩解退化性關節炎不適感。',
+    ingredient:'葡萄糖胺鹽酸鹽或硫酸鹽，常搭配軟骨素（Chondroitin）使用，來源多為甲殼類（蝦蟹殼）。',
+    function:'刺激軟骨細胞合成蛋白聚醣；減緩軟骨退化；緩解關節疼痛；改善關節活動度。',
+    indication:'輕至中度退化性關節炎（膝關節最多研究支持）、關節運動傷害輔助、中老年人關節保養。',
+    caution:'海鮮過敏者慎用（蝦蟹來源）；可能影響血糖，糖尿病患者需監測；與抗凝血藥可能有交互作用。',
+    note:'建議劑量1500mg/天；需持續使用至少8–12週才能評估效果；孕婦及哺乳婦不建議使用；植物來源（發酵）適合海鮮過敏者。',
+    need:['joint','bone']
+  },
+  {
+    id:'p12', cat:'immunity', icon:'🌼', name:'維生素C（Vitamin C）',
+    tag:'免疫 • 抗氧化',
+    summary:'最廣為人知的抗氧化維生素，對免疫功能、膠原蛋白合成及鐵質吸收至關重要。',
+    ingredient:'抗壞血酸（Ascorbic acid），緩衝型維生素C（抗壞血酸鈣/鎂）對胃較溫和。',
+    function:'強化免疫細胞功能，縮短感冒病程；促進膠原蛋白合成（皮膚、傷口癒合）；增加非血鐵質鐵質吸收；抗氧化。',
+    indication:'免疫力低下者、皮膚修復需求、素食者促進鐵吸收、吸菸者（需求量增加）。',
+    caution:'高劑量（>2000mg/天）可能引起腹瀉、腎結石（草酸鈣結石）；突然停用高劑量建議逐漸減量（反彈性壞血病）。',
+    note:'建議成人100–200mg/天，補充上限2000mg/天；水溶性，分次服用效果優於單次大劑量；隨餐服用減少胃部不適。',
+    need:['immunity','skin','energy']
+  }
+];
+
+const checkerRec = {
+  eye:       { name:'葉黃素 + 花青素', icon:'👁', desc:'保護視網膜，過濾藍光，適合長期使用3C或有AMD風險者。' },
+  heart:     { name:'魚油 Omega-3 + 膳食纖維', icon:'❤️', desc:'降低三酸甘油酯，改善血脂，降低心血管疾病風險。' },
+  bone:      { name:'鈣質 + 維生素D3', icon:'🦴', desc:'強化骨骼，預防骨質疏鬆，需搭配規律運動效果更佳。' },
+  gut:       { name:'益生菌 + 膳食纖維', icon:'🫙', desc:'平衡腸道菌叢，改善消化，維持腸道免疫屏障。' },
+  brain:     { name:'磷脂醯絲胺酸 + B群', icon:'🧠', desc:'支持腦神經代謝，維持記憶與專注力，適合腦力工作者。' },
+  immunity:  { name:'維生素C + 維生素D3 + 靈芝', icon:'🛡', desc:'多管齊下強化免疫，建議從單一品項開始，評估反應。' },
+  sleep:     { name:'鎂（Magnesium） + 茶胺酸', icon:'😴', desc:'鎂幫助放鬆神經與肌肉，茶胺酸可改善睡眠品質。' },
+  skin:      { name:'膠原蛋白 + 維生素C', icon:'✨', desc:'維生素C是膠原合成必需輔酶，兩者搭配事半功倍。' },
+  energy:    { name:'B群 + 輔酶Q10', icon:'⚡', desc:'B群促進能量代謝，Q10改善粒線體功能，恢復活力。' },
+  joint:     { name:'葡萄糖胺 + 軟骨素', icon:'🦵', desc:'軟骨保護組合，需持續8–12週以上才能感受效果。' },
+  pregnant:  { name:'⚠️ 注意', icon:'🤰', desc:'孕婦需特別謹慎！葉酸400–800μg/天必須補充，魚油選擇低汞品牌，避免高劑量維生素A，所有補充請先諮詢婦產科醫師。' },
+  senior:    { name:'銀髮族特別方案', icon:'👴', desc:'優先補充：維生素D3（>800IU）＋鈣質＋B12（吸收下降）＋魚油，並定期追蹤血液檢驗。' },
+  'blood-thinner': { name:'⚠️ 藥物交互作用警示', icon:'💊', desc:'服用抗凝血藥（warfarin）者，魚油高劑量、靈芝、維生素E都可能加強抗凝效果，請務必告知您的醫師或藥師再補充！' },
+  diabetes:  { name:'⚠️ 血糖監測提醒', icon:'🩸', desc:'葡萄糖胺、鉻補充劑可能影響血糖；部分益生菌對血糖有幫助但需監測。使用任何保健品前請告知糖尿病照護團隊。' }
+};
+
+const eduCards = [
+  {
+    color:'green', icon:'🧒', cat:'兒童教養', title:'孩子需要補充鈣質嗎？',
+    desc:'成長期兒童骨骼發育快速，鈣質需求量高。但「補鈣」不等於吃保健品，認識哪些食物才是最好的鈣來源。',
+    points:[
+      '7–9歲每日需800mg、10–12歲1000mg，13–18歲1200mg鈣',
+      '豆腐、牛奶、起司、小魚乾都是優質鈣來源',
+      '維生素D不足時鈣吸收大幅下降，戶外活動非常重要',
+      '碳酸飲料中的磷酸會阻礙鈣吸收，應限制飲用',
+      '補鈣同時需搭配規律負重運動才能有效強化骨骼'
+    ]
+  },
+  {
+    color:'amber', icon:'🤰', cat:'孕期保健', title:'孕媽媽必知的營養補充',
+    desc:'懷孕期間的營養需求大幅改變，哪些要補充、哪些要避免，藥師一次說清楚。',
+    points:[
+      '葉酸（400–800μg/天）：備孕至孕早期，預防神經管缺陷',
+      '鐵質：孕期需求增加，但空腹服用易引起噁心',
+      '魚油DHA：選擇重金屬檢驗合格品牌，促進胎兒腦發育',
+      '維生素A：勿過量補充，動物肝臟和魚肝油需特別注意',
+      '鈣質：孕期每日需1000mg，預防母體骨質流失',
+      '咖啡因攝取建議每日<200mg；避免生魚片及未殺菌乳製品'
+    ]
+  },
+  {
+    color:'rose', icon:'👴', cat:'銀髮保健', title:'65歲後的保健重點清單',
+    desc:'年紀增長後，部分營養素吸收能力下降，身體需求也與年輕時不同，銀髮族的保健需要特別規劃。',
+    points:[
+      'B12：胃酸分泌減少影響吸收，建議以舌下錠或注射補充',
+      '維生素D：皮膚合成效率下降，建議劑量提升至1000–2000IU',
+      '鈣質：停經後女性骨質流失加速，需規律補充並搭配D3',
+      '魚油：心血管保護，注意與藥物的交互作用',
+      '肌少症預防：足量蛋白質（每公斤體重1.2g/天）＋阻力訓練',
+      '定期追蹤血清維生素D、B12、血液常規及骨密度'
+    ]
+  },
+  {
+    color:'blue', icon:'📖', cat:'正確觀念', title:'保健食品≠藥物，你搞清楚了嗎？',
+    desc:'臺灣許多民眾對保健食品有許多迷思，藥師幫你破解最常見的誤解，建立正確的保健觀念。',
+    points:[
+      '保健食品無法治療疾病，不能取代正規藥物治療',
+      '「天然」不等於安全，高劑量天然成分一樣有副作用',
+      '廣告「千人見證」不等於科學證據，查看是否有臨床研究',
+      '服用任何保健品前，一定要告知您的醫師和藥師',
+      '進口品不一定比台灣製好，重點是第三方認證（GMP、NSF等）',
+      '保健品的效果通常需要持續數週至數月才能評估'
+    ]
+  },
+  {
+    color:'green', icon:'🏫', cat:'學齡教育', title:'學生的腦力保健指南',
+    desc:'考試壓力大、睡眠不足、飲食不規律……學生族群的保健需求有其特殊性。',
+    points:[
+      'B群是能量代謝關鍵，但咖啡因+B群不是「提神萬靈丹」',
+      '魚油DHA對學習記憶有正面影響，但效果需長期使用',
+      'PS（磷脂醯絲胺酸）有助注意力，但睡眠才是最重要的腦力恢復途徑',
+      '鐵質缺乏會導致疲勞和注意力下降，女生尤其要注意',
+      '護眼配方（葉黃素+花青素）適合長時間用眼的學生',
+      '規律運動（每週150分鐘）對腦力提升效果優於任何保健品'
+    ]
+  },
+  {
+    color:'amber', icon:'⚡', cat:'運動保健', title:'運動族的保健食品策略',
+    desc:'運動量大的人，對特定營養素的需求較一般人高，如何科學地補充是一門學問。',
+    points:[
+      '運動後30分鐘內補充蛋白質（0.3g/kg），促進肌肉修復',
+      '鎂：劇烈運動後大量流失，有助肌肉放鬆減少抽筋',
+      '維生素D：運動表現與維生素D水平有正相關',
+      '魚油：抗發炎，減少延遲性肌肉痠痛（DOMS）',
+      '肌酸（Creatine）：短時間高強度運動的合法輔助品',
+      '咖啡因：賽前60分鐘攝取3–6mg/kg，提升耐力表現（有科學根據）'
+    ]
+  }
+];
+
+const quizData = [
+  {
+    q:'服用魚油的最佳時機是？',
+    opts:['空腹早晨服用效果最好', '隨餐服用，幫助吸收並減少魚腥嗝氣', '睡前服用可幫助睡眠', '任何時間效果完全一樣'],
+    ans:1,
+    explain:'魚油含脂溶性EPA/DHA，隨餐服用可增加吸收率，同時減少讓人不舒服的魚腥嗝氣。睡前服用雖無大礙，但最推薦隨餐時機。'
+  },
+  {
+    q:'以下哪一種維生素「不是」脂溶性維生素？',
+    opts:['維生素A', '維生素C', '維生素D', '維生素E'],
+    ans:1,
+    explain:'脂溶性維生素為ADEK（A、D、E、K），維生素C是水溶性維生素。水溶性維生素過多由尿液排出，脂溶性則會在體內累積，過量有中毒風險。'
+  },
+  {
+    q:'孕婦在備孕及懷孕初期最重要的補充是？',
+    opts:['維生素E', '葉酸（Folic acid）', '維生素C', '魚油DHA'],
+    ans:1,
+    explain:'葉酸是預防胎兒神經管缺陷的關鍵，建議從備孕前3個月開始每天補充400–800μg，一直到懷孕初期（前3個月）。這是有強烈科學根據的建議。'
+  },
+  {
+    q:'服用抗生素時，益生菌應如何服用？',
+    opts:['同時一起服用，效果最好', '停用抗生素再補充益生菌', '間隔至少2小時再服用益生菌', '抗生素療程期間完全不需要益生菌'],
+    ans:2,
+    explain:'抗生素和益生菌需間隔至少2小時服用，因為抗生素會直接殺死益生菌。療程結束後繼續補充2–4週益生菌，有助恢復腸道菌叢平衡。'
+  },
+  {
+    q:'鈣質補充的正確觀念是？',
+    opts:['一次補充2000mg效果更好', '碳酸鈣最好空腹服用', '每次補充不超過500mg，分次攝取', '鈣質不需要維生素D就能被骨骼吸收'],
+    ans:2,
+    explain:'腸道每次吸收鈣質有上限，建議每次不超過500mg，分2–3次補充。碳酸鈣需要胃酸幫助吸收（隨餐服），維生素D則是鈣質能被骨骼有效利用的必要輔助。'
+  },
+  {
+    q:'以下關於維生素D的敘述，哪一個正確？',
+    opts:['過量維生素D毫無副作用，多吃無妨', '維生素D是水溶性維生素，很快就代謝掉', '維生素D3比D2更有效被人體利用', '多曬太陽就一定能補足維生素D'],
+    ans:2,
+    explain:'維生素D3（動物來源）比D2（植物來源）在人體中的活化效率更高。維生素D是脂溶性，過量確實會蓄積導致高鈣血症。皮膚合成效率因緯度、防曬品、膚色而差異很大，台灣很多人仍缺乏。'
+  }
+];
+
+// ───────────────────────────────────────────
+// RENDER PRODUCTS
+// ───────────────────────────────────────────
+function renderProducts() {
+  const grids = { all: document.getElementById('all-grid') };
+  ['antioxidant','immunity','bone','gut','heart','brain'].forEach(c => {
+    grids[c] = document.getElementById(c+'-grid');
+  });
+
+  products.forEach(p => {
+    const card = createProductCard(p);
+    grids.all.appendChild(card.cloneNode(true));
+    if (grids[p.cat]) grids[p.cat].appendChild(card);
+  });
+
+  // rebind events after cloning
+  document.querySelectorAll('.expand-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const panel = this.nextElementSibling;
+      const open = panel.classList.toggle('open');
+      this.querySelector('.arrow').textContent = open ? '↑' : '→';
+    });
+  });
+}
+
+function createProductCard(p) {
+  const div = document.createElement('div');
+  div.className = 'product-card';
+  div.innerHTML = `
+    <div class="product-icon">${p.icon}</div>
+    <h3>${p.name}</h3>
+    <span class="tag">${p.tag}</span>
+    <p>${p.summary}</p>
+    <button class="expand-btn">詳細資訊 <span class="arrow">→</span></button>
+    <div class="detail-panel">
+      <div class="detail-row"><span class="detail-label">📋 成分</span><span class="detail-text">${p.ingredient}</span></div>
+      <div class="detail-row"><span class="detail-label">✅ 功能</span><span class="detail-text">${p.function}</span></div>
+      <div class="detail-row"><span class="detail-label">🎯 適應症</span><span class="detail-text">${p.indication}</span></div>
+      <div class="detail-row"><span class="detail-label">⚠️ 不良反應</span><span class="detail-text">${p.caution}</span></div>
+      <div class="detail-row"><span class="detail-label">📝 注意事項</span><span class="detail-text">${p.note}</span></div>
+    </div>
+  `;
+  div.querySelector('.expand-btn').addEventListener('click', function() {
+    const panel = this.nextElementSibling;
+    const open = panel.classList.toggle('open');
+    this.querySelector('.arrow').textContent = open ? '↑' : '→';
+  });
+  return div;
+}
+
+function switchTab(cat, btn) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-'+cat).classList.add('active');
+}
+
+// ───────────────────────────────────────────
+// CHECKER
+// ───────────────────────────────────────────
+function runChecker() {
+  const checked = [...document.querySelectorAll('.checker-form input:checked')].map(i=>i.value);
+  const result = document.getElementById('checker-result');
+  if (!checked.length) {
+    result.innerHTML = '<div class="result-placeholder"><div class="big-icon">🤔</div><p>請先勾選您的健康需求喔！</p></div>';
+    return;
+  }
+
+  const warnings = checked.filter(c => ['pregnant','blood-thinner','diabetes'].includes(c));
+  const needs = checked.filter(c => !['pregnant','blood-thinner','diabetes','senior'].includes(c));
+  const special = checked.filter(c => ['senior'].includes(c));
+
+  let html = `<h3 style="font-size:1rem;font-weight:700;color:var(--text-dark);margin-bottom:1rem;">🌿 配對結果</h3>`;
+
+  if (warnings.length) {
+    warnings.forEach(w => {
+      const r = checkerRec[w];
+      html += `<div class="result-item" style="border-color:#EF5350;background:rgba(239,83,80,0.06)">
+        <h4>${r.icon} ${r.name}</h4>
+        <p>${r.desc}</p>
+      </div>`;
+    });
+  }
+
+  if (special.length) {
+    special.forEach(s => {
+      const r = checkerRec[s];
+      html += `<div class="result-item" style="border-color:var(--amber);background:rgba(212,168,71,0.06)">
+        <h4>${r.icon} ${r.name}</h4>
+        <p>${r.desc}</p>
+      </div>`;
+    });
+  }
+
+  needs.forEach(n => {
+    const r = checkerRec[n];
+    if (!r) return;
+    html += `<div class="result-item">
+      <h4>${r.icon} ${r.name}</h4>
+      <p>${r.desc}</p>
+      <span class="result-match">✓ 符合您的需求</span>
+    </div>`;
+  });
+
+  html += `<p style="font-size:.75rem;color:var(--text-light);margin-top:1rem;line-height:1.7">
+    ⚕️ 此配對結果僅供參考，實際補充計畫請諮詢藥師或醫師。
+  </p>`;
+
+  result.innerHTML = html;
+}
+
+// ───────────────────────────────────────────
+// EDUCATION
+// ───────────────────────────────────────────
+function renderEdu() {
+  const grid = document.getElementById('edu-grid');
+  eduCards.forEach((e, i) => {
+    const div = document.createElement('div');
+    div.className = 'edu-card';
+    div.innerHTML = `
+      <div class="edu-banner ${e.color}">${e.icon}</div>
+      <div class="edu-body">
+        <div class="edu-cat">${e.cat}</div>
+        <h3>${e.title}</h3>
+        <p>${e.desc}</p>
+        <div class="edu-expand">
+          <button class="expand-btn" style="font-size:.8rem">閱讀重點 <span class="arrow">→</span></button>
+          <div class="edu-expand-content">
+            <ul class="edu-points">
+              ${e.points.map(p => `<li>${p}</li>`).join('')}
+            </ul>
+          </div>
+        </div>
+      </div>
+    `;
+    div.querySelector('.expand-btn').addEventListener('click', function() {
+      const panel = this.nextElementSibling;
+      const open = panel.classList.toggle('open');
+      this.querySelector('.arrow').textContent = open ? '↑' : '→';
+    });
+    grid.appendChild(div);
+  });
+}
+
+// ───────────────────────────────────────────
+// QUIZ
+// ───────────────────────────────────────────
+let qi = 0, score = 0, answered = false;
+
+function renderQuiz() {
+  const prog = document.getElementById('quiz-progress');
+  prog.innerHTML = quizData.map((_, i) =>
+    `<div class="quiz-progress-bar ${i < qi ? 'done' : i===qi ? 'current' : ''}"></div>`
+  ).join('');
+
+  const area = document.getElementById('quiz-question-area');
+  const q = quizData[qi];
+  area.innerHTML = `
+    <div class="quiz-q">Q${qi+1}. ${q.q}</div>
+    <div class="quiz-options">
+      ${q.opts.map((o, i) => `<button class="quiz-opt" onclick="selectOpt(${i})">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}
+    </div>
+    <div class="quiz-feedback" id="quiz-fb"></div>
+    <div class="quiz-next" id="quiz-next">
+      <button class="btn-primary" onclick="nextQ()">${qi < quizData.length-1 ? '下一題 →' : '查看結果 🎉'}</button>
+    </div>
+  `;
+  answered = false;
+}
+
+function selectOpt(i) {
+  if (answered) return;
+  answered = true;
+  const q = quizData[qi];
+  const opts = document.querySelectorAll('.quiz-opt');
+  const fb = document.getElementById('quiz-fb');
+  const nxt = document.getElementById('quiz-next');
+
+  opts[i].classList.add(i === q.ans ? 'correct' : 'wrong');
+  opts[q.ans].classList.add('correct');
+  opts.forEach(o => o.disabled = true);
+
+  if (i === q.ans) {
+    score++;
+    fb.className = 'quiz-feedback show ok';
+    fb.innerHTML = '✅ 答對了！' + q.explain;
+  } else {
+    fb.className = 'quiz-feedback show err';
+    fb.innerHTML = '❌ 答錯了。' + q.explain;
+  }
+  nxt.className = 'quiz-next show';
+}
+
+function nextQ() {
+  qi++;
+  if (qi >= quizData.length) {
+    document.getElementById('quiz-question-area').style.display = 'none';
+    document.getElementById('quiz-progress').style.display = 'none';
+    const scoreEl = document.getElementById('quiz-score');
+    scoreEl.className = 'quiz-score show';
+    document.getElementById('score-num').textContent = `${score}/${quizData.length}`;
+    let title, desc;
+    const pct = score / quizData.length;
+    if (pct === 1) { title='🏆 保健達人！'; desc='完美分數！您的保健知識相當扎實，繼續保持並分享給身邊的人吧！'; }
+    else if (pct >= 0.7) { title='👍 保健好學生'; desc='表現不錯！還有一些知識點值得再複習，翻閱上方的保健品資訊加強看看。'; }
+    else if (pct >= 0.4) { title='📚 繼續加油'; desc='保健知識需要更多學習，建議仔細閱讀本網站的衛教專欄，下次一定會進步！'; }
+    else { title='🌱 保健新手'; desc='沒關係，人人都是從零開始的！建議從衛教專欄開始閱讀，打好保健基礎。'; }
+    document.getElementById('score-title').textContent = title;
+    document.getElementById('score-desc').textContent = desc;
+  } else {
+    renderQuiz();
+  }
+}
+
+function restartQuiz() {
+  qi = 0; score = 0;
+  document.getElementById('quiz-question-area').style.display = '';
+  document.getElementById('quiz-progress').style.display = '';
+  document.getElementById('quiz-score').className = 'quiz-score';
+  renderQuiz();
+}
+
+// ───────────────────────────────────────────
+// KIDS DATA
+// ───────────────────────────────────────────
+const kidsNutrition = [
+  {
+    emoji:'🥦', age:'0–2歲', title:'嬰幼兒關鍵營養',
+    desc:'生命最初兩年是大腦與身體高速發育期，每一種營養素都舉足輕重。',
+    tips:['母乳是最佳食物，含獨特免疫因子與DHA','純母乳哺育6個月後漸進添加副食品','鐵質：4–6個月起從副食品補充，預防缺鐵性貧血','維生素D：純母乳嬰兒每天補充400IU','避免在1歲前添加蜂蜜（肉毒桿菌風險）','不需額外補充水分，母乳或配方奶已足夠']
+  },
+  {
+    emoji:'🍎', age:'3–6歲', title:'學齡前飲食多樣化',
+    desc:'這個階段孩子開始建立飲食習慣，食物多樣化與正向用餐體驗最為關鍵。',
+    tips:['每天5色蔬果，培養多元口味接受度','鈣質需求800mg/天：牛奶、優格、起司優先','避免以糖果或零食作為獎勵或安慰','鼓勵自主進食，尊重飢餓與飽足感信號','點心時間固定，避免全天候「隨時吃」','全穀類（糙米、燕麥）替代精製澱粉']
+  },
+  {
+    emoji:'🧃', age:'7–12歲', title:'學齡兒童補充重點',
+    desc:'課業壓力增加、3C使用時間拉長，眼睛與腦力的保健需求大幅提升。',
+    tips:['葉黃素：長時間用眼者可考慮補充10mg/天','鐵質：女童月經來潮後需求增加，注意疲勞與頭暈','鈣質需求增至1000mg/天，為青春期骨骼建本','Omega-3/DHA：改善注意力，每週2次深海魚','避免含糖飲料（手搖飲），增加水分攝取','早餐必吃，碳水化合物+蛋白質才能撐整個上午']
+  },
+  {
+    emoji:'🏃', age:'全年齡', title:'兒童運動與補充',
+    desc:'運動是兒童發展的核心，正確的補充可以讓孩子動得更健康、恢復更快。',
+    tips:['每天至少60分鐘中高強度活動（WHO建議）','運動後補充碳水化合物+蛋白質（黃金30分鐘）','維生素D+鈣：戶外運動同時增加D的合成','水分：運動前後各補充150–200ml白開水','不建議兒童使用能量飲料（含咖啡因）','規律運動能促進生長激素分泌，有益骨骼發育']
+  }
+];
+
+const kidsParenting = [
+  {
+    emoji:'🤝', age:'情緒教育', title:'幫助孩子認識情緒',
+    desc:'情緒管理能力是孩子社交發展與心理健康的基石，需要從小培養。',
+    tips:['命名情緒：教孩子用語言說出「我現在很生氣」','接納情緒但設定行為界限（可以哭，不可以打人）','家長先示範情緒調節：深呼吸、暫停冷靜','避免說「男生不能哭」等性別刻板印象','讀繪本是幫助學前孩子理解情緒的有效工具','不要在孩子情緒高峰時講道理，先陪伴再溝通']
+  },
+  {
+    emoji:'🌱', age:'正向教養', title:'鼓勵取代懲罰的教養法',
+    desc:'研究顯示，以鼓勵為基礎的教養方式能建立孩子更穩固的自信與自律。',
+    tips:['描述行為而非評價人格：「你把玩具收好了」而非「你好棒」','自然後果法：讓孩子體驗行為的自然結果（非懲罰）','給孩子有限度的選擇，增加自主感：「要穿紅色還是藍色？」','建立清晰可預期的日常規律，減少衝突','犯錯時重點放在「下次怎麼做更好」','親子共讀每天15分鐘，建立安全依附關係']
+  },
+  {
+    emoji:'📱', age:'3C管理', title:'健康使用螢幕的策略',
+    desc:'完全禁止不現實，建立良好的3C使用規則才能培養孩子的自律能力。',
+    tips:['2歲以下：避免被動螢幕時間（視訊通話除外）','2–5歲：每天不超過1小時，家長陪同觀看','6歲以上：協商時間限制，重視睡前無螢幕時間','建立「家庭無手機區域」：用餐桌、臥室','用「做完XXX再看」代替「不可以看」','家長示範健康使用3C的行為']
+  },
+  {
+    emoji:'💤', age:'睡眠教育', title:'為孩子建立健康睡眠',
+    desc:'充足睡眠對兒童的記憶固化、生長激素分泌和情緒調節至關重要。',
+    tips:['學齡前（3–5歲）：每天10–13小時（含午睡）','學齡（6–12歲）：每天9–11小時睡眠','固定就寢時間，週末偏差不超過1小時','睡前1小時關掉螢幕（藍光抑制褪黑激素）','睡前儀式：洗澡→讀書→睡覺，建立安全感','黑暗、涼爽的環境最有利於深度睡眠']
+  }
+];
+
+const kidsLearning = [
+  {
+    emoji:'🎮', age:'遊戲學習', title:'玩出來的能力：遊戲式學習',
+    desc:'自由遊戲是兒童最自然的學習方式，父母的陪伴與引導能將遊戲效益最大化。',
+    tips:['積木與拼圖：空間思維、問題解決能力','角色扮演遊戲：社交技巧、同理心、語言發展','戶外探索：科學觀察、感覺統合、冒險精神','桌遊：等待、輸贏、規則遵守、策略思考','藝術創作：自我表達、細動作、創造力','不要急著給孩子答案，讓他們在嘗試中學習']
+  },
+  {
+    emoji:'📖', age:'閱讀習慣', title:'從小愛上閱讀的方法',
+    desc:'閱讀習慣是一切學習的基礎，越早建立越能受益一生。',
+    tips:['0歲起就可以開始讀繪本，音調變化讓孩子投入','讓孩子自主選書，尊重興趣比「有益」更重要','每天固定親子共讀時間，哪怕只有10分鐘','圖書館是最好的閱讀資源，定期借閱養成習慣','有聲書也是有效的閱讀形式，尤其適合通勤時','閱讀後聊聊書中情節，加深理解與思辨能力']
+  },
+  {
+    emoji:'🔢', age:'數學思維', title:'生活中的數學啟蒙',
+    desc:'數學不只是計算，更是一種思考方式，生活中隨處可以練習。',
+    tips:['購物時讓孩子幫忙算找零、比較價格','烹飪時認識分量、比例、時間概念','讓孩子自己分食物，練習等分與公平概念','一起數數：樓梯台階、停車格、超市架上物品','樂高與積木是最好的幾何入門工具','允許用手指、畫圖等非正式策略解題']
+  },
+  {
+    emoji:'🎯', age:'專注力培養', title:'提升孩子專注力的實用策略',
+    desc:'專注力是可以訓練的，環境設計與日常習慣對孩子的注意力發展影響深遠。',
+    tips:['學習環境整潔，減少視覺干擾（收起玩具）','任務長度符合年齡：學齡前5–10分鐘、低年級15–20分鐘','完成任務後給予休息與肢體活動（非3C）','番茄鐘法：25分鐘專注＋5分鐘休息（適合9歲以上）','足夠的睡眠與運動是提升專注力的最佳「藥方」','懷疑ADHD時請尋求兒童精神科或神經科評估']
+  }
+];
+
+const milestones = [
+  { age:'0–6個月', title:'感覺與反射', desc:'追視移動物體、對聲音有反應、社交性微笑出現，哺乳建立安全依附。' },
+  { age:'6–12個月', title:'動作與語言萌芽', desc:'開始爬行、扶站，咿呀學語，認識熟悉面孔，可開始副食品。' },
+  { age:'1–2歲', title:'走路與語言爆發', desc:'獨立行走，詞彙快速增加（12個月約10個字，24個月約200個字），自我意識萌芽。' },
+  { age:'2–3歲', title:'語言飛躍與社交', desc:'能說完整句子，開始與同伴互動，平行遊戲為主，情緒起伏大（可怕的兩歲）。' },
+  { age:'3–5歲', title:'想像力與學前準備', desc:'角色扮演遊戲豐富，開始理解他人感受，精細動作發展，為正式學習做準備。' },
+  { age:'6–8歲', title:'具體運算期', desc:'邏輯思維建立，能理解因果關係，規則感與公平感強烈，同儕關係變得重要。' },
+  { age:'9–12歲', title:'抽象思維啟蒙', desc:'開始形成抽象概念，批判性思考萌芽，自我認同探索，青春期準備開始。' }
+];
+
+const faqs = [
+  { q:'孩子不愛吃蔬菜，需要補充維生素嗎？', a:'挑食是兒童常見現象，但在考慮補充品前，先嘗試改變烹調方式（切細、混入喜歡的食物）、反覆少量提供新食物（需15–20次嘗試），以及讓孩子參與備餐。若飲食嚴重不均衡且生長曲線異常，再請兒科醫師評估是否需要補充。' },
+  { q:'小朋友可以喝乳酸菌飲料嗎？', a:'市售乳酸菌飲料糖分通常很高，不等同於醫療級益生菌。建議選擇無糖優格或經臨床驗證的益生菌產品（如LGG菌株）。1歲以下嬰兒的益生菌補充需先諮詢兒科醫師。' },
+  { q:'孩子長得比較矮，需要補充生長激素嗎？', a:'生長激素需經兒童內分泌科醫師評估後才能使用，不可自行購買或使用。生長曲線持續低於第3百分位，或生長速度明顯減緩，才需就醫評估。充足睡眠（生長激素夜間大量分泌）、均衡飲食和規律運動是自然促進生長的最佳方式。' },
+  { q:'孩子打預防針後可以補充保健品幫助恢復嗎？', a:'疫苗接種後通常不需要額外補充保健品。維生素C或D的正常補充可持續，但不需特別加量。若接種部位紅腫，可冰敷；若有發燒，依醫囑給予退燒藥。有任何異常反應請立即回診。' },
+  { q:'幾歲開始可以讓孩子喝咖啡或茶？', a:'美國兒科學會建議12歲以下兒童完全不攝取咖啡因，12–18歲青少年每日不超過100mg（約1杯咖啡）。咖啡因會影響鈣質吸收、干擾睡眠並增加焦慮感，成長中的孩子應盡量避免。' },
+  { q:'孩子需要補充DHA嗎？用魚油還是藻油？', a:'DHA對兒童腦部和視覺發育確實有益。如果孩子每週能吃2–3次深海魚（鮭魚、鯖魚），通常不需額外補充。若飲食攝取不足，可考慮補充：藻油適合素食家庭且不含重金屬疑慮；魚油須選擇通過重金屬檢驗的品牌。' }
+];
+
+// ───────────────────────────────────────────
+// KIDS RENDER
+// ───────────────────────────────────────────
+function renderKids() {
+  // Nutrition
+  const ng = document.getElementById('kids-nutrition-grid');
+  kidsNutrition.forEach(k => ng.appendChild(buildKidsCard(k)));
+
+  // Parenting
+  const pg = document.getElementById('kids-parenting-grid');
+  kidsParenting.forEach(k => pg.appendChild(buildKidsCard(k)));
+
+  // Learning
+  const lg = document.getElementById('kids-learning-grid');
+  kidsLearning.forEach(k => lg.appendChild(buildKidsCard(k)));
+
+  // Milestones
+  const ml = document.getElementById('milestone-list');
+  milestones.forEach(m => {
+    const div = document.createElement('div');
+    div.className = 'milestone';
+    div.innerHTML = `<div class="milestone-age">${m.age}</div><div class="milestone-title">${m.title}</div><div class="milestone-desc">${m.desc}</div>`;
+    ml.appendChild(div);
+  });
+
+  // FAQ
+  const fl = document.getElementById('faq-list');
+  faqs.forEach((f, i) => {
+    const div = document.createElement('div');
+    div.className = 'faq-item';
+    div.innerHTML = `<div class="faq-q" onclick="toggleFaq(this.parentElement)"><span>${f.q}</span><span class="faq-icon">+</span></div><div class="faq-a">${f.a}</div>`;
+    fl.appendChild(div);
+  });
+}
+
+function buildKidsCard(k) {
+  const div = document.createElement('div');
+  div.className = 'kids-card';
+  div.innerHTML = `
+    <div class="kids-card-header">
+      <div class="kids-card-emoji">${k.emoji}</div>
+      <div class="kids-card-meta">
+        <div class="kids-card-age">${k.age}</div>
+        <h3>${k.title}</h3>
+      </div>
+    </div>
+    <div class="kids-card-body">
+      <p>${k.desc}</p>
+      <ul class="kids-tips">${k.tips.map(t=>`<li>${t}</li>`).join('')}</ul>
+    </div>
+  `;
+  return div;
+}
+
+function switchKidsTab(cat, btn) {
+  document.querySelectorAll('.kids-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.kids-tab-content').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('kids-'+cat).classList.add('active');
+}
+
+function toggleFaq(el) {
+  const wasOpen = el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
+  if (!wasOpen) el.classList.add('open');
+}
+
+renderKids();
+
+renderProducts();
+renderEdu();
+renderQuiz();
+</script>
+</body>
+</html>

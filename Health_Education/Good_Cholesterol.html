@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>看懂好的膽固醇 — 芝芝♡健康</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage: #7B9E87;
+    --sage-light: #A8C4B0;
+    --sage-dark: #4D7A5A;
+    --cream: #FAF6F0;
+    --warm-white: #FDF9F4;
+    --amber: #D4A847;
+    --deep-brown: #3D2B1A;
+    --text-dark: #2C2416;
+    --text-mid: #5C4A34;
+    --text-light: #9B8570;
+    --border: rgba(123,158,135,0.25);
+    --shadow: 0 4px 30px rgba(61,43,26,0.08);
+    --teal: #1f9d8b;
+    --teal-light: #C8EDE8;
+    --blue: #2c7be5;
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--text-dark);
+    font-family: 'Noto Sans TC', sans-serif;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* ── TOP NAV ── */
+  .topnav {
+    position: sticky; top:0; z-index: 100;
+    background: rgba(250,246,240,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5vw;
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .topnav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--sage-dark);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .topnav-logo span { color: var(--amber); }
+  .topnav-back {
+    display: flex; align-items: center; gap: .4rem;
+    font-size: .8rem; font-weight: 600;
+    color: var(--sage-dark);
+    text-decoration: none;
+    letter-spacing: .04em;
+    transition: gap .2s;
+  }
+  .topnav-back:hover { gap: .7rem; }
+  .breadcrumb {
+    font-size: .78rem; color: var(--text-light);
+    display: flex; align-items: center; gap: .4rem;
+  }
+  .breadcrumb a { color: var(--sage); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--sage-dark); }
+
+  /* ── HERO BANNER ── */
+  .article-hero {
+    background: linear-gradient(135deg, #C8EDE8 0%, #E8F5E9 40%, #FFF8E7 100%);
+    padding: 5rem 8vw 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .article-hero::before {
+    content: '';
+    position: absolute; top: -80px; right: -100px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(123,158,135,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .article-hero::after {
+    content: '';
+    position: absolute; bottom: -60px; left: -80px;
+    width: 350px; height: 350px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,168,71,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-meta {
+    display: flex; align-items: center; gap: .8rem;
+    flex-wrap: wrap; margin-bottom: 1.2rem;
+    animation: fadeUp .5s ease both;
+  }
+  .cat-badge {
+    display: inline-flex; align-items: center; gap: .35rem;
+    background: rgba(123,158,135,0.18);
+    border: 1px solid rgba(123,158,135,0.35);
+    border-radius: 50px; padding: .3rem .9rem;
+    font-size: .72rem; font-weight: 700;
+    color: var(--sage-dark); letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .read-time {
+    font-size: .75rem; color: var(--text-light);
+    display: flex; align-items: center; gap: .3rem;
+  }
+  .article-hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.35;
+    max-width: 720px;
+    animation: fadeUp .6s .1s ease both;
+    opacity: 0;
+    animation-fill-mode: both;
+  }
+  .article-hero .lead {
+    margin-top: 1rem;
+    font-size: 1.05rem;
+    color: var(--text-mid);
+    max-width: 620px;
+    line-height: 1.85;
+    animation: fadeUp .6s .2s ease both;
+    opacity: 0;
+    animation-fill-mode: both;
+  }
+  .author-row {
+    margin-top: 2rem;
+    display: flex; align-items: center; gap: 1rem;
+    animation: fadeUp .6s .3s ease both;
+    opacity: 0;
+    animation-fill-mode: both;
+  }
+  .author-avatar {
+    width: 46px; height: 46px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--sage-light), var(--sage-dark));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0;
+    box-shadow: 0 3px 12px rgba(77,122,90,0.3);
+  }
+  .author-info {}
+  .author-name { font-size: .85rem; font-weight: 700; color: var(--text-dark); }
+  .author-title { font-size: .75rem; color: var(--text-light); margin-top: .1rem; }
+
+  /* ── ARTICLE LAYOUT ── */
+  .article-wrap {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 8vw 5rem;
+    align-items: start;
+  }
+  .article-body {}
+
+  /* ── PROSE STYLES ── */
+  .prose p {
+    font-size: .97rem;
+    color: var(--text-mid);
+    line-height: 1.95;
+    margin-bottom: 1.3rem;
+  }
+  .prose h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 2.5rem 0 1rem;
+    padding-left: 1rem;
+    border-left: 4px solid var(--teal);
+    line-height: 1.4;
+  }
+  .prose h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--sage-dark);
+    margin: 1.5rem 0 .6rem;
+  }
+  .prose ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.3rem;
+  }
+  .prose ul li {
+    font-size: .93rem;
+    color: var(--text-mid);
+    line-height: 1.85;
+    padding: .35rem 0 .35rem 1.5rem;
+    position: relative;
+  }
+  .prose ul li::before {
+    content: '✦';
+    position: absolute; left: 0; top: .5rem;
+    color: var(--sage); font-size: .6rem;
+  }
+  .prose strong { color: var(--text-dark); }
+
+  /* ── CALLOUT BOXES ── */
+  .callout {
+    border-radius: 16px;
+    padding: 1.2rem 1.5rem;
+    margin: 1.8rem 0;
+    display: flex; gap: .9rem; align-items: flex-start;
+  }
+  .callout-icon { font-size: 1.4rem; flex-shrink: 0; line-height: 1; margin-top: .1rem; }
+  .callout-body { flex: 1; }
+  .callout-title { font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .4rem; }
+  .callout-text { font-size: .88rem; line-height: 1.8; }
+  .callout.blue {
+    background: rgba(44,123,229,0.08);
+    border: 1px solid rgba(44,123,229,0.2);
+  }
+  .callout.blue .callout-title { color: var(--blue); }
+  .callout.blue .callout-text { color: #2a4a7a; }
+  .callout.green {
+    background: rgba(56,161,105,0.08);
+    border: 1px solid rgba(56,161,105,0.2);
+  }
+  .callout.green .callout-title { color: var(--sage-dark); }
+  .callout.green .callout-text { color: var(--text-mid); }
+  .callout.amber {
+    background: rgba(212,168,71,0.1);
+    border: 1px solid rgba(212,168,71,0.3);
+  }
+  .callout.amber .callout-title { color: #8a6a00; }
+  .callout.amber .callout-text { color: var(--text-mid); }
+
+  /* ── DATA CARDS ── */
+  .data-cards {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    margin: 1.8rem 0;
+  }
+  .data-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.3rem 1.5rem;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: transform .25s;
+  }
+  .data-card:hover { transform: translateY(-3px); }
+  .data-card-emoji { font-size: 1.6rem; margin-bottom: .6rem; }
+  .data-card-label { font-size: .7rem; font-weight: 700; letter-spacing: .08em; color: var(--text-light); text-transform: uppercase; margin-bottom: .3rem; }
+  .data-card-title { font-size: .95rem; font-weight: 700; color: var(--text-dark); margin-bottom: .3rem; }
+  .data-card-desc { font-size: .8rem; color: var(--text-mid); line-height: 1.7; }
+
+  /* ── COMPARISON TABLE ── */
+  .compare-table {
+    width: 100%; border-collapse: collapse;
+    margin: 1.8rem 0; font-size: .88rem;
+    border-radius: 16px; overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .compare-table thead tr {
+    background: linear-gradient(135deg, var(--sage-dark), var(--sage));
+    color: white;
+  }
+  .compare-table thead th {
+    padding: .9rem 1.2rem; text-align: left;
+    font-size: .8rem; font-weight: 700; letter-spacing: .06em;
+  }
+  .compare-table tbody tr { background: white; border-bottom: 1px solid var(--border); transition: background .2s; }
+  .compare-table tbody tr:hover { background: rgba(123,158,135,0.05); }
+  .compare-table tbody td { padding: .85rem 1.2rem; color: var(--text-mid); line-height: 1.6; }
+  .compare-table tbody td:first-child { font-weight: 600; color: var(--text-dark); }
+  .badge-good { display: inline-block; background: rgba(56,161,105,0.12); color: #2d7a2d; border-radius: 50px; padding: .15rem .6rem; font-size: .72rem; font-weight: 700; }
+  .badge-bad { display: inline-block; background: rgba(239,83,80,0.1); color: #c0392b; border-radius: 50px; padding: .15rem .6rem; font-size: .72rem; font-weight: 700; }
+
+  /* ── TIPS GRID ── */
+  .tips-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem; margin: 1.8rem 0;
+  }
+  .tip-card {
+    background: white; border-radius: 18px;
+    padding: 1.4rem 1.5rem;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: all .3s;
+  }
+  .tip-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(61,43,26,0.1); border-color: var(--sage-light); }
+  .tip-icon { font-size: 1.8rem; margin-bottom: .7rem; }
+  .tip-title { font-size: .9rem; font-weight: 700; color: var(--text-dark); margin-bottom: .4rem; }
+  .tip-desc { font-size: .8rem; color: var(--text-mid); line-height: 1.7; }
+
+  /* ── SIDEBAR ── */
+  .sidebar { position: sticky; top: 90px; }
+  .sidebar-card {
+    background: white; border-radius: 20px;
+    padding: 1.8rem; border: 1px solid var(--border);
+    box-shadow: var(--shadow); margin-bottom: 1.5rem;
+  }
+  .sidebar-title {
+    font-size: .75rem; font-weight: 700; letter-spacing: .1em;
+    color: var(--sage); text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: .4rem;
+  }
+  .toc-list { list-style: none; }
+  .toc-list li { margin-bottom: .5rem; }
+  .toc-list a {
+    font-size: .82rem; color: var(--text-mid);
+    text-decoration: none; display: flex;
+    align-items: center; gap: .4rem;
+    padding: .3rem 0;
+    border-left: 2px solid transparent;
+    padding-left: .7rem;
+    transition: all .2s;
+    line-height: 1.4;
+  }
+  .toc-list a:hover {
+    color: var(--sage-dark);
+    border-left-color: var(--sage);
+    padding-left: 1rem;
+  }
+  .key-numbers { display: flex; flex-direction: column; gap: .8rem; }
+  .key-num-item {
+    display: flex; align-items: center; gap: .8rem;
+    padding: .7rem; border-radius: 12px;
+    background: rgba(123,158,135,0.07);
+    border: 1px solid rgba(123,158,135,0.15);
+  }
+  .key-num-value { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--sage-dark); flex-shrink: 0; min-width: 3rem; text-align: center; }
+  .key-num-label { font-size: .78rem; color: var(--text-mid); line-height: 1.5; }
+  .key-num-label strong { color: var(--text-dark); display: block; font-size: .8rem; }
+  .disclaimer-box {
+    background: rgba(212,168,71,0.1);
+    border: 1px solid rgba(212,168,71,0.3);
+    border-radius: 14px; padding: 1rem 1.2rem;
+    font-size: .78rem; color: #7a6000;
+    line-height: 1.7;
+  }
+  .disclaimer-box strong { display: block; margin-bottom: .3rem; font-size: .8rem; }
+
+  /* ── CLOSING CTA ── */
+  .article-cta {
+    background: linear-gradient(135deg, var(--sage-dark), var(--sage));
+    border-radius: 24px; padding: 2.5rem;
+    text-align: center; margin-top: 2.5rem;
+    color: white; position: relative; overflow: hidden;
+  }
+  .article-cta::before {
+    content: '🫀';
+    position: absolute; right: 2rem; top: 50%; transform: translateY(-50%);
+    font-size: 4rem; opacity: .15;
+  }
+  .article-cta h3 { font-family: 'Noto Serif TC', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: .7rem; }
+  .article-cta p { font-size: .88rem; opacity: .88; line-height: 1.8; margin-bottom: 1.3rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .cta-btn {
+    display: inline-block;
+    background: white; color: var(--sage-dark);
+    padding: .7rem 2rem; border-radius: 50px;
+    font-size: .88rem; font-weight: 700;
+    text-decoration: none; letter-spacing: .04em;
+    transition: all .3s;
+  }
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+  /* ── HASHTAGS ── */
+  .hashtags-row {
+    margin-top: 2rem; display: flex; flex-wrap: wrap; gap: .5rem;
+  }
+  .hashtag {
+    padding: .3rem .8rem; border-radius: 50px;
+    background: rgba(123,158,135,0.1);
+    border: 1px solid rgba(123,158,135,0.2);
+    font-size: .75rem; color: var(--sage-dark);
+    font-weight: 500; letter-spacing: .03em;
+  }
+
+  /* ── FOOTER ── */
+  .article-footer {
+    background: var(--deep-brown);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 2.5rem 5vw;
+    font-size: .8rem; line-height: 1.8;
+  }
+  .article-footer .f-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem; color: white;
+    display: block; margin-bottom: .5rem;
+  }
+  .article-footer .f-logo span { color: var(--amber); }
+  .article-footer a { color: var(--sage-light); text-decoration: none; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in { animation: fadeUp .6s ease both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 860px) {
+    .article-wrap { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+    .data-cards, .tips-grid { grid-template-columns: 1fr; }
+    .compare-table { font-size: .8rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <a class="topnav-logo" href="../index.html">芝芝<span>♡</span>健康</a>
+  <div class="breadcrumb">
+    <a href="../index.html">首頁</a>
+    <span>›</span>
+    <a href="../index.html#education">健康知識</a>
+    <span>›</span>
+    <span>好的膽固醇</span>
+  </div>
+  <a class="topnav-back" href="../index.html#education">← 返回健康知識</a>
+</nav>
+
+<!-- HERO -->
+<header class="article-hero">
+  <div class="hero-meta">
+    <span class="cat-badge">💛 心血管健康</span>
+    <span class="read-time">⏱ 約 5 分鐘閱讀</span>
+  </div>
+  <h1>看懂「好的膽固醇」，<br>為全家人的血管大掃除</h1>
+  <p class="lead">
+    健檢報告看到紅字先別慌——不是所有高數值都是壞事。認識 HDL 這位「血管清道夫」，幫你讀懂真正需要在意的數字。
+  </p>
+  <div class="author-row">
+    <div class="author-avatar">🌿</div>
+    <div class="author-info">
+      <div class="author-name">芝芝藥師</div>
+      <div class="author-title">藥師・保健衛教作者</div>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLE -->
+<div class="article-wrap">
+
+  <!-- MAIN BODY -->
+  <article class="article-body">
+    <div class="prose fade-in">
+
+      <p>
+        放假了，已經預約好餐廳和家人朋友聚餐了嗎？可是又怕膽固醇一直「步步高升」？
+        其實連瘦子也不例外——但先別急著把餐桌上的肉全部推開。
+        <strong>並不是所有膽固醇數值飆高都是壞事。</strong>
+      </p>
+      <p>
+        許多朋友拿到年度健康檢查報告，看到紅字時第一個念頭就是崩潰。
+        這篇文章要帶你認識人體內最勤奮的守衛——「好的膽固醇」，
+        以及為什麼它反而高一點更好。
+      </p>
+
+      <div class="callout blue">
+        <div class="callout-icon">🩺</div>
+        <div class="callout-body">
+          <div class="callout-title">核心觀念</div>
+          <div class="callout-text">人體內有一種被稱為「好的膽固醇」的物質，就像血管裡最勤奮的清道夫，默默守護心血管健康。理解 HDL 與 LDL 的差異，是讀懂血脂報告的第一步。</div>
+        </div>
+      </div>
+
+      <h2 id="hdl">重新認識血管清道夫：HDL</h2>
+      <p>
+        在醫學上，「好膽固醇」的正式名稱是<strong>高密度脂蛋白（HDL，High-Density Lipoprotein）</strong>，
+        而「壞膽固醇」則是<strong>低密度脂蛋白（LDL，Low-Density Lipoprotein）</strong>。
+      </p>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>HDL（好膽固醇）</th>
+            <th>LDL（壞膽固醇）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>密度</td>
+            <td>高密度</td>
+            <td>低密度</td>
+          </tr>
+          <tr>
+            <td>方向</td>
+            <td>血管 → 肝臟（帶走膽固醇）</td>
+            <td>肝臟 → 血管（輸送膽固醇）</td>
+          </tr>
+          <tr>
+            <td>血管影響</td>
+            <td><span class="badge-good">保護</span> 清除堆積</td>
+            <td><span class="badge-bad">風險</span> 容易沉積</td>
+          </tr>
+          <tr>
+            <td>理想數值</td>
+            <td>男 &gt; 40 mg/dL｜女 &gt; 50 mg/dL</td>
+            <td>&lt; 100 mg/dL（高風險者）</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>HDL 之所以被稱為「好」，是因為它具有三大保護功能：</p>
+
+      <div class="data-cards">
+        <div class="data-card">
+          <div class="data-card-emoji">🔄</div>
+          <div class="data-card-label">第一功能</div>
+          <div class="data-card-title">逆向膽固醇運輸（RCT）</div>
+          <div class="data-card-desc">將多餘膽固醇從血管壁送回肝臟代謝，直接清掃血管中的「垃圾」，避免斑塊堆積阻塞。</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-emoji">🛡</div>
+          <div class="data-card-label">第二功能</div>
+          <div class="data-card-title">抗氧化保護</div>
+          <div class="data-card-desc">防止 LDL 被氧化成更危險的「氧化型 LDL」，後者是動脈粥狀硬化的主要推手。</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-emoji">🔥</div>
+          <div class="data-card-label">第三功能</div>
+          <div class="data-card-title">抗發炎與抗血栓</div>
+          <div class="data-card-desc">降低血管壁慢性發炎反應，同時減少血小板不正常聚集，降低血栓形成風險。</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-emoji">📊</div>
+          <div class="data-card-label">臨床意義</div>
+          <div class="data-card-title">HDL 每升高 1 mg/dL</div>
+          <div class="data-card-desc">心血管疾病風險約可降低 2–3%。因此 HDL 不是越低越好，而是應積極維持在正常高值。</div>
+        </div>
+      </div>
+
+      <h2 id="causes">為什麼現代人容易血脂異常？</h2>
+      <p>
+        長期壓力、缺乏運動與外食過多油脂，會讓代謝系統逐漸失衡。
+        當 HDL 不足時，血管中的「垃圾」就會慢慢堆積，靜悄悄地提升心血管風險。
+      </p>
+
+      <div class="callout amber">
+        <div class="callout-icon">⚠️</div>
+        <div class="callout-body">
+          <div class="callout-title">四大常見元凶</div>
+          <div class="callout-text">
+            <strong>① 隱形人造油脂（反式脂肪）</strong>——加工食品、奶油酥餅、部分速食中大量存在，直接降低 HDL、升高 LDL。<br>
+            <strong>② 久坐不動</strong>——每天靜態時間超過 8 小時，HDL 水準顯著偏低。<br>
+            <strong>③ 慢性壓力</strong>——皮質醇長期偏高會打亂脂質代謝平衡。<br>
+            <strong>④ 肌肉流失</strong>——肌肉是重要的代謝器官，肌少症患者血脂管理更困難。
+          </div>
+        </div>
+      </div>
+
+      <h2 id="fish-oil">魚油真的有幫助嗎？</h2>
+      <p>
+        魚油富含 Omega-3 脂肪酸，確實對心血管有益，但關鍵在於
+        <strong>EPA 和 DHA 各有不同的作用機制</strong>，補充前需釐清自己的需求：
+      </p>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>成分</th>
+            <th>主要功效</th>
+            <th>適合族群</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>DHA（二十二碳六烯酸）</td>
+            <td>有助提升 HDL；促進腦部與認知功能；維持視網膜健康</td>
+            <td>想提升 HDL、孕婦、學生、長者</td>
+          </tr>
+          <tr>
+            <td>EPA（二十碳五烯酸）</td>
+            <td>抗發炎效果更強；降低 TG（三酸甘油酯）；減少血栓形成</td>
+            <td>LDL 偏高、高 TG、心血管高風險者</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout green">
+        <div class="callout-icon">💊</div>
+        <div class="callout-body">
+          <div class="callout-title">藥師選購建議</div>
+          <div class="callout-text">
+            若 LDL 或三酸甘油酯偏高，建議選擇<strong>高 EPA 配方</strong>（EPA：DHA ≥ 2:1）。<br>
+            若想提升 HDL 或強化腦部功能，可補充<strong>高 DHA 配方</strong>（DHA &gt; 500mg/粒）。<br>
+            購買前確認產品通過重金屬（汞、鉛、鎘）檢驗合格，選擇 IFOS 或 NSF 認證品牌更安心。
+          </div>
+        </div>
+      </div>
+
+      <h2 id="tips">4 個實際可做的改善方法</h2>
+      <p>
+        好消息是，HDL 的數值是可以透過生活方式積極改善的。
+        以下四個方向都有充分的臨床研究支持：
+      </p>
+
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-icon">🏃‍♀️</div>
+          <div class="tip-title">有氧運動</div>
+          <div class="tip-desc">每週 150 分鐘中強度有氧（快走、慢跑、騎車）是提升 HDL 最有效的非藥物方法。持續 2–3 個月可見明顯改善。</div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">🫒</div>
+          <div class="tip-title">好油取代壞油</div>
+          <div class="tip-desc">橄欖油、堅果、酪梨富含單元不飽和脂肪酸，能同時升高 HDL 並降低 LDL。減少油炸與反式脂肪的攝取。</div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">🌾</div>
+          <div class="tip-title">多吃原型食物</div>
+          <div class="tip-desc">糙米、燕麥、深色蔬菜中的膳食纖維能降低 LDL；豆類含植物固醇，同樣有助血脂管理。</div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon">🧘</div>
+          <div class="tip-title">放鬆減壓</div>
+          <div class="tip-desc">每天 15 分鐘的深呼吸或冥想能降低皮質醇，間接改善血脂代謝。睡眠品質同樣關鍵。</div>
+        </div>
+      </div>
+
+      <h2 id="reminder">溫柔提醒</h2>
+      <p>
+        照顧家人之前，請先照顧好自己的血管。
+        <strong>你的健康，就是孩子最穩定的依靠。</strong>
+      </p>
+      <p>
+        從今天開始，晚餐換一盤好油炒青菜，或煎一片富含 Omega-3 的鮭魚吧！
+        小小的日常改變，累積起來就是血管最好的投資。
+      </p>
+
+      <!-- CTA -->
+      <div class="article-cta">
+        <h3>想了解更多心血管保健成分？</h3>
+        <p>回到「保健食品圖書館」，深入查閱魚油、膳食纖維等完整成分資訊。</p>
+        <a class="cta-btn" href="../index.html#products">探索保健品資料庫 →</a>
+      </div>
+
+      <!-- HASHTAGS -->
+      <div class="hashtags-row">
+        <span class="hashtag">#好膽固醇</span>
+        <span class="hashtag">#HDL</span>
+        <span class="hashtag">#血管健康</span>
+        <span class="hashtag">#健康檢查</span>
+        <span class="hashtag">#Omega3</span>
+        <span class="hashtag">#心血管保健</span>
+        <span class="hashtag">#飲食調理</span>
+        <span class="hashtag">#健康生活</span>
+        <span class="hashtag">#預防醫學</span>
+        <span class="hashtag">#魚油</span>
+      </div>
+
+    </div><!-- /prose -->
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sidebar-card">
+      <div class="sidebar-title">📋 本文目錄</div>
+      <ul class="toc-list">
+        <li><a href="#hdl">認識 HDL：血管清道夫</a></li>
+        <li><a href="#causes">為什麼容易血脂異常？</a></li>
+        <li><a href="#fish-oil">魚油的 EPA 與 DHA</a></li>
+        <li><a href="#tips">4 個改善方法</a></li>
+        <li><a href="#reminder">溫柔提醒</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-title">📊 關鍵數值參考</div>
+      <div class="key-numbers">
+        <div class="key-num-item">
+          <div class="key-num-value">&gt;60</div>
+          <div class="key-num-label"><strong>HDL 理想值 (mg/dL)</strong>高於此值具心臟保護效果</div>
+        </div>
+        <div class="key-num-item">
+          <div class="key-num-value">&lt;100</div>
+          <div class="key-num-label"><strong>LDL 目標值 (mg/dL)</strong>心血管高風險者需更低</div>
+        </div>
+        <div class="key-num-item">
+          <div class="key-num-value">&lt;150</div>
+          <div class="key-num-label"><strong>三酸甘油酯 (mg/dL)</strong>超標與 HDL 偏低常並存</div>
+        </div>
+        <div class="key-num-item">
+          <div class="key-num-value">1g</div>
+          <div class="key-num-label"><strong>魚油每日建議量</strong>EPA+DHA 合計≥1000mg</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="disclaimer-box">
+      <strong>⚠️ 衛教聲明</strong>
+      本文資訊僅供衛教參考，不可取代醫師診斷或藥師個別評估。如有血脂異常，請就醫檢查並依醫囑處理。
+    </div>
+
+  </aside>
+
+</div><!-- /article-wrap -->
+
+<!-- FOOTER -->
+<footer class="article-footer">
+  <span class="f-logo">芝芝<span>♡</span>健康</span>
+  <p>本網站由藥師專業製作，資訊僅供衛教參考，不可取代醫療診斷。<br>
+  如有健康疑慮請諮詢您的<a href="#">醫師或藥師</a>。</p>
+  <p style="margin-top:.8rem;opacity:.45;font-size:.72rem;">© 2025 芝芝要健康藥師網站・All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

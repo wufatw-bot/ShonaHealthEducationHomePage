@@ -24,6 +24,11 @@
     --indigo: #5C6BC0;
     --indigo-light: #9FA8DA;
     --indigo-dark: #3949AB;
+    --violet: #7C3AED;
+    --violet-light: #C4B5FD;
+    --violet-mid: #A78BFA;
+    --violet-dark: #5B21B6;
+    --violet-bg: #F5F3FF;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior: smooth; }
@@ -598,6 +603,161 @@
   }
   .faq-item.open .faq-a { display:block; animation:fadeUp .3s ease; }
 
+  /* ── INVOLUNTARY MOVEMENT SECTION ── */
+  #movement { background: var(--violet-bg); }
+  .section-label.violet { color: var(--violet); }
+  .movement-intro-banner {
+    background: linear-gradient(135deg, #EDE9FE 0%, #DDD6FE 100%);
+    border: 1px solid rgba(124,58,237,0.2);
+    border-radius: 24px;
+    padding: 2rem 2.5rem;
+    margin-bottom: 2.5rem;
+    display: flex; gap: 1.5rem; align-items: center;
+  }
+  .movement-intro-banner .banner-icon { font-size:3.5rem; flex-shrink:0; }
+  .movement-intro-banner h3 { font-size:1.1rem; font-weight:700; color:var(--text-dark); margin-bottom:.4rem; }
+  .movement-intro-banner p { font-size:.87rem; color:var(--text-mid); line-height:1.8; }
+  .movement-disclaimer {
+    background: rgba(124,58,237,0.07);
+    border: 1px solid rgba(124,58,237,0.2);
+    border-radius:16px;
+    padding:1rem 1.5rem;
+    margin-bottom:2.5rem;
+    font-size:.82rem;
+    color: var(--violet-dark);
+    display:flex; gap:.8rem; align-items:flex-start;
+  }
+  .movement-disclaimer .icon { font-size:1.2rem; flex-shrink:0; }
+  /* Movement type cards */
+  .movement-types-grid {
+    display:grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+    gap:1.5rem; margin-bottom:3rem;
+  }
+  .movement-type-card {
+    background:white; border-radius:20px; padding:1.8rem;
+    border:1px solid rgba(124,58,237,0.15);
+    box-shadow: 0 4px 20px rgba(124,58,237,0.08);
+    transition:all .3s;
+  }
+  .movement-type-card:hover {
+    transform:translateY(-5px);
+    box-shadow: 0 12px 36px rgba(124,58,237,0.14);
+    border-color: var(--violet-mid);
+  }
+  .movement-type-icon {
+    width:52px; height:52px; border-radius:14px;
+    background: linear-gradient(135deg, var(--violet-light), var(--violet-mid));
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.5rem; margin-bottom:1rem;
+  }
+  .movement-type-card h3 { font-size:.95rem; font-weight:700; color:var(--text-dark); margin-bottom:.3rem; }
+  .movement-type-tag {
+    display:inline-block; padding:.2rem .7rem;
+    background:rgba(124,58,237,0.1); color:var(--violet-dark);
+    border-radius:50px; font-size:.7rem; font-weight:700;
+    margin-bottom:.7rem;
+  }
+  .movement-type-card p { font-size:.82rem; color:var(--text-mid); line-height:1.75; }
+  /* Video section */
+  .video-section-title {
+    font-family:'Noto Serif TC',serif;
+    font-size:1.3rem; font-weight:700; color:var(--text-dark);
+    margin-bottom:1.5rem;
+    display:flex; align-items:center; gap:.6rem;
+  }
+  .video-section-title::before {
+    content:'';
+    display:inline-block; width:4px; height:1.4rem;
+    background: linear-gradient(135deg, var(--violet), var(--violet-mid));
+    border-radius:4px;
+  }
+  .video-grid {
+    display:grid; grid-template-columns: repeat(auto-fill, minmax(340px,1fr));
+    gap:1.5rem; margin-bottom:3rem;
+  }
+  .video-card {
+    background:white; border-radius:20px; overflow:hidden;
+    border:1px solid rgba(124,58,237,0.15);
+    box-shadow: 0 4px 20px rgba(124,58,237,0.08);
+    transition:all .3s;
+  }
+  .video-card:hover {
+    transform:translateY(-4px);
+    box-shadow: 0 12px 32px rgba(124,58,237,0.14);
+    border-color: var(--violet-mid);
+  }
+  .video-embed-wrap {
+    position:relative; padding-top:56.25%; /* 16:9 */
+    background:#f0ebff;
+    overflow:hidden;
+  }
+  .video-embed-wrap iframe {
+    position:absolute; top:0; left:0;
+    width:100%; height:100%;
+    border:none;
+  }
+  /* Instagram embed placeholder */
+  .video-embed-wrap.instagram-wrap {
+    padding-top: 0;
+    height: 480px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .video-embed-wrap.instagram-wrap iframe {
+    position:static;
+    width:100%; height:100%;
+    max-width:360px;
+  }
+  .video-card-body { padding:1.2rem 1.5rem 1.4rem; }
+  .video-platform-badge {
+    display:inline-flex; align-items:center; gap:.3rem;
+    border-radius:50px; padding:.2rem .7rem;
+    font-size:.68rem; font-weight:700; letter-spacing:.06em;
+    margin-bottom:.5rem;
+  }
+  .video-platform-badge.youtube {
+    background:rgba(255,0,0,0.08);
+    color:#cc0000;
+    border:1px solid rgba(255,0,0,0.15);
+  }
+  .video-platform-badge.instagram {
+    background:rgba(193,53,132,0.08);
+    color:#C13584;
+    border:1px solid rgba(193,53,132,0.2);
+  }
+  .video-card-body h4 { font-size:.92rem; font-weight:700; color:var(--text-dark); margin-bottom:.4rem; }
+  .video-card-body p { font-size:.8rem; color:var(--text-mid); line-height:1.7; }
+  .video-external-link {
+    display:inline-flex; align-items:center; gap:.4rem;
+    margin-top:.8rem;
+    color:var(--violet-dark); font-size:.8rem; font-weight:600;
+    text-decoration:none;
+    transition: gap .2s;
+  }
+  .video-external-link:hover { gap:.7rem; color:var(--violet); }
+  /* Red flags section */
+  .redflags-wrap {
+    background: white; border-radius:24px; padding:2.5rem;
+    border: 1px solid rgba(239,68,68,0.2);
+    box-shadow: 0 4px 20px rgba(239,68,68,0.06);
+    margin-bottom:2rem;
+  }
+  .redflags-title {
+    font-size:1.05rem; font-weight:700; color:#dc2626;
+    margin-bottom:1.2rem;
+    display:flex; align-items:center; gap:.5rem;
+  }
+  .redflag-grid {
+    display:grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
+    gap:.8rem;
+  }
+  .redflag-item {
+    display:flex; align-items:flex-start; gap:.7rem;
+    padding:.8rem 1rem; border-radius:12px;
+    background: rgba(239,68,68,0.04);
+    border: 1px solid rgba(239,68,68,0.12);
+    font-size:.82rem; color:var(--text-mid); line-height:1.65;
+  }
+  .redflag-item .rf-icon { font-size:1.1rem; flex-shrink:0; }
   /* ── WORKPLACE COMMUNICATION ── */
   #workplace { background: var(--warm-white); }
   .workplace-intro-banner {
@@ -734,10 +894,8 @@
     line-height:1.6;
   }
   .phrase-good::before { content:'✓ 推薦：'; font-weight:700; display:block; font-size:.72rem; margin-bottom:.2rem; }
-
-  /* ── SECTION LABEL for indigo variant ── */
+  /* ── SECTION LABEL variants ── */
   .section-label.indigo { color: var(--indigo); }
-
   /* ── DISCLAIMER BANNER ── */
   .disclaimer {
     background: rgba(212,168,71,0.12);
@@ -750,11 +908,15 @@
     display:flex; gap:.8rem; align-items:flex-start;
   }
   .disclaimer .icon { font-size:1.2rem; flex-shrink:0; }
-
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity:0; transform:translateY(18px); }
     to   { opacity:1; transform:translateY(0); }
+  }
+  @keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 rgba(124,58,237,0.3); }
+    70% { box-shadow: 0 0 0 10px rgba(124,58,237,0); }
+    100% { box-shadow: 0 0 0 0 rgba(124,58,237,0); }
   }
   /* ── RESPONSIVE ── */
   @media (max-width: 860px) {
@@ -764,6 +926,8 @@
     .kids-feature-row { grid-template-columns:1fr; }
     .kids-intro-banner { flex-direction:column; text-align:center; }
     .workplace-intro-banner { flex-direction:column; text-align:center; }
+    .movement-intro-banner { flex-direction:column; text-align:center; }
+    .video-grid { grid-template-columns:1fr; }
     nav { display:none; }
   }
 </style>
@@ -777,6 +941,7 @@
     <a href="#checker">健康配對</a>
     <a href="#education">健康知識</a>
     <a href="#kids">教育教養</a>
+    <a href="#movement">不自主動作</a>
     <a href="#workplace">職場溝通</a>
     <a href="#quiz">小測驗</a>
   </nav>
@@ -954,6 +1119,166 @@
   </div>
 </section>
 
+<!-- INVOLUNTARY MOVEMENT SECTION -->
+<section id="movement">
+  <div class="section-label violet">🧠 兒童神經發展</div>
+  <h2 class="section-title">兒童不自主身體活動<br>是什麼原因？</h2>
+  <p class="section-sub">不自主動作（Involuntary Movement Disorder）在兒童身上並不罕見，了解常見類型與成因，有助於家長及早辨識並尋求專業協助。</p>
+
+  <div class="movement-intro-banner">
+    <div class="banner-icon">🔍</div>
+    <div>
+      <h3>什麼是不自主動作？</h3>
+      <p>不自主動作指的是無法由意志控制的身體動作或聲音。兒童常見的不自主動作涵蓋抽動症（Tic）、舞蹈病（Chorea）、震顫（Tremor）、肌張力不全（Dystonia）等。這些症狀可能源於神經系統、免疫、遺傳或心理因素，需由兒童神經科醫師進行專業評估。</p>
+    </div>
+  </div>
+
+  <div class="movement-disclaimer">
+    <span class="icon">⚕️</span>
+    <span>以下資訊僅供衛教參考。若您的孩子出現持續或突發性不自主動作，請盡速就醫，由兒童神經科或小兒科醫師進行評估，切勿自行診斷或停用醫師處方藥物。</span>
+  </div>
+
+  <!-- 常見類型 -->
+  <div class="video-section-title">常見不自主動作類型</div>
+  <div class="movement-types-grid">
+    <div class="movement-type-card">
+      <div class="movement-type-icon">😬</div>
+      <h3>抽動症（Tic Disorder）</h3>
+      <span class="movement-type-tag">最常見</span>
+      <p>突發、反覆、非節律性的動作或聲音，如眨眼、聳肩、清喉嚨。分為暫時性（&lt;1年）和慢性，妥瑞症（Tourette Syndrome）同時有運動與聲音抽動且超過1年。</p>
+    </div>
+    <div class="movement-type-card">
+      <div class="movement-type-icon">💫</div>
+      <h3>舞蹈病（Chorea）</h3>
+      <span class="movement-type-tag">不規則流動</span>
+      <p>不規則、無目的、流動性的肢體動作，看起來像跳舞或不停扭動。常見原因包括小舞蹈病（Sydenham's Chorea，與鏈球菌感染相關）及遺傳性疾病。</p>
+    </div>
+    <div class="movement-type-card">
+      <div class="movement-type-icon">📳</div>
+      <h3>震顫（Tremor）</h3>
+      <span class="movement-type-tag">節律性抖動</span>
+      <p>有節律的肢體抖動，分為靜止性（帕金森相關）和動作性（動作時出現）。兒童良性原發性震顫通常無大礙，但新出現的震顫需排除藥物、電解質異常等因素。</p>
+    </div>
+    <div class="movement-type-card">
+      <div class="movement-type-icon">🔄</div>
+      <h3>肌張力不全（Dystonia）</h3>
+      <span class="movement-type-tag">持續收縮</span>
+      <p>肌肉持續或間歇性收縮導致異常姿勢或扭轉動作。可為局部（如書寫痙攣）或全身性，可能由遺傳、腦損傷或代謝疾病引起。</p>
+    </div>
+    <div class="movement-type-card">
+      <div class="movement-type-icon">🌊</div>
+      <h3>肌陣攣（Myoclonus）</h3>
+      <span class="movement-type-tag">突發抽搐</span>
+      <p>突發、短暫、閃電式的肌肉抽搐。可以是生理性（如入睡前的抖動）或病理性（與癲癇或代謝疾病相關），須依情境評估嚴重度。</p>
+    </div>
+    <div class="movement-type-card">
+      <div class="movement-type-icon">🧩</div>
+      <h3>刻板動作（Stereotypies）</h3>
+      <span class="movement-type-tag">重複行為</span>
+      <p>重複、節律性、無目的的動作，如搖晃身體、拍手、旋轉。常見於自閉症類群障礙（ASD）或發展遲緩兒童，但部分發展正常兒童也可能出現。</p>
+    </div>
+  </div>
+
+  <!-- 警示徵兆 -->
+  <div class="redflags-wrap">
+    <div class="redflags-title">🚨 需要立即就醫的警示徵兆</div>
+    <div class="redflag-grid">
+      <div class="redflag-item"><span class="rf-icon">⚡</span><span>突然出現且迅速加重的不自主動作</span></div>
+      <div class="redflag-item"><span class="rf-icon">🔥</span><span>伴隨發燒、頭痛或意識改變</span></div>
+      <div class="redflag-item"><span class="rf-icon">😰</span><span>動作影響到正常吞嚥或呼吸</span></div>
+      <div class="redflag-item"><span class="rf-icon">📉</span><span>學習或行為能力明顯退步</span></div>
+      <div class="redflag-item"><span class="rf-icon">🤒</span><span>近期有鏈球菌感染（如扁桃腺炎）後出現</span></div>
+      <div class="redflag-item"><span class="rf-icon">💊</span><span>服藥後新出現的不自主動作（藥物副作用）</span></div>
+      <div class="redflag-item"><span class="rf-icon">🌙</span><span>睡眠中仍持續出現不自主動作</span></div>
+      <div class="redflag-item"><span class="rf-icon">📊</span><span>家族中有遺傳性神經疾病史</span></div>
+    </div>
+  </div>
+
+  <!-- YouTube 影片 -->
+  <div class="video-section-title">專業影片資源・深入了解</div>
+  <div class="video-grid">
+
+    <div class="video-card">
+      <div class="video-embed-wrap">
+        <iframe src="https://www.youtube.com/embed/L9kR-AMgmWM" title="Involuntary Movement Disorder 影片 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-card-body">
+        <span class="video-platform-badge youtube">▶ YouTube</span>
+        <h4>不自主動作障礙概論</h4>
+        <p>介紹各類不自主動作的基本分類與臨床表現，適合家長初步了解。</p>
+        <a href="https://youtu.be/L9kR-AMgmWM?si=mJ44oxS1RnIya2W8" target="_blank" rel="noopener noreferrer" class="video-external-link">在 YouTube 觀看 →</a>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-embed-wrap">
+        <iframe src="https://www.youtube.com/embed/7UocK4eyjPI" title="Involuntary Movement 影片 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-card-body">
+        <span class="video-platform-badge youtube">▶ YouTube</span>
+        <h4>兒童抽動症與妥瑞症解析</h4>
+        <p>深入說明抽動症的成因、類型及如何在學校與家庭環境中支持孩子。</p>
+        <a href="https://www.youtube.com/watch?v=7UocK4eyjPI" target="_blank" rel="noopener noreferrer" class="video-external-link">在 YouTube 觀看 →</a>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-embed-wrap">
+        <iframe src="https://www.youtube.com/embed/gUzTE_sG2eQ" title="Involuntary Movement 影片 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-card-body">
+        <span class="video-platform-badge youtube">▶ YouTube</span>
+        <h4>動作障礙的診斷與評估</h4>
+        <p>醫師角度說明如何評估兒童不自主動作，就醫時應準備的資訊與觀察重點。</p>
+        <a href="https://youtu.be/gUzTE_sG2eQ?si=mJ44oxS1RnIya2W8" target="_blank" rel="noopener noreferrer" class="video-external-link">在 YouTube 觀看 →</a>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-embed-wrap">
+        <iframe src="https://www.youtube.com/embed/XyDHG02phs0" title="Involuntary Movement 影片 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-card-body">
+        <span class="video-platform-badge youtube">▶ YouTube</span>
+        <h4>肌張力不全與舞蹈病</h4>
+        <p>說明肌張力不全症及舞蹈病的臨床特徵，以及與其他動作障礙的區別方式。</p>
+        <a href="https://youtu.be/XyDHG02phs0?si=r8ZAXeLRAK-YH8tb" target="_blank" rel="noopener noreferrer" class="video-external-link">在 YouTube 觀看 →</a>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-embed-wrap">
+        <iframe src="https://www.youtube.com/embed/EEusUYl5uQ4" title="Involuntary Movement 影片 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-card-body">
+        <span class="video-platform-badge youtube">▶ YouTube</span>
+        <h4>不自主動作的治療與照護</h4>
+        <p>介紹各類不自主動作障礙的治療選項，包含藥物、行為治療及家庭支持策略。</p>
+        <a href="https://youtu.be/EEusUYl5uQ4?si=pybr2tb989vDllyR" target="_blank" rel="noopener noreferrer" class="video-external-link">在 YouTube 觀看 →</a>
+      </div>
+    </div>
+
+    <!-- Instagram Reel card -->
+    <div class="video-card">
+      <div class="video-embed-wrap" style="padding-top:56.25%; background:#fdf0f7;">
+        <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:1.5rem;">
+          <span style="font-size:3rem;">📱</span>
+          <p style="font-size:.85rem;color:#C13584;font-weight:700;text-align:center;">Instagram Reels 影片</p>
+          <p style="font-size:.78rem;color:#8a6a7a;text-align:center;line-height:1.6;">藥師分享的不自主動作衛教短影音，點擊下方連結前往觀看</p>
+          <a href="https://www.instagram.com/reel/DPlLS7gE93A/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:white;padding:.65rem 1.5rem;border-radius:50px;font-size:.82rem;font-weight:700;text-decoration:none;transition:opacity .2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">📲 前往 Instagram 觀看</a>
+        </div>
+      </div>
+      <div class="video-card-body">
+        <span class="video-platform-badge instagram">◉ Instagram Reels</span>
+        <h4>藥師衛教短影音</h4>
+        <p>芝芝藥師在 Instagram 分享關於兒童不自主動作的衛教重點，簡單易懂。</p>
+        <a href="https://www.instagram.com/reel/DPlLS7gE93A/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer" class="video-external-link">在 Instagram 觀看 →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- WORKPLACE COMMUNICATION (職場溝通) -->
 <section id="workplace">
   <div class="section-label indigo">💼 職場溝通</div>
@@ -973,28 +1298,22 @@
     <button class="work-tab" onclick="switchWorkTab('phrases',this)">📝 實用話術</button>
     <button class="work-tab" onclick="switchWorkTab('scenarios',this)">🎭 情境演練</button>
   </div>
-  <!-- 溝通基礎 -->
   <div id="work-basics" class="work-tab-content active">
     <div class="work-grid" id="work-basics-grid"></div>
   </div>
-  <!-- 向上管理 -->
   <div id="work-upward" class="work-tab-content">
     <div class="work-grid" id="work-upward-grid"></div>
   </div>
-  <!-- 衝突處理 -->
   <div id="work-conflict" class="work-tab-content">
     <div class="work-grid" id="work-conflict-grid"></div>
   </div>
-  <!-- 實用話術 -->
   <div id="work-phrases" class="work-tab-content">
     <div class="work-phrase-grid" id="work-phrases-grid"></div>
   </div>
-  <!-- 情境演練 -->
   <div id="work-scenarios" class="work-tab-content">
     <div class="work-scenario-wrap" id="work-scenarios-list"></div>
   </div>
 </section>
-
 <!-- QUIZ -->
 <section id="quiz">
   <div class="section-label">🎯 互動測驗</div>
@@ -1052,10 +1371,6 @@ const checkerRec = {
   'blood-thinner': { name:'⚠️ 藥物交互作用警示', icon:'💊', desc:'服用抗凝血藥（warfarin）者，魚油高劑量、靈芝、維生素E都可能加強抗凝效果，請務必告知您的醫師或藥師再補充！' },
   diabetes:  { name:'⚠️ 血糖監測提醒', icon:'🩸', desc:'葡萄糖胺、鉻補充劑可能影響血糖；部分益生菌對血糖有幫助但需監測。使用任何保健品前請告知糖尿病照護團隊。' }
 };
-
-// ═══════════════════════════════════════════
-// EDUCATION DATA (健康知識)
-// ═══════════════════════════════════════════
 const eduCards = [
   { color:'teal', icon:'💛', cat:'心血管健康', title:'認識好的膽固醇（HDL）', desc:'HDL被稱為「好的膽固醇」，它能將膽固醇從血管壁帶回肝臟代謝，有效保護心血管健康。', isLink: true, href:'Health_Education/Good_Cholesterol.html', points:[] },
   { color:'green', icon:'🧒', cat:'兒童教養', title:'孩子需要補充鈣質嗎？', desc:'成長期兒童骨骼發育快速，鈣質需求量高。但「補鈣」不等於吃保健品，認識哪些食物才是最好的鈣來源。', isLink: false, points:['7–9歲每日需800mg、10–12歲1000mg，13–18歲1200mg鈣','豆腐、牛奶、起司、小魚乾都是優質鈣來源','維生素D不足時鈣吸收大幅下降，戶外活動非常重要','碳酸飲料中的磷酸會阻礙鈣吸收，應限制飲用','補鈣同時需搭配規律負重運動才能有效強化骨骼'] },
@@ -1065,10 +1380,6 @@ const eduCards = [
   { color:'green', icon:'🏫', cat:'學齡教育', title:'學生的腦力保健指南', desc:'考試壓力大、睡眠不足、飲食不規律……學生族群的保健需求有其特殊性。', isLink: false, points:['B群是能量代謝關鍵，但咖啡因+B群不是「提神萬靈丹」','魚油DHA對學習記憶有正面影響，但效果需長期使用','PS（磷脂醯絲胺酸）有助注意力，但睡眠才是最重要的腦力恢復途徑','鐵質缺乏會導致疲勞和注意力下降，女生尤其要注意','護眼配方（葉黃素+花青素）適合長時間用眼的學生','規律運動（每週150分鐘）對腦力提升效果優於任何保健品'] },
   { color:'amber', icon:'⚡', cat:'運動保健', title:'運動族的保健食品策略', desc:'運動量大的人，對特定營養素的需求較一般人高，如何科學地補充是一門學問。', isLink: false, points:['運動後30分鐘內補充蛋白質（0.3g/kg），促進肌肉修復','鎂：劇烈運動後大量流失，有助肌肉放鬆減少抽筋','維生素D：運動表現與維生素D水平有正相關','魚油：抗發炎，減少延遲性肌肉痠痛（DOMS）','肌酸（Creatine）：短時間高強度運動的合法輔助品','咖啡因：賽前60分鐘攝取3–6mg/kg，提升耐力表現（有科學根據）'] }
 ];
-
-// ═══════════════════════════════════════════
-// QUIZ DATA
-// ═══════════════════════════════════════════
 const quizData = [
   { q:'服用魚油的最佳時機是？', opts:['空腹早晨服用效果最好','隨餐服用，幫助吸收並減少魚腥嗝氣','睡前服用可幫助睡眠','任何時間效果完全一樣'], ans:1, explain:'魚油含脂溶性EPA/DHA，隨餐服用可增加吸收率，同時減少讓人不舒服的魚腥嗝氣。睡前服用雖無大礙，但最推薦隨餐時機。' },
   { q:'以下哪一種維生素「不是」脂溶性維生素？', opts:['維生素A','維生素C','維生素D','維生素E'], ans:1, explain:'脂溶性維生素為ADEK（A、D、E、K），維生素C是水溶性維生素。水溶性維生素過多由尿液排出，脂溶性則會在體內累積，過量有中毒風險。' },
@@ -1077,10 +1388,6 @@ const quizData = [
   { q:'鈣質補充的正確觀念是？', opts:['一次補充2000mg效果更好','碳酸鈣最好空腹服用','每次補充不超過500mg，分次攝取','鈣質不需要維生素D就能被骨骼吸收'], ans:2, explain:'腸道每次吸收鈣質有上限，建議每次不超過500mg，分2–3次補充。碳酸鈣需要胃酸幫助吸收（隨餐服），維生素D則是鈣質能被骨骼有效利用的必要輔助。' },
   { q:'以下關於維生素D的敘述，哪一個正確？', opts:['過量維生素D毫無副作用，多吃無妨','維生素D是水溶性維生素，很快就代謝掉','維生素D3比D2更有效被人體利用','多曬太陽就一定能補足維生素D'], ans:2, explain:'維生素D3（動物來源）比D2（植物來源）在人體中的活化效率更高。維生素D是脂溶性，過量確實會蓄積導致高鈣血症。皮膚合成效率因緯度、防曬品、膚色而差異很大，台灣很多人仍缺乏。' }
 ];
-
-// ═══════════════════════════════════════════
-// KIDS DATA
-// ═══════════════════════════════════════════
 const kidsNutrition = [
   { emoji:'🥦', age:'0–2歲', title:'嬰幼兒關鍵營養', desc:'生命最初兩年是大腦與身體高速發育期，每一種營養素都舉足輕重。', tips:['母乳是最佳食物，含獨特免疫因子與DHA','純母乳哺育6個月後漸進添加副食品','鐵質：4–6個月起從副食品補充，預防缺鐵性貧血','維生素D：純母乳嬰兒每天補充400IU','避免在1歲前添加蜂蜜（肉毒桿菌風險）','不需額外補充水分，母乳或配方奶已足夠'] },
   { emoji:'🍎', age:'3–6歲', title:'學齡前飲食多樣化', desc:'這個階段孩子開始建立飲食習慣，食物多樣化與正向用餐體驗最為關鍵。', tips:['每天5色蔬果，培養多元口味接受度','鈣質需求800mg/天：牛奶、優格、起司優先','避免以糖果或零食作為獎勵或安慰','鼓勵自主進食，尊重飢餓與飽足感信號','點心時間固定，避免全天候「隨時吃」','全穀類（糙米、燕麥）替代精製澱粉'] },
@@ -1116,10 +1423,6 @@ const faqs = [
   { q:'幾歲開始可以讓孩子喝咖啡或茶？', a:'美國兒科學會建議12歲以下兒童完全不攝取咖啡因，12–18歲青少年每日不超過100mg（約1杯咖啡）。咖啡因會影響鈣質吸收、干擾睡眠並增加焦慮感，成長中的孩子應盡量避免。' },
   { q:'孩子需要補充DHA嗎？用魚油還是藻油？', a:'DHA對兒童腦部和視覺發育確實有益。如果孩子每週能吃2–3次深海魚（鮭魚、鯖魚），通常不需額外補充。若飲食攝取不足，可考慮補充：藻油適合素食家庭且不含重金屬疑慮；魚油須選擇通過重金屬檢驗的品牌。' }
 ];
-
-// ═══════════════════════════════════════════
-// WORKPLACE DATA
-// ═══════════════════════════════════════════
 const workBasics = [
   { emoji:'👂', tag:'傾聽技巧', title:'主動傾聽：溝通最被忽略的技能', desc:'研究顯示，多數人在傾聽時只能記住25%的內容。主動傾聽不只是「不打斷對方」，而是真正理解對方的意圖與情緒。', tips:['眼神接觸+點頭，給予對方被重視的感受','適時摘要對方說的話：「你的意思是……，我理解正確嗎？」','先聽完再回應，避免邊聽邊準備反駁','注意非語言訊號：語調、表情、姿態','暫時放下手機和電腦，給予全神貫注','問開放式問題（「你是怎麼看的？」）促進深度對話'] },
   { emoji:'📣', tag:'表達技巧', title:'清晰表達：讓訊息不打折', desc:'「我以為對方懂了」是職場溝通最大的陷阱。有結構地表達，能大幅減少誤解與重工。', tips:['BLUF原則：先說結論（Bottom Line Up Front），再解釋原因','一次只傳達一個核心訊息，避免資訊轟炸','用對方熟悉的語言和例子說明（避免行話）','確認對方接收：「不知道你這樣理解對嗎？」','書面溝通特別重要：主旨清楚、段落分明','重要事項用條列式，而非長篇大論'] },
@@ -1222,13 +1525,12 @@ function runChecker() {
 }
 
 // ═══════════════════════════════════════════
-// EDUCATION (健康知識)
+// EDUCATION
 // ═══════════════════════════════════════════
 function renderEdu() {
   const grid = document.getElementById('edu-grid');
   eduCards.forEach(e => {
     if (e.isLink) {
-      // Linked article card
       const a = document.createElement('a');
       a.className = 'edu-card-link';
       a.href = e.href;
@@ -1356,23 +1658,18 @@ function toggleFaq(el) {
 // WORKPLACE
 // ═══════════════════════════════════════════
 function renderWorkplace() {
-  // basics
   const bg=document.getElementById('work-basics-grid');
   workBasics.forEach(w=>bg.appendChild(buildWorkCard(w)));
-  // upward
   const ug=document.getElementById('work-upward-grid');
   workUpward.forEach(w=>ug.appendChild(buildWorkCard(w)));
-  // conflict
   const cg=document.getElementById('work-conflict-grid');
   workConflict.forEach(w=>cg.appendChild(buildWorkCard(w)));
-  // phrases
   const pg=document.getElementById('work-phrases-grid');
   workPhrases.forEach(w=>{
     const div=document.createElement('div'); div.className='work-phrase-card';
     div.innerHTML=`<div class="phrase-situation">${w.situation}</div><div class="phrase-bad">${w.bad}</div><div class="phrase-good">${w.good}</div>`;
     pg.appendChild(div);
   });
-  // scenarios
   const sl=document.getElementById('work-scenarios-list');
   workScenarios.forEach(s=>{
     const div=document.createElement('div'); div.className='work-scenario';

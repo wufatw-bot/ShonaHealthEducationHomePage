@@ -33,7 +33,6 @@
     font-family: 'Noto Sans TC', sans-serif;
     overflow-x: hidden;
   }
-
   /* HEADER */
   header {
     position: sticky; top:0; z-index:100;
@@ -51,7 +50,6 @@
     letter-spacing: 0.02em;
   }
   .logo span { color: var(--amber); }
-
   .header-nav { display:flex; align-items:center; gap:.7rem; }
   .nav-btn {
     display:inline-flex; align-items:center; gap:.4rem;
@@ -72,7 +70,6 @@
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(91,33,182,0.25);
   }
-
   .visitor-bar {
     background: linear-gradient(135deg, rgba(124,58,237,0.07), rgba(167,139,250,0.1));
     border-bottom: 1px solid rgba(124,58,237,0.12);
@@ -85,7 +82,6 @@
   }
   .visitor-stat .stat-icon { font-size:.9rem; }
   .visitor-stat strong { font-weight:700; color:var(--violet); }
-
   /* MAIN SECTION */
   #movement {
     padding: 5rem 8vw;
@@ -112,7 +108,6 @@
     line-height: 1.8;
     max-width: 600px;
   }
-
   .movement-intro-banner {
     background: linear-gradient(135deg, #EDE9FE 0%, #DDD6FE 100%);
     border: 1px solid rgba(124,58,237,0.2);
@@ -124,7 +119,6 @@
   .movement-intro-banner .banner-icon { font-size:3.5rem; flex-shrink:0; }
   .movement-intro-banner h3 { font-size:1.1rem; font-weight:700; color:var(--text-dark); margin-bottom:.4rem; }
   .movement-intro-banner p { font-size:.87rem; color:var(--text-mid); line-height:1.8; }
-
   .movement-disclaimer {
     background: rgba(124,58,237,0.07);
     border: 1px solid rgba(124,58,237,0.2);
@@ -136,7 +130,6 @@
     display:flex; gap:.8rem; align-items:flex-start;
   }
   .movement-disclaimer .icon { font-size:1.2rem; flex-shrink:0; }
-
   .movement-types-grid {
     display:grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
     gap:1.5rem; margin-bottom:3rem;
@@ -166,7 +159,6 @@
     margin-bottom:.7rem;
   }
   .movement-type-card p { font-size:.82rem; color:var(--text-mid); line-height:1.75; }
-
   .video-section-title {
     font-family:'Noto Serif TC',serif;
     font-size:1.3rem; font-weight:700; color:var(--text-dark);
@@ -179,7 +171,6 @@
     background: linear-gradient(135deg, var(--violet), var(--violet-mid));
     border-radius:4px;
   }
-
   .video-grid {
     display:grid; grid-template-columns: repeat(auto-fill, minmax(340px,1fr));
     gap:1.5rem; margin-bottom:3rem;
@@ -232,7 +223,6 @@
     transition: gap .2s;
   }
   .video-external-link:hover { gap:.7rem; color:var(--violet); }
-
   .redflags-wrap {
     background: white; border-radius:24px; padding:2.5rem;
     border: 1px solid rgba(239,68,68,0.2);
@@ -256,12 +246,10 @@
     font-size:.82rem; color:var(--text-mid); line-height:1.65;
   }
   .redflag-item .rf-icon { font-size:1.1rem; flex-shrink:0; }
-
   @keyframes fadeUp {
     from { opacity:0; transform:translateY(18px); }
     to   { opacity:1; transform:translateY(0); }
   }
-
   @media (max-width: 860px) {
     .movement-intro-banner { flex-direction:column; text-align:center; }
     .video-grid { grid-template-columns:1fr; }
@@ -269,16 +257,14 @@
 </style>
 </head>
 <body>
-
 <!-- HEADER -->
 <header>
   <div class="logo">芝芝<span>♡</span>健康</div>
   <div class="header-nav">
     <a class="nav-btn" onclick="history.back(); return false;" href="#">← 上一頁</a>
-    <a class="nav-btn" href="index.html">🏠 回首頁</a>
+    <a class="nav-btn" href="https://wufatw-bot.github.io/ShonaHomePage/">🏠 回首頁</a>
   </div>
 </header>
-
 <!-- VISITOR BAR -->
 <div class="visitor-bar">
   <div class="visitor-stat">
@@ -290,13 +276,11 @@
     累積到訪：<strong id="total-count">—</strong> 人
   </div>
 </div>
-
 <!-- INVOLUNTARY MOVEMENT SECTION -->
 <section id="movement">
   <div class="section-label">🧠 兒童神經發展</div>
   <h2 class="section-title">兒童不自主身體活動<br>是什麼原因？</h2>
   <p class="section-sub">不自主動作（Involuntary Movement Disorder）在兒童身上並不罕見，了解常見類型與成因，有助於家長及早辨識並尋求專業協助。</p>
-
   <div class="movement-intro-banner">
     <div class="banner-icon">🔍</div>
     <div>
@@ -304,12 +288,10 @@
       <p>不自主動作指的是無法由意志控制的身體動作或聲音。兒童常見的不自主動作涵蓋抽動症（Tic）、舞蹈病（Chorea）、震顫（Tremor）、肌張力不全（Dystonia）等。這些症狀可能源於神經系統、免疫、遺傳或心理因素，需由兒童神經科醫師進行專業評估。</p>
     </div>
   </div>
-
   <div class="movement-disclaimer">
     <span class="icon">⚕️</span>
     <span>以下資訊僅供衛教參考。若您的孩子出現持續或突發性不自主動作，請盡速就醫，由兒童神經科或小兒科醫師進行評估，切勿自行診斷或停用醫師處方藥物。</span>
   </div>
-
   <!-- 常見類型 -->
   <div class="video-section-title">常見不自主動作類型</div>
   <div class="movement-types-grid">
@@ -350,7 +332,6 @@
       <p>重複、節律性、無目的的動作，如搖晃身體、拍手、旋轉。常見於自閉症類群障礙（ASD）或發展遲緩兒童，但部分發展正常兒童也可能出現。</p>
     </div>
   </div>
-
   <!-- 警示徵兆 -->
   <div class="redflags-wrap">
     <div class="redflags-title">🚨 需要立即就醫的警示徵兆</div>
@@ -365,11 +346,9 @@
       <div class="redflag-item"><span class="rf-icon">📊</span><span>家族中有遺傳性神經疾病史</span></div>
     </div>
   </div>
-
   <!-- YouTube 影片 -->
   <div class="video-section-title">專業影片資源・深入了解</div>
   <div class="video-grid">
-
     <div class="video-card">
       <div class="video-embed-wrap">
         <iframe src="https://www.youtube.com/embed/L9kR-AMgmWM" title="不自主動作障礙概論" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
@@ -381,7 +360,6 @@
         <a href="https://youtu.be/L9kR-AMgmWM?si=mJ44oxS1RnIya2W8" target="_blank" rel="noopener noreferrer" class="video-external-link">在 YouTube 觀看 →</a>
       </div>
     </div>
-
     <div class="video-card">
       <div class="video-embed-wrap">
         <iframe src="https://www.youtube.com/embed/7UocK4eyjPI" title="兒童抽動症與妥瑞症解析" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
@@ -393,7 +371,6 @@
         <a href="https://www.youtube.com/watch?v=7UocK4eyjPI" target="_blank" rel="noopener noreferrer" class="video-external-link">在 YouTube 觀看 →</a>
       </div>
     </div>
-
     <div class="video-card">
       <div class="video-embed-wrap">
         <iframe src="https://www.youtube.com/embed/gUzTE_sG2eQ" title="動作障礙的診斷與評估" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
@@ -405,7 +382,6 @@
         <a href="https://youtu.be/gUzTE_sG2eQ?si=mJ44oxS1RnIya2W8" target="_blank" rel="noopener noreferrer" class="video-external-link">在 YouTube 觀看 →</a>
       </div>
     </div>
-
     <div class="video-card">
       <div class="video-embed-wrap">
         <iframe src="https://www.youtube.com/embed/XyDHG02phs0" title="肌張力不全與舞蹈病" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
@@ -417,7 +393,6 @@
         <a href="https://youtu.be/XyDHG02phs0?si=r8ZAXeLRAK-YH8tb" target="_blank" rel="noopener noreferrer" class="video-external-link">在 YouTube 觀看 →</a>
       </div>
     </div>
-
     <div class="video-card">
       <div class="video-embed-wrap">
         <iframe src="https://www.youtube.com/embed/EEusUYl5uQ4" title="不自主動作的治療與照護" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
@@ -429,7 +404,6 @@
         <a href="https://youtu.be/EEusUYl5uQ4?si=pybr2tb989vDllyR" target="_blank" rel="noopener noreferrer" class="video-external-link">在 YouTube 觀看 →</a>
       </div>
     </div>
-
     <!-- Instagram Reel card -->
     <div class="video-card">
       <div class="video-embed-wrap" style="padding-top:56.25%; background:#fdf0f7;">
@@ -447,60 +421,43 @@
         <a href="https://www.instagram.com/reel/DPlLS7gE93A/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer" class="video-external-link">在 Instagram 觀看 →</a>
       </div>
     </div>
-
   </div>
 </section>
-
 <!-- FOOTER -->
 <footer style="background:var(--deep-brown);color:rgba(255,255,255,0.7);padding:3rem 8vw;text-align:center;">
   <span style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:white;margin-bottom:.5rem;display:block;">芝芝♡健康</span>
   <p style="font-size:.8rem;line-height:1.8;">本網站由藥師專業製作，資訊僅供衛教參考，不可取代醫療診斷。<br>如有健康疑慮請諮詢您的醫師或藥師。</p>
   <p style="margin-top:1rem;font-size:.75rem;opacity:.5;">© 2025 芝芝要健康藥師網站・All Rights Reserved</p>
 </footer>
-
 <script>
-// ── VISITOR COUNTER (persistent storage) ──
-(async () => {
-  const TODAY_KEY = 'visitors:today';
-  const TOTAL_KEY = 'visitors:total';
-  const DATE_KEY  = 'visitors:date';
+// ── VISITOR COUNTER（使用 localStorage，相容 GitHub Pages）──
+(function () {
+  const PAGE_KEY    = 'inv_movement';          // 此頁專屬前綴
+  const TOTAL_KEY   = PAGE_KEY + '_total';     // 累積到訪
+  const TODAY_KEY   = PAGE_KEY + '_today';     // 今日到訪
+  const DATE_KEY    = PAGE_KEY + '_date';      // 上次記錄日期
 
   const todayStr = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
 
-  let total = 0;
-  let todayCount = 0;
+  // 讀取已儲存的值
+  let total     = parseInt(localStorage.getItem(TOTAL_KEY)) || 0;
+  let todayCount= parseInt(localStorage.getItem(TODAY_KEY)) || 0;
+  let storedDate= localStorage.getItem(DATE_KEY) || '';
 
-  // Read existing values
-  try {
-    const totalRes = await window.storage.get(TOTAL_KEY, true);
-    total = totalRes ? parseInt(totalRes.value) || 0 : 0;
-  } catch(e) { total = 0; }
-
-  let storedDate = '';
-  try {
-    const dateRes = await window.storage.get(DATE_KEY, true);
-    storedDate = dateRes ? dateRes.value : '';
-  } catch(e) { storedDate = ''; }
-
-  try {
-    const todayRes = await window.storage.get(TODAY_KEY, true);
-    todayCount = todayRes ? parseInt(todayRes.value) || 0 : 0;
-  } catch(e) { todayCount = 0; }
-
-  // Reset today count if date changed
+  // 日期換新就歸零今日計數
   if (storedDate !== todayStr) {
     todayCount = 0;
-    await window.storage.set(DATE_KEY, todayStr, true).catch(() => {});
+    localStorage.setItem(DATE_KEY, todayStr);
   }
 
-  // Increment
+  // 每次載入頁面計+1
   todayCount += 1;
-  total += 1;
+  total      += 1;
 
-  await window.storage.set(TODAY_KEY, String(todayCount), true).catch(() => {});
-  await window.storage.set(TOTAL_KEY, String(total), true).catch(() => {});
+  localStorage.setItem(TODAY_KEY, String(todayCount));
+  localStorage.setItem(TOTAL_KEY, String(total));
 
-  // Display
+  // 顯示
   document.getElementById('today-count').textContent = todayCount.toLocaleString();
   document.getElementById('total-count').textContent = total.toLocaleString();
 })();

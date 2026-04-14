@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>芝芝要健康 — 藥師的保健殿堂</title>
+<title>芝芝の學習保健站 — 神經發展・教養・職場・健康</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -602,7 +602,6 @@
     font-size:.85rem; color:var(--text-mid); line-height:1.8;
   }
   .faq-item.open .faq-a { display:block; animation:fadeUp .3s ease; }
-
   /* ── WORKPLACE COMMUNICATION ── */
   #workplace { background: var(--warm-white); }
   .workplace-intro-banner {
@@ -758,11 +757,6 @@
     from { opacity:0; transform:translateY(18px); }
     to   { opacity:1; transform:translateY(0); }
   }
-  @keyframes pulse-ring {
-    0% { box-shadow: 0 0 0 0 rgba(124,58,237,0.3); }
-    70% { box-shadow: 0 0 0 10px rgba(124,58,237,0); }
-    100% { box-shadow: 0 0 0 0 rgba(124,58,237,0); }
-  }
   /* ── RESPONSIVE ── */
   @media (max-width: 860px) {
     .hero { grid-template-columns:1fr; min-height:auto; }
@@ -771,7 +765,6 @@
     .kids-feature-row { grid-template-columns:1fr; }
     .kids-intro-banner { flex-direction:column; text-align:center; }
     .workplace-intro-banner { flex-direction:column; text-align:center; }
-    .video-grid { grid-template-columns:1fr; }
     nav { display:none; }
   }
 </style>
@@ -779,140 +772,91 @@
 <body>
 <!-- HEADER -->
 <header>
-  <div class="logo">芝芝<span>♡</span>健康</div>
+  <div class="logo">芝芝<span>♡</span>學習保健站</div>
   <nav>
+    <a href="#movement">神經發展</a>
+    <a href="#kids">教養教育</a>
+    <a href="#workplace">職場溝通</a>
     <a href="#products">保健食品</a>
     <a href="#checker">健康配對</a>
     <a href="#education">健康知識</a>
-    <a href="#kids">教育教養</a>
-    <a href="MedicalWorld/InvoluntaryMovement.html">不自主動作</a>
-    <a href="#workplace">職場溝通</a>
     <a href="#quiz">小測驗</a>
   </nav>
 </header>
+
 <!-- HERO -->
 <section class="hero">
   <div>
     <div class="hero-badge">🌿 藥師親身推薦・專業把關</div>
-    <h1>讓<em>保健</em>成為<br>每天的日常</h1>
-    <p>芝芝藥師以專業知識，帶您認識各類保健食品的成分、功能、適應症及注意事項，讓您做出最明智的健康選擇。</p>
+    <h1>學習・教養・<em>保健</em><br>全方位陪伴</h1>
+    <p>芝芝藥師整合兒童神經發展、教養策略、職場溝通與保健知識，讓每個人都能活得更健康、更自在。</p>
     <div class="hero-cta">
-      <a href="#products" class="btn-primary">探索保健品 →</a>
-      <a href="#checker" class="btn-outline">找適合我的</a>
+      <a href="#movement" class="btn-primary">兒童神經發展 →</a>
+      <a href="#kids" class="btn-outline">教養教育</a>
     </div>
   </div>
   <div class="hero-visual">
     <div class="herb-card">
-      <div class="herb-icon">🫐</div>
-      <h3>花青素</h3>
-      <p>強效抗氧化，保護眼睛與血管健康</p>
+      <div class="herb-icon">🧠</div>
+      <h3>神經發展</h3>
+      <p>了解不自主動作成因，早期辨識與介入</p>
     </div>
     <div class="herb-card">
-      <div class="herb-icon">🐟</div>
-      <h3>魚油 Omega-3</h3>
-      <p>維護心血管，降低三酸甘油酯</p>
+      <div class="herb-icon">👨‍👩‍👧</div>
+      <h3>教養教育</h3>
+      <p>兒童營養、發展里程碑與教養策略</p>
     </div>
     <div class="herb-card">
-      <div class="herb-icon">🌞</div>
-      <h3>維生素D</h3>
-      <p>骨骼健康、免疫調節不可缺少</p>
+      <div class="herb-icon">💼</div>
+      <h3>職場溝通</h3>
+      <p>說對話、做對事，建立良好工作關係</p>
     </div>
     <div class="herb-card">
-      <div class="herb-icon">🦠</div>
-      <h3>益生菌</h3>
-      <p>平衡腸道菌叢，提升消化功能</p>
+      <div class="herb-icon">🌿</div>
+      <h3>保健知識</h3>
+      <p>藥師專業把關，正確補充保健食品</p>
     </div>
   </div>
 </section>
-<!-- PRODUCTS -->
-<section id="products">
-  <div class="section-label">🌱 保健食品圖書館</div>
-  <h2 class="section-title">成分・功能・注意事項</h2>
-  <p class="section-sub">點選分類標籤，深入了解各項保健成分的專業知識，做出最適合自己的選擇。</p>
-  <div class="disclaimer">
-    <span class="icon">⚠️</span>
-    <span>本頁資訊僅供衛教參考，無法取代醫師或藥師個別評估。服用前請諮詢專業醫療人員，特別是孕婦、哺乳婦及慢性病患者。</span>
-  </div>
-  <div class="tabs">
-    <button class="tab active" onclick="switchTab('all',this)">全部</button>
-    <button class="tab" onclick="switchTab('antioxidant',this)">抗氧化</button>
-    <button class="tab" onclick="switchTab('immunity',this)">免疫</button>
-    <button class="tab" onclick="switchTab('bone',this)">骨骼關節</button>
-    <button class="tab" onclick="switchTab('gut',this)">腸胃</button>
-    <button class="tab" onclick="switchTab('heart',this)">心血管</button>
-    <button class="tab" onclick="switchTab('brain',this)">腦部</button>
-  </div>
-  <div id="tab-all" class="tab-content active">
-    <div class="product-grid" id="all-grid"></div>
-  </div>
-  <div id="tab-antioxidant" class="tab-content">
-    <div class="product-grid" id="antioxidant-grid"></div>
-  </div>
-  <div id="tab-immunity" class="tab-content">
-    <div class="product-grid" id="immunity-grid"></div>
-  </div>
-  <div id="tab-bone" class="tab-content">
-    <div class="product-grid" id="bone-grid"></div>
-  </div>
-  <div id="tab-gut" class="tab-content">
-    <div class="product-grid" id="gut-grid"></div>
-  </div>
-  <div id="tab-heart" class="tab-content">
-    <div class="product-grid" id="heart-grid"></div>
-  </div>
-  <div id="tab-brain" class="tab-content">
-    <div class="product-grid" id="brain-grid"></div>
-  </div>
-</section>
-<!-- CHECKER -->
-<section id="checker">
-  <div class="section-label">🔍 個人化配對</div>
-  <h2 class="section-title">找到最適合你的<br>保健食品</h2>
-  <p class="section-sub">勾選您目前關注的健康需求，芝芝藥師幫您推薦最適合的保健方向。</p>
-  <div class="checker-wrap">
-    <div class="checker-form">
-      <div class="form-group">
-        <label>🙋 我的健康需求</label>
-        <div class="checkbox-group">
-          <label class="check-item"><input type="checkbox" value="eye"> 👁 護眼</label>
-          <label class="check-item"><input type="checkbox" value="heart"> ❤️ 心臟</label>
-          <label class="check-item"><input type="checkbox" value="bone"> 🦴 骨骼</label>
-          <label class="check-item"><input type="checkbox" value="gut"> 🫙 消化</label>
-          <label class="check-item"><input type="checkbox" value="brain"> 🧠 腦力</label>
-          <label class="check-item"><input type="checkbox" value="immunity"> 🛡 免疫</label>
-          <label class="check-item"><input type="checkbox" value="sleep"> 😴 睡眠</label>
-          <label class="check-item"><input type="checkbox" value="skin"> ✨ 皮膚</label>
-          <label class="check-item"><input type="checkbox" value="energy"> ⚡ 體力</label>
-          <label class="check-item"><input type="checkbox" value="joint"> 🦵 關節</label>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>📋 特殊情況（多選）</label>
-        <div class="checkbox-group">
-          <label class="check-item"><input type="checkbox" value="pregnant"> 🤰 孕期</label>
-          <label class="check-item"><input type="checkbox" value="senior"> 👴 銀髮族</label>
-          <label class="check-item"><input type="checkbox" value="blood-thinner"> 💊 服抗凝血藥</label>
-          <label class="check-item"><input type="checkbox" value="diabetes"> 🩸 血糖問題</label>
-        </div>
-      </div>
-      <button class="btn-primary" onclick="runChecker()" style="width:100%">🔍 立即配對</button>
-    </div>
-    <div class="checker-result" id="checker-result">
-      <div class="result-placeholder">
-        <div class="big-icon">🌿</div>
-        <p>勾選您的健康需求<br>並點擊「立即配對」</p>
+
+<!-- ① 兒童神經發展 / INVOLUNTARY MOVEMENT (FIRST) -->
+<section id="movement" style="background: var(--violet-bg); padding: 5rem 8vw;">
+  <div class="section-label" style="color:#7C3AED;">🧠 兒童神經發展</div>
+  <h2 class="section-title">兒童不自主身體活動</h2>
+  <p class="section-sub">不自主動作（Involuntary Movement Disorder）在兒童身上並不罕見，了解常見類型與成因，有助於家長及早辨識並尋求專業協助。</p>
+  <a href="MedicalWorld/InvoluntaryMovement.html" style="text-decoration:none; display:inline-block; margin-top: 2rem;">
+    <div style="
+      background: white;
+      border-radius: 24px;
+      padding: 2.5rem 3rem;
+      border: 1.5px solid rgba(124,58,237,0.25);
+      box-shadow: 0 4px 30px rgba(124,58,237,0.1);
+      display: inline-flex;
+      align-items: center;
+      gap: 2rem;
+      max-width: 620px;
+      transition: all 0.3s;
+    "
+    onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(124,58,237,0.2)'"
+    onmouseout="this.style.transform='';this.style.boxShadow='0 4px 30px rgba(124,58,237,0.1)'"
+    >
+      <div style="
+        width: 68px; height: 68px; border-radius: 18px;
+        background: linear-gradient(135deg, #C4B5FD, #7C3AED);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 2.2rem; flex-shrink: 0;
+      ">🧠</div>
+      <div>
+        <div style="font-size:.7rem;font-weight:700;letter-spacing:.12em;color:#7C3AED;text-transform:uppercase;margin-bottom:.4rem;">完整文章</div>
+        <h3 style="font-size:1.15rem;font-weight:700;color:var(--text-dark);margin-bottom:.5rem;">兒童不自主身體活動是什麼原因？</h3>
+        <p style="font-size:.85rem;color:var(--text-mid);line-height:1.75;margin-bottom:.9rem;">了解抽動症、舞蹈病、震顫、肌張力不全等常見類型，認識警示徵兆，協助家長及早辨識與就醫。</p>
+        <span style="display:inline-flex;align-items:center;gap:.4rem;color:#5B21B6;font-size:.88rem;font-weight:700;">閱讀完整內容 →</span>
       </div>
     </div>
-  </div>
+  </a>
 </section>
-<!-- EDUCATION (健康知識) -->
-<section id="education">
-  <div class="section-label">📚 健康知識專欄</div>
-  <h2 class="section-title">健康知識・藥師精選</h2>
-  <p class="section-sub">藥師精選衛教主題，從兒童營養到老年保健，讓全家人都能獲得正確知識。</p>
-  <div class="edu-grid" id="edu-grid"></div>
-</section>
-<!-- KIDS EDUCATION (教育教養) -->
+
+<!-- ② 學童教養與教育 (SECOND) -->
 <section id="kids">
   <div class="section-label">🎒 學童教養與教育</div>
   <h2 class="section-title">陪伴孩子健康成長</h2>
@@ -963,44 +907,7 @@
   </div>
 </section>
 
-<!-- INVOLUNTARY MOVEMENT LINK -->
-<section id="movement" style="background: var(--violet-bg); padding: 5rem 8vw;">
-  <div class="section-label" style="color:#7C3AED;">🧠 兒童神經發展</div>
-  <h2 class="section-title">兒童不自主身體活動</h2>
-  <p class="section-sub">不自主動作（Involuntary Movement Disorder）在兒童身上並不罕見，了解常見類型與成因，有助於家長及早辨識並尋求專業協助。</p>
-  <a href="MedicalWorld/InvoluntaryMovement.html" style="text-decoration:none; display:inline-block; margin-top: 2rem;">
-    <div style="
-      background: white;
-      border-radius: 24px;
-      padding: 2.5rem 3rem;
-      border: 1.5px solid rgba(124,58,237,0.25);
-      box-shadow: 0 4px 30px rgba(124,58,237,0.1);
-      display: inline-flex;
-      align-items: center;
-      gap: 2rem;
-      max-width: 620px;
-      transition: all 0.3s;
-    "
-    onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(124,58,237,0.2)'"
-    onmouseout="this.style.transform='';this.style.boxShadow='0 4px 30px rgba(124,58,237,0.1)'"
-    >
-      <div style="
-        width: 68px; height: 68px; border-radius: 18px;
-        background: linear-gradient(135deg, #C4B5FD, #7C3AED);
-        display: flex; align-items: center; justify-content: center;
-        font-size: 2.2rem; flex-shrink: 0;
-      ">🧠</div>
-      <div>
-        <div style="font-size:.7rem;font-weight:700;letter-spacing:.12em;color:#7C3AED;text-transform:uppercase;margin-bottom:.4rem;">完整文章</div>
-        <h3 style="font-size:1.15rem;font-weight:700;color:var(--text-dark);margin-bottom:.5rem;">兒童不自主身體活動是什麼原因？</h3>
-        <p style="font-size:.85rem;color:var(--text-mid);line-height:1.75;margin-bottom:.9rem;">了解抽動症、舞蹈病、震顫、肌張力不全等常見類型，認識警示徵兆，協助家長及早辨識與就醫。</p>
-        <span style="display:inline-flex;align-items:center;gap:.4rem;color:#5B21B6;font-size:.88rem;font-weight:700;">閱讀完整內容 →</span>
-      </div>
-    </div>
-  </a>
-</section>
-
-<!-- WORKPLACE COMMUNICATION (職場溝通) -->
+<!-- ③ 職場溝通 (THIRD) -->
 <section id="workplace">
   <div class="section-label indigo">💼 職場溝通</div>
   <h2 class="section-title">說對話・做對事</h2>
@@ -1035,7 +942,99 @@
     <div class="work-scenario-wrap" id="work-scenarios-list"></div>
   </div>
 </section>
-<!-- QUIZ -->
+
+<!-- ④ 保健食品 (FOURTH) -->
+<section id="products">
+  <div class="section-label">🌱 保健食品圖書館</div>
+  <h2 class="section-title">成分・功能・注意事項</h2>
+  <p class="section-sub">點選分類標籤，深入了解各項保健成分的專業知識，做出最適合自己的選擇。</p>
+  <div class="disclaimer">
+    <span class="icon">⚠️</span>
+    <span>本頁資訊僅供衛教參考，無法取代醫師或藥師個別評估。服用前請諮詢專業醫療人員，特別是孕婦、哺乳婦及慢性病患者。</span>
+  </div>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('all',this)">全部</button>
+    <button class="tab" onclick="switchTab('antioxidant',this)">抗氧化</button>
+    <button class="tab" onclick="switchTab('immunity',this)">免疫</button>
+    <button class="tab" onclick="switchTab('bone',this)">骨骼關節</button>
+    <button class="tab" onclick="switchTab('gut',this)">腸胃</button>
+    <button class="tab" onclick="switchTab('heart',this)">心血管</button>
+    <button class="tab" onclick="switchTab('brain',this)">腦部</button>
+  </div>
+  <div id="tab-all" class="tab-content active">
+    <div class="product-grid" id="all-grid"></div>
+  </div>
+  <div id="tab-antioxidant" class="tab-content">
+    <div class="product-grid" id="antioxidant-grid"></div>
+  </div>
+  <div id="tab-immunity" class="tab-content">
+    <div class="product-grid" id="immunity-grid"></div>
+  </div>
+  <div id="tab-bone" class="tab-content">
+    <div class="product-grid" id="bone-grid"></div>
+  </div>
+  <div id="tab-gut" class="tab-content">
+    <div class="product-grid" id="gut-grid"></div>
+  </div>
+  <div id="tab-heart" class="tab-content">
+    <div class="product-grid" id="heart-grid"></div>
+  </div>
+  <div id="tab-brain" class="tab-content">
+    <div class="product-grid" id="brain-grid"></div>
+  </div>
+</section>
+
+<!-- ⑤ 健康配對 -->
+<section id="checker">
+  <div class="section-label">🔍 個人化配對</div>
+  <h2 class="section-title">找到最適合你的<br>保健食品</h2>
+  <p class="section-sub">勾選您目前關注的健康需求，芝芝藥師幫您推薦最適合的保健方向。</p>
+  <div class="checker-wrap">
+    <div class="checker-form">
+      <div class="form-group">
+        <label>🙋 我的健康需求</label>
+        <div class="checkbox-group">
+          <label class="check-item"><input type="checkbox" value="eye"> 👁 護眼</label>
+          <label class="check-item"><input type="checkbox" value="heart"> ❤️ 心臟</label>
+          <label class="check-item"><input type="checkbox" value="bone"> 🦴 骨骼</label>
+          <label class="check-item"><input type="checkbox" value="gut"> 🫙 消化</label>
+          <label class="check-item"><input type="checkbox" value="brain"> 🧠 腦力</label>
+          <label class="check-item"><input type="checkbox" value="immunity"> 🛡 免疫</label>
+          <label class="check-item"><input type="checkbox" value="sleep"> 😴 睡眠</label>
+          <label class="check-item"><input type="checkbox" value="skin"> ✨ 皮膚</label>
+          <label class="check-item"><input type="checkbox" value="energy"> ⚡ 體力</label>
+          <label class="check-item"><input type="checkbox" value="joint"> 🦵 關節</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>📋 特殊情況（多選）</label>
+        <div class="checkbox-group">
+          <label class="check-item"><input type="checkbox" value="pregnant"> 🤰 孕期</label>
+          <label class="check-item"><input type="checkbox" value="senior"> 👴 銀髮族</label>
+          <label class="check-item"><input type="checkbox" value="blood-thinner"> 💊 服抗凝血藥</label>
+          <label class="check-item"><input type="checkbox" value="diabetes"> 🩸 血糖問題</label>
+        </div>
+      </div>
+      <button class="btn-primary" onclick="runChecker()" style="width:100%">🔍 立即配對</button>
+    </div>
+    <div class="checker-result" id="checker-result">
+      <div class="result-placeholder">
+        <div class="big-icon">🌿</div>
+        <p>勾選您的健康需求<br>並點擊「立即配對」</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑥ 健康知識專欄 -->
+<section id="education">
+  <div class="section-label">📚 健康知識專欄</div>
+  <h2 class="section-title">健康知識・藥師精選</h2>
+  <p class="section-sub">藥師精選衛教主題，從兒童營養到老年保健，讓全家人都能獲得正確知識。</p>
+  <div class="edu-grid" id="edu-grid"></div>
+</section>
+
+<!-- ⑦ 小測驗 -->
 <section id="quiz">
   <div class="section-label">🎯 互動測驗</div>
   <h2 class="section-title">考考你的保健知識</h2>
@@ -1051,13 +1050,15 @@
     </div>
   </div>
 </section>
+
 <!-- FOOTER -->
 <footer style="background:var(--deep-brown);color:rgba(255,255,255,0.7);padding:3rem 8vw;text-align:center;">
-  <span class="logo" style="color:white;margin-bottom:.5rem;display:block;">芝芝♡健康</span>
+  <span class="logo" style="color:white;margin-bottom:.5rem;display:block;">芝芝♡學習保健站</span>
   <p style="font-size:.8rem;line-height:1.8;">本網站由藥師專業製作，資訊僅供衛教參考，不可取代醫療診斷。<br>
   如有健康疑慮請諮詢您的<a href="#" style="color:var(--sage-light);">醫師或藥師</a>。</p>
-  <p style="margin-top:1rem;font-size:.75rem;opacity:.5;">© 2025 芝芝要健康藥師網站・All Rights Reserved</p>
+  <p style="margin-top:1rem;font-size:.75rem;opacity:.5;">© 2025 芝芝學習保健站・All Rights Reserved</p>
 </footer>
+
 <script>
 // ═══════════════════════════════════════════
 // PRODUCTS DATA
@@ -1099,7 +1100,7 @@ const eduCards = [
   { color:'rose', icon:'👴', cat:'銀髮保健', title:'65歲後的保健重點清單', desc:'年紀增長後，部分營養素吸收能力下降，身體需求也與年輕時不同，銀髮族的保健需要特別規劃。', isLink: false, points:['B12：胃酸分泌減少影響吸收，建議以舌下錠或注射補充','維生素D：皮膚合成效率下降，建議劑量提升至1000–2000IU','鈣質：停經後女性骨質流失加速，需規律補充並搭配D3','魚油：心血管保護，注意與藥物的交互作用','肌少症預防：足量蛋白質（每公斤體重1.2g/天）＋阻力訓練','定期追蹤血清維生素D、B12、血液常規及骨密度'] },
   { color:'blue', icon:'📖', cat:'正確觀念', title:'保健食品≠藥物，你搞清楚了嗎？', desc:'臺灣許多民眾對保健食品有許多迷思，藥師幫你破解最常見的誤解，建立正確的保健觀念。', isLink: false, points:['保健食品無法治療疾病，不能取代正規藥物治療','「天然」不等於安全，高劑量天然成分一樣有副作用','廣告「千人見證」不等於科學證據，查看是否有臨床研究','服用任何保健品前，一定要告知您的醫師和藥師','進口品不一定比台灣製好，重點是第三方認證（GMP、NSF等）','保健品的效果通常需要持續數週至數月才能評估'] },
   { color:'green', icon:'🏫', cat:'學齡教育', title:'學生的腦力保健指南', desc:'考試壓力大、睡眠不足、飲食不規律……學生族群的保健需求有其特殊性。', isLink: false, points:['B群是能量代謝關鍵，但咖啡因+B群不是「提神萬靈丹」','魚油DHA對學習記憶有正面影響，但效果需長期使用','PS（磷脂醯絲胺酸）有助注意力，但睡眠才是最重要的腦力恢復途徑','鐵質缺乏會導致疲勞和注意力下降，女生尤其要注意','護眼配方（葉黃素+花青素）適合長時間用眼的學生','規律運動（每週150分鐘）對腦力提升效果優於任何保健品'] },
-  { color:'amber', icon:'⚡', cat:'運動保健', title:'運動族的保健食品策略', desc:'運動量大的人，對特定營養素的需求較一般人高，如何科學地補充是一門學問。', isLink: false, points:['運動後30分鐘內補充蛋白質（0.3g/kg），促進肌肉修復','鎂：劇烈運動後大量流失，有助肌肉放鬆減少抽筋','維生素D：運動表現與維生素D水平有正相關','魚油：抗發炎，減少延遲性肌肉痠痛（DOMS）','肌酸（Creatine）：短時間高強度運動的合法輔助品','咖啡因：賽前60分鐘攝取3–6mg/kg，提升耐力表現（有科學根據）'] }
+  { color:'amber', icon:'⚡', cat:'運動保健', title:'運動族的保健食品策略', desc:'運動量大的人，對特定營養素的需求較一般人高，如何科學地補充是一門學問。', isLink: false, points:['運動後30分鐘內補充碳水化合物+蛋白質（黃金30分鐘）','鎂：劇烈運動後大量流失，有助肌肉放鬆減少抽筋','維生素D：運動表現與維生素D水平有正相關','魚油：抗發炎，減少延遲性肌肉痠痛（DOMS）','肌酸（Creatine）：短時間高強度運動的合法輔助品','咖啡因：賽前60分鐘攝取3–6mg/kg，提升耐力表現（有科學根據）'] }
 ];
 const quizData = [
   { q:'服用魚油的最佳時機是？', opts:['空腹早晨服用效果最好','隨餐服用，幫助吸收並減少魚腥嗝氣','睡前服用可幫助睡眠','任何時間效果完全一樣'], ans:1, explain:'魚油含脂溶性EPA/DHA，隨餐服用可增加吸收率，同時減少讓人不舒服的魚腥嗝氣。睡前服用雖無大礙，但最推薦隨餐時機。' },
@@ -1176,7 +1177,6 @@ const workScenarios = [
   { q:'📈 情境：你認為主管的決策有誤，但又不想直接衝突', a:'用「請教」的姿態提出疑問，讓主管自己發現問題，而非直接挑戰其判斷。', template:'[主管]，關於[決策X]，我想多了解一下背後的考量。我在評估時注意到[Y風險/數據/情況]，不確定這個部分是否已經納入考慮？如果您已評估過，能否讓我了解是怎麼思考的？這樣我執行起來會更放心。' },
   { q:'🎤 情境：需要在大型會議上發言，但你很緊張', a:'緊張是正常的，但可以用結構和準備來降低焦慮，讓發言更有說服力。', template:'（發言結構）先用一句話說明你的立場或結論，接著給出1–2個支持論點，最後收尾呼應開頭。\n開場範例：「我想分享關於[主題]的觀察。我的結論是[X]，原因有兩個：第一，[A]；第二，[B]。所以我建議我們[具體行動]。」' }
 ];
-
 // ═══════════════════════════════════════════
 // RENDER PRODUCTS
 // ═══════════════════════════════════════════
@@ -1226,7 +1226,6 @@ function switchTab(cat, btn) {
   btn.classList.add('active');
   document.getElementById('tab-'+cat).classList.add('active');
 }
-
 // ═══════════════════════════════════════════
 // CHECKER
 // ═══════════════════════════════════════════
@@ -1244,7 +1243,6 @@ function runChecker() {
   html += `<p style="font-size:.75rem;color:var(--text-light);margin-top:1rem;line-height:1.7">⚕️ 此配對結果僅供參考，實際補充計畫請諮詢藥師或醫師。</p>`;
   result.innerHTML = html;
 }
-
 // ═══════════════════════════════════════════
 // EDUCATION
 // ═══════════════════════════════════════════
@@ -1294,7 +1292,6 @@ function renderEdu() {
     }
   });
 }
-
 // ═══════════════════════════════════════════
 // QUIZ
 // ═══════════════════════════════════════════
@@ -1345,7 +1342,6 @@ function restartQuiz() {
   document.getElementById('quiz-score').className='quiz-score';
   renderQuiz();
 }
-
 // ═══════════════════════════════════════════
 // KIDS
 // ═══════════════════════════════════════════
@@ -1374,7 +1370,6 @@ function toggleFaq(el) {
   document.querySelectorAll('.faq-item').forEach(f=>f.classList.remove('open'));
   if(!wasOpen)el.classList.add('open');
 }
-
 // ═══════════════════════════════════════════
 // WORKPLACE
 // ═══════════════════════════════════════════
@@ -1414,7 +1409,6 @@ function toggleScenario(el) {
   document.querySelectorAll('.work-scenario').forEach(s=>s.classList.remove('open'));
   if(!wasOpen)el.classList.add('open');
 }
-
 // ═══════════════════════════════════════════
 // INIT
 // ═══════════════════════════════════════════

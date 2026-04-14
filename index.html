@@ -29,6 +29,11 @@
     --violet-mid: #A78BFA;
     --violet-dark: #5B21B6;
     --violet-bg: #F5F3FF;
+    --star-blue: #1E3A5F;
+    --star-mid: #2D5A9E;
+    --star-light: #4A7FD4;
+    --star-gold: #F5C842;
+    --star-bg: #EEF4FF;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior: smooth; }
@@ -38,40 +43,45 @@
     font-family: 'Noto Sans TC', sans-serif;
     overflow-x: hidden;
   }
+
   /* ── HEADER ── */
   header {
     position: sticky; top:0; z-index:100;
-    background: rgba(250,246,240,0.92);
-    backdrop-filter: blur(12px);
+    background: rgba(250,246,240,0.95);
+    backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
     padding: 0 5vw;
     display: flex; align-items: center; justify-content: space-between;
-    height: 70px;
+    height: 68px;
+    box-shadow: 0 2px 20px rgba(61,43,26,0.06);
   }
   .logo {
     font-family: 'DM Serif Display', serif;
-    font-size: 1.6rem;
+    font-size: 1.55rem;
     color: var(--sage-dark);
     letter-spacing: 0.02em;
   }
   .logo span { color: var(--amber); }
-  nav { display: flex; gap: 1.8rem; }
+  nav { display: flex; gap: 1.6rem; }
   nav a {
     text-decoration: none;
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 500;
     color: var(--text-mid);
     letter-spacing: 0.05em;
     transition: color .25s;
     position: relative;
+    padding: .2rem 0;
   }
   nav a::after {
-    content:''; position:absolute; bottom:-4px; left:0;
-    width:0; height:2px; background:var(--sage);
+    content:''; position:absolute; bottom:-3px; left:0;
+    width:0; height:2px; background: var(--sage);
+    border-radius: 2px;
     transition: width .3s;
   }
   nav a:hover { color: var(--sage-dark); }
   nav a:hover::after { width:100%; }
+
   /* ── HERO ── */
   .hero {
     min-height: 88vh;
@@ -88,6 +98,14 @@
     width: 700px; height:700px;
     border-radius:50%;
     background: radial-gradient(circle, rgba(123,158,135,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content:'';
+    position:absolute; bottom:-80px; left:-80px;
+    width: 400px; height:400px;
+    border-radius:50%;
+    background: radial-gradient(circle, rgba(212,168,71,0.08) 0%, transparent 70%);
     pointer-events: none;
   }
   .hero-badge {
@@ -178,19 +196,18 @@
     padding: 1.5rem;
     box-shadow: var(--shadow);
     border: 1px solid var(--border);
-    transition: transform .3s;
+    transition: transform .3s, box-shadow .3s;
     cursor: default;
   }
-  .herb-card:hover { transform: translateY(-6px); }
+  .herb-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(61,43,26,0.13); }
   .herb-card:nth-child(2) { margin-top: 1.5rem; }
   .herb-card:nth-child(4) { margin-top: -1.5rem; }
   .herb-icon { font-size: 2rem; margin-bottom:.8rem; }
   .herb-card h3 { font-size:.9rem; font-weight:600; color:var(--text-dark); }
   .herb-card p { font-size:.75rem; color:var(--text-light); margin-top:.3rem; line-height:1.6; }
+
   /* ── SECTION COMMON ── */
-  section {
-    padding: 5rem 8vw;
-  }
+  section { padding: 5rem 8vw; }
   .section-label {
     font-size: .72rem;
     font-weight: 700;
@@ -213,6 +230,135 @@
     line-height: 1.8;
     max-width: 600px;
   }
+
+  /* ── MOVEMENT SECTION (兒童神經發展) ── */
+  #movement {
+    background: var(--violet-bg);
+    padding: 5rem 8vw;
+  }
+  .movement-cards-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  /* Involuntary Movement card */
+  .movement-link-card {
+    text-decoration: none;
+    display: block;
+    background: white;
+    border-radius: 24px;
+    padding: 2rem 2.2rem;
+    border: 1.5px solid rgba(124,58,237,0.2);
+    box-shadow: 0 4px 30px rgba(124,58,237,0.08);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .movement-link-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #C4B5FD, #7C3AED);
+    border-radius: 24px 24px 0 0;
+  }
+  .movement-link-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 44px rgba(124,58,237,0.18);
+    border-color: rgba(124,58,237,0.4);
+  }
+  .movement-link-card .card-icon-wrap {
+    width: 60px; height: 60px; border-radius: 16px;
+    background: linear-gradient(135deg, #C4B5FD, #7C3AED);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem; margin-bottom: 1.2rem;
+  }
+  .movement-link-card .card-badge {
+    font-size:.68rem; font-weight:700; letter-spacing:.12em;
+    color: #7C3AED; text-transform:uppercase; margin-bottom:.5rem;
+    display: block;
+  }
+  .movement-link-card h3 {
+    font-size:1.1rem; font-weight:700; color:var(--text-dark);
+    margin-bottom:.5rem; line-height: 1.4;
+  }
+  .movement-link-card p {
+    font-size:.85rem; color:var(--text-mid); line-height:1.75;
+    margin-bottom:1rem;
+  }
+  .movement-link-card .read-more {
+    display: inline-flex; align-items: center; gap: .4rem;
+    color: #5B21B6; font-size:.88rem; font-weight:700;
+    transition: gap .2s;
+  }
+  .movement-link-card:hover .read-more { gap: .7rem; }
+
+  /* Star-chasing card */
+  .star-link-card {
+    text-decoration: none;
+    display: block;
+    background: linear-gradient(135deg, var(--star-blue) 0%, #0F2744 100%);
+    border-radius: 24px;
+    padding: 2rem 2.2rem;
+    border: 1.5px solid rgba(245,200,66,0.25);
+    box-shadow: 0 4px 30px rgba(30,58,95,0.25);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .star-link-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--star-gold), #FDE68A, var(--star-gold));
+    border-radius: 24px 24px 0 0;
+  }
+  /* Twinkling stars background */
+  .star-link-card::after {
+    content: '✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧';
+    position: absolute; top: 10px; right: 10px;
+    font-size: .8rem;
+    color: rgba(245,200,66,0.2);
+    letter-spacing: .4rem;
+    line-height: 2.2;
+    pointer-events: none;
+    width: 140px;
+    word-break: break-all;
+  }
+  .star-link-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 48px rgba(30,58,95,0.4);
+    border-color: rgba(245,200,66,0.5);
+  }
+  .star-link-card .card-icon-wrap {
+    width: 60px; height: 60px; border-radius: 16px;
+    background: linear-gradient(135deg, rgba(245,200,66,0.25), rgba(245,200,66,0.1));
+    border: 1px solid rgba(245,200,66,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem; margin-bottom: 1.2rem;
+  }
+  .star-link-card .card-badge {
+    font-size:.68rem; font-weight:700; letter-spacing:.12em;
+    color: var(--star-gold); text-transform:uppercase; margin-bottom:.5rem;
+    display: block;
+    opacity: .85;
+  }
+  .star-link-card h3 {
+    font-size:1.1rem; font-weight:700;
+    color: white;
+    margin-bottom:.5rem; line-height: 1.4;
+  }
+  .star-link-card p {
+    font-size:.85rem; color: rgba(255,255,255,0.65); line-height:1.75;
+    margin-bottom:1rem;
+  }
+  .star-link-card .read-more {
+    display: inline-flex; align-items: center; gap: .4rem;
+    color: var(--star-gold); font-size:.88rem; font-weight:700;
+    transition: gap .2s;
+  }
+  .star-link-card:hover .read-more { gap: .7rem; }
+
   /* ── TABS (Products) ── */
   #products { background: var(--warm-white); }
   .tabs {
@@ -305,6 +451,7 @@
     padding-top:.1rem;
   }
   .detail-text { font-size:.82rem; color:var(--text-mid); line-height:1.7; }
+
   /* ── INTERACTIVE CHECKER ── */
   #checker { background: var(--cream); }
   .checker-wrap {
@@ -356,6 +503,7 @@
     background:rgba(123,158,135,0.15); border-radius:50px;
     padding:.15rem .6rem; display:inline-block; margin-top:.5rem;
   }
+
   /* ── EDUCATION ── */
   #education { background: var(--warm-white); }
   .edu-grid {
@@ -387,9 +535,7 @@
   }
   .edu-card h3 { font-size:1rem; font-weight:700; color:var(--text-dark); margin-bottom:.5rem; }
   .edu-card p { font-size:.83rem; color:var(--text-mid); line-height:1.75; }
-  .edu-expand {
-    margin-top:1.2rem;
-  }
+  .edu-expand { margin-top:1.2rem; }
   .edu-expand-content {
     display:none; margin-top:.8rem;
     border-top:1px solid var(--border); padding-top:.8rem;
@@ -403,7 +549,6 @@
   .edu-points li::before {
     content:'✦'; position:absolute; left:0; color:var(--sage); font-size:.6rem; top:.5rem;
   }
-  /* ── LINK CARD (for external articles) ── */
   .edu-card-link {
     text-decoration: none; display:block; color: inherit;
   }
@@ -427,6 +572,7 @@
     font-size:.68rem; font-weight:700; color:var(--sage-dark);
     letter-spacing:.06em; margin-bottom:.6rem;
   }
+
   /* ── QUIZ ── */
   #quiz { background:var(--cream); }
   .quiz-wrap {
@@ -434,9 +580,7 @@
     background:white; border-radius:28px; padding:3rem;
     border:1px solid var(--border); box-shadow:var(--shadow);
   }
-  .quiz-progress {
-    display:flex; gap:.5rem; margin-bottom:2.5rem;
-  }
+  .quiz-progress { display:flex; gap:.5rem; margin-bottom:2.5rem; }
   .quiz-progress-bar {
     height:4px; border-radius:4px; background:var(--border); flex:1;
     transition: background .4s;
@@ -467,21 +611,14 @@
   .quiz-feedback.show { display:block; animation:fadeUp .3s ease; }
   .quiz-feedback.ok { background:rgba(76,175,80,0.1); color:#2d7a2d; border:1px solid rgba(76,175,80,0.2); }
   .quiz-feedback.err { background:rgba(239,83,80,0.1); color:#c0392b; border:1px solid rgba(239,83,80,0.2); }
-  .quiz-next {
-    margin-top:1.5rem; display:none;
-  }
+  .quiz-next { margin-top:1.5rem; display:none; }
   .quiz-next.show { display:block; }
-  .quiz-score {
-    text-align:center; padding:2rem 0;
-    display:none;
-  }
+  .quiz-score { text-align:center; padding:2rem 0; display:none; }
   .quiz-score.show { display:block; animation:fadeUp .4s ease; }
-  .quiz-score .score-num {
-    font-family:'DM Serif Display',serif;
-    font-size:4rem; color:var(--sage-dark);
-  }
+  .quiz-score .score-num { font-family:'DM Serif Display',serif; font-size:4rem; color:var(--sage-dark); }
   .quiz-score h3 { font-size:1.4rem; font-weight:700; margin:.5rem 0; }
   .quiz-score p { color:var(--text-mid); margin-bottom:1.5rem; }
+
   /* ── KIDS SECTION ── */
   #kids { background: var(--cream); }
   .kids-intro-banner {
@@ -495,34 +632,22 @@
   .kids-intro-banner .banner-icon { font-size:3.5rem; flex-shrink:0; }
   .kids-intro-banner h3 { font-size:1.1rem; font-weight:700; color:var(--text-dark); margin-bottom:.4rem; }
   .kids-intro-banner p { font-size:.87rem; color:var(--text-mid); line-height:1.8; }
-  .kids-nav-tabs {
-    display:flex; gap:.6rem; flex-wrap:wrap;
-    margin-bottom: 2.5rem;
-  }
+  .kids-nav-tabs { display:flex; gap:.6rem; flex-wrap:wrap; margin-bottom: 2.5rem; }
   .kids-tab {
-    padding:.6rem 1.4rem;
-    border-radius: 50px;
-    border: 1.5px solid var(--border);
-    background: white;
-    cursor:pointer;
-    font-size:.83rem;
+    padding:.6rem 1.4rem; border-radius: 50px;
+    border: 1.5px solid var(--border); background: white;
+    cursor:pointer; font-size:.83rem;
     font-family:'Noto Sans TC',sans-serif;
-    color:var(--text-mid);
-    font-weight:500;
+    color:var(--text-mid); font-weight:500;
     transition:all .25s;
     display:flex; align-items:center; gap:.4rem;
   }
   .kids-tab:hover, .kids-tab.active {
-    background: #F59E0B;
-    color: white;
-    border-color: #F59E0B;
+    background: #F59E0B; color: white; border-color: #F59E0B;
   }
   .kids-tab-content { display:none; }
   .kids-tab-content.active { display:block; animation:fadeUp .4s ease both; }
-  .kids-topic-grid {
-    display:grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
-    gap:1.5rem;
-  }
+  .kids-topic-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap:1.5rem; }
   .kids-card {
     background:white; border-radius:24px;
     border:1px solid var(--border); overflow:hidden;
@@ -530,12 +655,10 @@
   }
   .kids-card:hover { transform:translateY(-5px); box-shadow:0 16px 40px rgba(61,43,26,0.12); }
   .kids-card-header {
-    padding: 1.4rem 1.8rem 1rem;
-    border-bottom: 1px solid var(--border);
+    padding: 1.4rem 1.8rem 1rem; border-bottom: 1px solid var(--border);
     display:flex; align-items:center; gap:.8rem;
   }
   .kids-card-emoji { font-size:2rem; }
-  .kids-card-meta {}
   .kids-card-age {
     font-size:.68rem; font-weight:700; letter-spacing:.08em;
     color: #F59E0B; text-transform:uppercase;
@@ -548,13 +671,8 @@
     font-size:.81rem; color:var(--text-mid); line-height:1.7;
     padding:.3rem 0 .3rem 1.4rem; position:relative;
   }
-  .kids-tips li::before {
-    content:'🌟'; position:absolute; left:0; font-size:.65rem; top:.4rem;
-  }
-  .kids-feature-row {
-    display: grid; grid-template-columns: 1fr 1fr; gap:1.5rem;
-    margin-bottom:1.5rem;
-  }
+  .kids-tips li::before { content:'🌟'; position:absolute; left:0; font-size:.65rem; top:.4rem; }
+  .kids-feature-row { display: grid; grid-template-columns: 1fr 1fr; gap:1.5rem; margin-bottom:1.5rem; }
   .kids-feature-card {
     background:white; border-radius:20px; padding:1.8rem;
     border:1px solid var(--border); box-shadow:var(--shadow);
@@ -562,87 +680,57 @@
   .kids-feature-card .feat-icon { font-size:2.2rem; margin-bottom:.8rem; }
   .kids-feature-card h4 { font-size:.95rem; font-weight:700; color:var(--text-dark); margin-bottom:.5rem; }
   .kids-feature-card p { font-size:.82rem; color:var(--text-mid); line-height:1.75; }
-  .milestone-timeline {
-    position:relative; padding-left:2rem;
-    border-left: 2px solid var(--border);
-  }
-  .milestone {
-    position:relative; margin-bottom:1.6rem;
-  }
+  .milestone-timeline { position:relative; padding-left:2rem; border-left: 2px solid var(--border); }
+  .milestone { position:relative; margin-bottom:1.6rem; }
   .milestone::before {
     content:''; position:absolute; left:-2.4rem; top:.35rem;
     width:14px; height:14px; border-radius:50%;
     background: var(--sage); border:3px solid white;
     box-shadow:0 0 0 2px var(--sage-light);
   }
-  .milestone-age {
-    font-size:.72rem; font-weight:700; letter-spacing:.08em;
-    color:var(--sage-dark); text-transform:uppercase; margin-bottom:.2rem;
-  }
+  .milestone-age { font-size:.72rem; font-weight:700; letter-spacing:.08em; color:var(--sage-dark); text-transform:uppercase; margin-bottom:.2rem; }
   .milestone-title { font-size:.95rem; font-weight:700; color:var(--text-dark); margin-bottom:.3rem; }
   .milestone-desc { font-size:.82rem; color:var(--text-mid); line-height:1.7; }
   .faq-list { display:flex; flex-direction:column; gap:.8rem; }
   .faq-item {
     background:white; border-radius:16px;
-    border:1px solid var(--border); overflow:hidden;
-    box-shadow:var(--shadow);
+    border:1px solid var(--border); overflow:hidden; box-shadow:var(--shadow);
   }
   .faq-q {
-    padding:1.1rem 1.5rem;
-    cursor:pointer;
+    padding:1.1rem 1.5rem; cursor:pointer;
     display:flex; justify-content:space-between; align-items:center;
-    font-size:.9rem; font-weight:600; color:var(--text-dark);
-    transition:background .2s;
+    font-size:.9rem; font-weight:600; color:var(--text-dark); transition:background .2s;
   }
   .faq-q:hover { background:rgba(123,158,135,0.05); }
   .faq-q .faq-icon { font-size:1.1rem; transition:transform .3s; flex-shrink:0; }
   .faq-item.open .faq-icon { transform:rotate(45deg); }
-  .faq-a {
-    display:none; padding:0 1.5rem 1.2rem;
-    font-size:.85rem; color:var(--text-mid); line-height:1.8;
-  }
+  .faq-a { display:none; padding:0 1.5rem 1.2rem; font-size:.85rem; color:var(--text-mid); line-height:1.8; }
   .faq-item.open .faq-a { display:block; animation:fadeUp .3s ease; }
+
   /* ── WORKPLACE COMMUNICATION ── */
   #workplace { background: var(--warm-white); }
   .workplace-intro-banner {
     background: linear-gradient(135deg, #EEF0FB 0%, #D8DCF5 100%);
     border: 1px solid rgba(92,107,192,0.25);
-    border-radius: 24px;
-    padding: 2rem 2.5rem;
-    margin-bottom: 2.5rem;
+    border-radius: 24px; padding: 2rem 2.5rem; margin-bottom: 2.5rem;
     display: flex; gap: 1.5rem; align-items: center;
   }
   .workplace-intro-banner .banner-icon { font-size:3.5rem; flex-shrink:0; }
   .workplace-intro-banner h3 { font-size:1.1rem; font-weight:700; color:var(--text-dark); margin-bottom:.4rem; }
   .workplace-intro-banner p { font-size:.87rem; color:var(--text-mid); line-height:1.8; }
-  .workplace-nav-tabs {
-    display:flex; gap:.6rem; flex-wrap:wrap;
-    margin-bottom: 2.5rem;
-  }
+  .workplace-nav-tabs { display:flex; gap:.6rem; flex-wrap:wrap; margin-bottom: 2.5rem; }
   .work-tab {
-    padding:.6rem 1.4rem;
-    border-radius: 50px;
-    border: 1.5px solid var(--border);
-    background: white;
-    cursor:pointer;
-    font-size:.83rem;
+    padding:.6rem 1.4rem; border-radius: 50px;
+    border: 1.5px solid var(--border); background: white;
+    cursor:pointer; font-size:.83rem;
     font-family:'Noto Sans TC',sans-serif;
-    color:var(--text-mid);
-    font-weight:500;
-    transition:all .25s;
+    color:var(--text-mid); font-weight:500; transition:all .25s;
     display:flex; align-items:center; gap:.4rem;
   }
-  .work-tab:hover, .work-tab.active {
-    background: var(--indigo-dark);
-    color: white;
-    border-color: var(--indigo-dark);
-  }
+  .work-tab:hover, .work-tab.active { background: var(--indigo-dark); color: white; border-color: var(--indigo-dark); }
   .work-tab-content { display:none; }
   .work-tab-content.active { display:block; animation:fadeUp .4s ease both; }
-  .work-grid {
-    display:grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
-    gap:1.5rem;
-  }
+  .work-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap:1.5rem; }
   .work-card {
     background:white; border-radius:24px;
     border:1px solid var(--border); overflow:hidden;
@@ -650,16 +738,12 @@
   }
   .work-card:hover { transform:translateY(-5px); box-shadow:0 16px 40px rgba(61,43,26,0.12); border-color: var(--indigo-light); }
   .work-card-header {
-    padding: 1.4rem 1.8rem 1rem;
-    border-bottom: 1px solid var(--border);
+    padding: 1.4rem 1.8rem 1rem; border-bottom: 1px solid var(--border);
     display:flex; align-items:center; gap:.8rem;
     background: linear-gradient(135deg, rgba(92,107,192,0.06), rgba(92,107,192,0.02));
   }
   .work-card-emoji { font-size:2rem; }
-  .work-card-tag {
-    font-size:.68rem; font-weight:700; letter-spacing:.08em;
-    color: var(--indigo-dark); text-transform:uppercase;
-  }
+  .work-card-tag { font-size:.68rem; font-weight:700; letter-spacing:.08em; color: var(--indigo-dark); text-transform:uppercase; }
   .work-card-meta h3 { font-size:.95rem; font-weight:700; color:var(--text-dark); margin-top:.1rem; }
   .work-card-body { padding:1.2rem 1.8rem 1.6rem; }
   .work-card-body p { font-size:.83rem; color:var(--text-mid); line-height:1.75; margin-bottom:1rem; }
@@ -668,23 +752,16 @@
     font-size:.81rem; color:var(--text-mid); line-height:1.7;
     padding:.3rem 0 .3rem 1.4rem; position:relative;
   }
-  .work-tips li::before {
-    content:'💡'; position:absolute; left:0; font-size:.65rem; top:.4rem;
-  }
-  .work-scenario-wrap {
-    display:flex; flex-direction:column; gap:1rem;
-  }
+  .work-tips li::before { content:'💡'; position:absolute; left:0; font-size:.65rem; top:.4rem; }
+  .work-scenario-wrap { display:flex; flex-direction:column; gap:1rem; }
   .work-scenario {
     background:white; border-radius:16px;
-    border:1px solid var(--border); overflow:hidden;
-    box-shadow:var(--shadow);
+    border:1px solid var(--border); overflow:hidden; box-shadow:var(--shadow);
   }
   .work-scenario-q {
-    padding:1.1rem 1.5rem;
-    cursor:pointer;
+    padding:1.1rem 1.5rem; cursor:pointer;
     display:flex; justify-content:space-between; align-items:center;
-    font-size:.9rem; font-weight:600; color:var(--text-dark);
-    transition:background .2s;
+    font-size:.9rem; font-weight:600; color:var(--text-dark); transition:background .2s;
     background: linear-gradient(135deg, rgba(92,107,192,0.04), transparent);
   }
   .work-scenario-q:hover { background:rgba(92,107,192,0.07); }
@@ -698,65 +775,55 @@
     margin-top:.8rem;
     background: rgba(92,107,192,0.06);
     border: 1px solid rgba(92,107,192,0.2);
-    border-radius:12px;
-    padding:1rem 1.2rem;
+    border-radius:12px; padding:1rem 1.2rem;
     font-size:.83rem; line-height:1.9;
-    color: var(--text-dark);
-    font-style: italic;
+    color: var(--text-dark); font-style: italic;
   }
   .work-scenario-a .template-label {
     font-size:.7rem; font-weight:700; letter-spacing:.1em;
-    color:var(--indigo-dark); text-transform:uppercase;
-    margin-bottom:.4rem; display:block;
+    color:var(--indigo-dark); text-transform:uppercase; margin-bottom:.4rem; display:block;
   }
   .work-scenario.open .work-scenario-a { display:block; animation:fadeUp .3s ease; }
-  .work-phrase-grid {
-    display:grid; grid-template-columns: repeat(auto-fill, minmax(320px,1fr));
-    gap:1.2rem;
-  }
+  .work-phrase-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); gap:1.2rem; }
   .work-phrase-card {
     background:white; border-radius:18px; padding:1.5rem;
-    border:1px solid var(--border); box-shadow:var(--shadow);
-    transition:all .3s;
+    border:1px solid var(--border); box-shadow:var(--shadow); transition:all .3s;
   }
   .work-phrase-card:hover { border-color:var(--indigo-light); transform:translateY(-3px); }
-  .phrase-situation {
-    font-size:.7rem; font-weight:700; letter-spacing:.1em;
-    color:var(--indigo-dark); text-transform:uppercase; margin-bottom:.5rem;
-  }
+  .phrase-situation { font-size:.7rem; font-weight:700; letter-spacing:.1em; color:var(--indigo-dark); text-transform:uppercase; margin-bottom:.5rem; }
   .phrase-bad {
     font-size:.82rem; color:#c0392b;
-    background:rgba(239,83,80,0.07);
-    border-radius:8px; padding:.5rem .8rem;
+    background:rgba(239,83,80,0.07); border-radius:8px; padding:.5rem .8rem;
     margin-bottom:.5rem; line-height:1.6;
   }
   .phrase-bad::before { content:'✗ 避免：'; font-weight:700; display:block; font-size:.72rem; margin-bottom:.2rem; }
   .phrase-good {
     font-size:.82rem; color:#2d7a2d;
-    background:rgba(76,175,80,0.07);
-    border-radius:8px; padding:.5rem .8rem;
-    line-height:1.6;
+    background:rgba(76,175,80,0.07); border-radius:8px; padding:.5rem .8rem; line-height:1.6;
   }
   .phrase-good::before { content:'✓ 推薦：'; font-weight:700; display:block; font-size:.72rem; margin-bottom:.2rem; }
+
   /* ── SECTION LABEL variants ── */
   .section-label.indigo { color: var(--indigo); }
+
   /* ── DISCLAIMER BANNER ── */
   .disclaimer {
-    background: rgba(212,168,71,0.12);
-    border: 1px solid rgba(212,168,71,0.3);
-    border-radius:16px;
-    padding:1rem 1.5rem;
-    margin-bottom:2rem;
-    font-size:.82rem;
-    color:var(--soft-brown);
+    background: rgba(212,168,71,0.12); border: 1px solid rgba(212,168,71,0.3);
+    border-radius:16px; padding:1rem 1.5rem; margin-bottom:2rem;
+    font-size:.82rem; color:var(--soft-brown);
     display:flex; gap:.8rem; align-items:flex-start;
   }
   .disclaimer .icon { font-size:1.2rem; flex-shrink:0; }
+
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity:0; transform:translateY(18px); }
     to   { opacity:1; transform:translateY(0); }
   }
+  @keyframes twinkle {
+    0%,100% { opacity:.15; } 50% { opacity:.5; }
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 860px) {
     .hero { grid-template-columns:1fr; min-height:auto; }
@@ -765,11 +832,13 @@
     .kids-feature-row { grid-template-columns:1fr; }
     .kids-intro-banner { flex-direction:column; text-align:center; }
     .workplace-intro-banner { flex-direction:column; text-align:center; }
+    .movement-cards-row { grid-template-columns:1fr; }
     nav { display:none; }
   }
 </style>
 </head>
 <body>
+
 <!-- HEADER -->
 <header>
   <div class="logo">芝芝<span>♡</span>學習保健站</div>
@@ -819,52 +888,34 @@
   </div>
 </section>
 
-<!-- ① 兒童神經發展 / INVOLUNTARY MOVEMENT (FIRST) -->
-<section id="movement" style="background: var(--violet-bg); padding: 5rem 8vw;">
+<!-- ① 兒童神經發展 / INVOLUNTARY MOVEMENT -->
+<section id="movement">
   <div class="section-label" style="color:#7C3AED;">🧠 兒童神經發展</div>
-  <h2 class="section-title">兒童不自主身體活動</h2>
-  <p class="section-sub">不自主動作（Involuntary Movement Disorder）在兒童身上並不罕見，了解常見類型與成因，有助於家長及早辨識並尋求專業協助。</p>
-  <a href="MedicalWorld/InvoluntaryMovement.html" style="text-decoration:none; display:inline-block; margin-top: 2rem;">
-    <div style="
-      background: white;
-      border-radius: 24px;
-      padding: 2.5rem 3rem;
-      border: 1.5px solid rgba(124,58,237,0.25);
-      box-shadow: 0 4px 30px rgba(124,58,237,0.1);
-      display: inline-flex;
-      align-items: center;
-      gap: 2rem;
-      max-width: 620px;
-      transition: all 0.3s;
-    "
-    onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(124,58,237,0.2)'"
-    onmouseout="this.style.transform='';this.style.boxShadow='0 4px 30px rgba(124,58,237,0.1)'"
-    >
-      <div style="
-        width: 68px; height: 68px; border-radius: 18px;
-        background: linear-gradient(135deg, #C4B5FD, #7C3AED);
-        display: flex; align-items: center; justify-content: center;
-        font-size: 2.2rem; flex-shrink: 0;
-      ">🧠</div>
-      <div>
-        <div style="font-size:.7rem;font-weight:700;letter-spacing:.12em;color:#7C3AED;text-transform:uppercase;margin-bottom:.4rem;">完整文章</div>
-        <h3 style="font-size:1.15rem;font-weight:700;color:var(--text-dark);margin-bottom:.5rem;">兒童不自主身體活動是什麼原因？</h3>
-        <p style="font-size:.85rem;color:var(--text-mid);line-height:1.75;margin-bottom:.9rem;">了解抽動症、舞蹈病、震顫、肌張力不全等常見類型，認識警示徵兆，協助家長及早辨識與就醫。</p>
-        <span style="display:inline-flex;align-items:center;gap:.4rem;color:#5B21B6;font-size:.88rem;font-weight:700;">閱讀完整內容 →</span>
-      </div>
-    </div>
-  </a>
+  <h2 class="section-title">兒童神經發展・深度閱讀</h2>
+  <p class="section-sub">從不自主動作的醫學知識，到追逐繁星的孩子的全球視角——幫助家長更深入理解孩子的神經發展世界。</p>
+
+  <div class="movement-cards-row">
+    <!-- Card 1: Involuntary Movement -->
+    <a href="MedicalWorld/InvoluntaryMovement.html" class="movement-link-card">
+      <div class="card-icon-wrap">🧠</div>
+      <span class="card-badge">完整文章 · 醫學知識</span>
+      <h3>兒童不自主身體活動是什麼原因？</h3>
+      <p>了解抽動症、舞蹈病、震顫、肌張力不全等常見類型，認識警示徵兆，協助家長及早辨識與就醫。</p>
+      <span class="read-more">閱讀完整內容 →</span>
+    </a>
+
+    <!-- Card 2: Chase Lost Voices / Global View -->
+    <a href="ChaseLostVoices/GlobalView.html" class="star-link-card">
+      <div class="card-icon-wrap">✨</div>
+      <span class="card-badge">完整文章 · 全球視角</span>
+      <h3>追逐繁星的孩子——讀懂孩子的心</h3>
+      <p>從全球的視角出發，探索特殊孩子的內心世界，理解他們如何在星光中找到屬於自己的路。</p>
+      <span class="read-more">閱讀完整內容 →</span>
+    </a>
+  </div>
 </section>
-  <div class="hero-visual">
-    <div class="herb-card">
-      <div class="herb-icon">🧠</div>
-      <h3>神經發展</h3>
-      <p>讀懂孩子的心-追逐繁星的孩子</p>
-    </div>
-    <div class="herb-card">
-      <div class="herb-icon">👨‍👩‍👧</div>
-  <a href="ChaseLostVoices/GlobalView.html" style="text-decoration:none; display:inline-block; margin-top: 2rem;">
-<!-- ② 學童教養與教育 (SECOND) -->
+
+<!-- ② 學童教養與教育 -->
 <section id="kids">
   <div class="section-label">🎒 學童教養與教育</div>
   <h2 class="section-title">陪伴孩子健康成長</h2>
@@ -915,7 +966,7 @@
   </div>
 </section>
 
-<!-- ③ 職場溝通 (THIRD) -->
+<!-- ③ 職場溝通 -->
 <section id="workplace">
   <div class="section-label indigo">💼 職場溝通</div>
   <h2 class="section-title">說對話・做對事</h2>
@@ -951,7 +1002,7 @@
   </div>
 </section>
 
-<!-- ④ 保健食品 (FOURTH) -->
+<!-- ④ 保健食品 -->
 <section id="products">
   <div class="section-label">🌱 保健食品圖書館</div>
   <h2 class="section-title">成分・功能・注意事項</h2>
@@ -969,27 +1020,13 @@
     <button class="tab" onclick="switchTab('heart',this)">心血管</button>
     <button class="tab" onclick="switchTab('brain',this)">腦部</button>
   </div>
-  <div id="tab-all" class="tab-content active">
-    <div class="product-grid" id="all-grid"></div>
-  </div>
-  <div id="tab-antioxidant" class="tab-content">
-    <div class="product-grid" id="antioxidant-grid"></div>
-  </div>
-  <div id="tab-immunity" class="tab-content">
-    <div class="product-grid" id="immunity-grid"></div>
-  </div>
-  <div id="tab-bone" class="tab-content">
-    <div class="product-grid" id="bone-grid"></div>
-  </div>
-  <div id="tab-gut" class="tab-content">
-    <div class="product-grid" id="gut-grid"></div>
-  </div>
-  <div id="tab-heart" class="tab-content">
-    <div class="product-grid" id="heart-grid"></div>
-  </div>
-  <div id="tab-brain" class="tab-content">
-    <div class="product-grid" id="brain-grid"></div>
-  </div>
+  <div id="tab-all" class="tab-content active"><div class="product-grid" id="all-grid"></div></div>
+  <div id="tab-antioxidant" class="tab-content"><div class="product-grid" id="antioxidant-grid"></div></div>
+  <div id="tab-immunity" class="tab-content"><div class="product-grid" id="immunity-grid"></div></div>
+  <div id="tab-bone" class="tab-content"><div class="product-grid" id="bone-grid"></div></div>
+  <div id="tab-gut" class="tab-content"><div class="product-grid" id="gut-grid"></div></div>
+  <div id="tab-heart" class="tab-content"><div class="product-grid" id="heart-grid"></div></div>
+  <div id="tab-brain" class="tab-content"><div class="product-grid" id="brain-grid"></div></div>
 </section>
 
 <!-- ⑤ 健康配對 -->
@@ -1085,6 +1122,7 @@ const products = [
   { id:'p11', cat:'bone', icon:'🦵', name:'葡萄糖胺（Glucosamine）', tag:'關節 • 軟骨', summary:'軟骨的天然成分，有助於維持關節健康，緩解退化性關節炎不適感。', ingredient:'葡萄糖胺鹽酸鹽或硫酸鹽，常搭配軟骨素（Chondroitin）使用，來源多為甲殼類（蝦蟹殼）。', function:'刺激軟骨細胞合成蛋白聚醣；減緩軟骨退化；緩解關節疼痛；改善關節活動度。', indication:'輕至中度退化性關節炎（膝關節最多研究支持）、關節運動傷害輔助、中老年人關節保養。', caution:'海鮮過敏者慎用（蝦蟹來源）；可能影響血糖，糖尿病患者需監測；與抗凝血藥可能有交互作用。', note:'建議劑量1500mg/天；需持續使用至少8–12週才能評估效果；孕婦及哺乳婦不建議使用；植物來源（發酵）適合海鮮過敏者。', need:['joint','bone'] },
   { id:'p12', cat:'immunity', icon:'🌼', name:'維生素C（Vitamin C）', tag:'免疫 • 抗氧化', summary:'最廣為人知的抗氧化維生素，對免疫功能、膠原蛋白合成及鐵質吸收至關重要。', ingredient:'抗壞血酸（Ascorbic acid），緩衝型維生素C（抗壞血酸鈣/鎂）對胃較溫和。', function:'強化免疫細胞功能，縮短感冒病程；促進膠原蛋白合成（皮膚、傷口癒合）；增加非血鐵質鐵質吸收；抗氧化。', indication:'免疫力低下者、皮膚修復需求、素食者促進鐵吸收、吸菸者（需求量增加）。', caution:'高劑量（>2000mg/天）可能引起腹瀉、腎結石（草酸鈣結石）；突然停用高劑量建議逐漸減量（反彈性壞血病）。', note:'建議成人100–200mg/天，補充上限2000mg/天；水溶性，分次服用效果優於單次大劑量；隨餐服用減少胃部不適。', need:['immunity','skin','energy'] }
 ];
+
 const checkerRec = {
   eye:       { name:'葉黃素 + 花青素', icon:'👁', desc:'保護視網膜，過濾藍光，適合長期使用3C或有AMD風險者。' },
   heart:     { name:'魚油 Omega-3 + 膳食纖維', icon:'❤️', desc:'降低三酸甘油酯，改善血脂，降低心血管疾病風險。' },
@@ -1101,6 +1139,7 @@ const checkerRec = {
   'blood-thinner': { name:'⚠️ 藥物交互作用警示', icon:'💊', desc:'服用抗凝血藥（warfarin）者，魚油高劑量、靈芝、維生素E都可能加強抗凝效果，請務必告知您的醫師或藥師再補充！' },
   diabetes:  { name:'⚠️ 血糖監測提醒', icon:'🩸', desc:'葡萄糖胺、鉻補充劑可能影響血糖；部分益生菌對血糖有幫助但需監測。使用任何保健品前請告知糖尿病照護團隊。' }
 };
+
 const eduCards = [
   { color:'teal', icon:'💛', cat:'心血管健康', title:'認識好的膽固醇（HDL）', desc:'HDL被稱為「好的膽固醇」，它能將膽固醇從血管壁帶回肝臟代謝，有效保護心血管健康。', isLink: true, href:'Health_Education/Good_Cholesterol.html', points:[] },
   { color:'green', icon:'🧒', cat:'兒童教養', title:'孩子需要補充鈣質嗎？', desc:'成長期兒童骨骼發育快速，鈣質需求量高。但「補鈣」不等於吃保健品，認識哪些食物才是最好的鈣來源。', isLink: false, points:['7–9歲每日需800mg、10–12歲1000mg，13–18歲1200mg鈣','豆腐、牛奶、起司、小魚乾都是優質鈣來源','維生素D不足時鈣吸收大幅下降，戶外活動非常重要','碳酸飲料中的磷酸會阻礙鈣吸收，應限制飲用','補鈣同時需搭配規律負重運動才能有效強化骨骼'] },
@@ -1110,6 +1149,7 @@ const eduCards = [
   { color:'green', icon:'🏫', cat:'學齡教育', title:'學生的腦力保健指南', desc:'考試壓力大、睡眠不足、飲食不規律……學生族群的保健需求有其特殊性。', isLink: false, points:['B群是能量代謝關鍵，但咖啡因+B群不是「提神萬靈丹」','魚油DHA對學習記憶有正面影響，但效果需長期使用','PS（磷脂醯絲胺酸）有助注意力，但睡眠才是最重要的腦力恢復途徑','鐵質缺乏會導致疲勞和注意力下降，女生尤其要注意','護眼配方（葉黃素+花青素）適合長時間用眼的學生','規律運動（每週150分鐘）對腦力提升效果優於任何保健品'] },
   { color:'amber', icon:'⚡', cat:'運動保健', title:'運動族的保健食品策略', desc:'運動量大的人，對特定營養素的需求較一般人高，如何科學地補充是一門學問。', isLink: false, points:['運動後30分鐘內補充碳水化合物+蛋白質（黃金30分鐘）','鎂：劇烈運動後大量流失，有助肌肉放鬆減少抽筋','維生素D：運動表現與維生素D水平有正相關','魚油：抗發炎，減少延遲性肌肉痠痛（DOMS）','肌酸（Creatine）：短時間高強度運動的合法輔助品','咖啡因：賽前60分鐘攝取3–6mg/kg，提升耐力表現（有科學根據）'] }
 ];
+
 const quizData = [
   { q:'服用魚油的最佳時機是？', opts:['空腹早晨服用效果最好','隨餐服用，幫助吸收並減少魚腥嗝氣','睡前服用可幫助睡眠','任何時間效果完全一樣'], ans:1, explain:'魚油含脂溶性EPA/DHA，隨餐服用可增加吸收率，同時減少讓人不舒服的魚腥嗝氣。睡前服用雖無大礙，但最推薦隨餐時機。' },
   { q:'以下哪一種維生素「不是」脂溶性維生素？', opts:['維生素A','維生素C','維生素D','維生素E'], ans:1, explain:'脂溶性維生素為ADEK（A、D、E、K），維生素C是水溶性維生素。水溶性維生素過多由尿液排出，脂溶性則會在體內累積，過量有中毒風險。' },
@@ -1118,24 +1158,28 @@ const quizData = [
   { q:'鈣質補充的正確觀念是？', opts:['一次補充2000mg效果更好','碳酸鈣最好空腹服用','每次補充不超過500mg，分次攝取','鈣質不需要維生素D就能被骨骼吸收'], ans:2, explain:'腸道每次吸收鈣質有上限，建議每次不超過500mg，分2–3次補充。碳酸鈣需要胃酸幫助吸收（隨餐服），維生素D則是鈣質能被骨骼有效利用的必要輔助。' },
   { q:'以下關於維生素D的敘述，哪一個正確？', opts:['過量維生素D毫無副作用，多吃無妨','維生素D是水溶性維生素，很快就代謝掉','維生素D3比D2更有效被人體利用','多曬太陽就一定能補足維生素D'], ans:2, explain:'維生素D3（動物來源）比D2（植物來源）在人體中的活化效率更高。維生素D是脂溶性，過量確實會蓄積導致高鈣血症。皮膚合成效率因緯度、防曬品、膚色而差異很大，台灣很多人仍缺乏。' }
 ];
+
 const kidsNutrition = [
   { emoji:'🥦', age:'0–2歲', title:'嬰幼兒關鍵營養', desc:'生命最初兩年是大腦與身體高速發育期，每一種營養素都舉足輕重。', tips:['母乳是最佳食物，含獨特免疫因子與DHA','純母乳哺育6個月後漸進添加副食品','鐵質：4–6個月起從副食品補充，預防缺鐵性貧血','維生素D：純母乳嬰兒每天補充400IU','避免在1歲前添加蜂蜜（肉毒桿菌風險）','不需額外補充水分，母乳或配方奶已足夠'] },
   { emoji:'🍎', age:'3–6歲', title:'學齡前飲食多樣化', desc:'這個階段孩子開始建立飲食習慣，食物多樣化與正向用餐體驗最為關鍵。', tips:['每天5色蔬果，培養多元口味接受度','鈣質需求800mg/天：牛奶、優格、起司優先','避免以糖果或零食作為獎勵或安慰','鼓勵自主進食，尊重飢餓與飽足感信號','點心時間固定，避免全天候「隨時吃」','全穀類（糙米、燕麥）替代精製澱粉'] },
   { emoji:'🧃', age:'7–12歲', title:'學齡兒童補充重點', desc:'課業壓力增加、3C使用時間拉長，眼睛與腦力的保健需求大幅提升。', tips:['葉黃素：長時間用眼者可考慮補充10mg/天','鐵質：女童月經來潮後需求增加，注意疲勞與頭暈','鈣質需求增至1000mg/天，為青春期骨骼建本','Omega-3/DHA：改善注意力，每週2次深海魚','避免含糖飲料（手搖飲），增加水分攝取','早餐必吃，碳水化合物+蛋白質才能撐整個上午'] },
   { emoji:'🏃', age:'全年齡', title:'兒童運動與補充', desc:'運動是兒童發展的核心，正確的補充可以讓孩子動得更健康、恢復更快。', tips:['每天至少60分鐘中高強度活動（WHO建議）','運動後補充碳水化合物+蛋白質（黃金30分鐘）','維生素D+鈣：戶外運動同時增加D的合成','水分：運動前後各補充150–200ml白開水','不建議兒童使用能量飲料（含咖啡因）','規律運動能促進生長激素分泌，有益骨骼發育'] }
 ];
+
 const kidsParenting = [
   { emoji:'🤝', age:'情緒教育', title:'幫助孩子認識情緒', desc:'情緒管理能力是孩子社交發展與心理健康的基石，需要從小培養。', tips:['命名情緒：教孩子用語言說出「我現在很生氣」','接納情緒但設定行為界限（可以哭，不可以打人）','家長先示範情緒調節：深呼吸、暫停冷靜','避免說「男生不能哭」等性別刻板印象','讀繪本是幫助學前孩子理解情緒的有效工具','不要在孩子情緒高峰時講道理，先陪伴再溝通'] },
   { emoji:'🌱', age:'正向教養', title:'鼓勵取代懲罰的教養法', desc:'研究顯示，以鼓勵為基礎的教養方式能建立孩子更穩固的自信與自律。', tips:['描述行為而非評價人格：「你把玩具收好了」而非「你好棒」','自然後果法：讓孩子體驗行為的自然結果（非懲罰）','給孩子有限度的選擇，增加自主感：「要穿紅色還是藍色？」','建立清晰可預期的日常規律，減少衝突','犯錯時重點放在「下次怎麼做更好」','親子共讀每天15分鐘，建立安全依附關係'] },
   { emoji:'📱', age:'3C管理', title:'健康使用螢幕的策略', desc:'完全禁止不現實，建立良好的3C使用規則才能培養孩子的自律能力。', tips:['2歲以下：避免被動螢幕時間（視訊通話除外）','2–5歲：每天不超過1小時，家長陪同觀看','6歲以上：協商時間限制，重視睡前無螢幕時間','建立「家庭無手機區域」：用餐桌、臥室','用「做完XXX再看」代替「不可以看」','家長示範健康使用3C的行為'] },
   { emoji:'💤', age:'睡眠教育', title:'為孩子建立健康睡眠', desc:'充足睡眠對兒童的記憶固化、生長激素分泌和情緒調節至關重要。', tips:['學齡前（3–5歲）：每天10–13小時（含午睡）','學齡（6–12歲）：每天9–11小時睡眠','固定就寢時間，週末偏差不超過1小時','睡前1小時關掉螢幕（藍光抑制褪黑激素）','睡前儀式：洗澡→讀書→睡覺，建立安全感','黑暗、涼爽的環境最有利於深度睡眠'] }
 ];
+
 const kidsLearning = [
   { emoji:'🎮', age:'遊戲學習', title:'玩出來的能力：遊戲式學習', desc:'自由遊戲是兒童最自然的學習方式，父母的陪伴與引導能將遊戲效益最大化。', tips:['積木與拼圖：空間思維、問題解決能力','角色扮演遊戲：社交技巧、同理心、語言發展','戶外探索：科學觀察、感覺統合、冒險精神','桌遊：等待、輸贏、規則遵守、策略思考','藝術創作：自我表達、細動作、創造力','不要急著給孩子答案，讓他們在嘗試中學習'] },
   { emoji:'📖', age:'閱讀習慣', title:'從小愛上閱讀的方法', desc:'閱讀習慣是一切學習的基礎，越早建立越能受益一生。', tips:['0歲起就可以開始讀繪本，音調變化讓孩子投入','讓孩子自主選書，尊重興趣比「有益」更重要','每天固定親子共讀時間，哪怕只有10分鐘','圖書館是最好的閱讀資源，定期借閱養成習慣','有聲書也是有效的閱讀形式，尤其適合通勤時','閱讀後聊聊書中情節，加深理解與思辨能力'] },
   { emoji:'🔢', age:'數學思維', title:'生活中的數學啟蒙', desc:'數學不只是計算，更是一種思考方式，生活中隨處可以練習。', tips:['購物時讓孩子幫忙算找零、比較價格','烹飪時認識分量、比例、時間概念','讓孩子自己分食物，練習等分與公平概念','一起數數：樓梯台階、停車格、超市架上物品','樂高與積木是最好的幾何入門工具','允許用手指、畫圖等非正式策略解題'] },
   { emoji:'🎯', age:'專注力培養', title:'提升孩子專注力的實用策略', desc:'專注力是可以訓練的，環境設計與日常習慣對孩子的注意力發展影響深遠。', tips:['學習環境整潔，減少視覺干擾（收起玩具）','任務長度符合年齡：學齡前5–10分鐘、低年級15–20分鐘','完成任務後給予休息與肢體活動（非3C）','番茄鐘法：25分鐘專注＋5分鐘休息（適合9歲以上）','足夠的睡眠與運動是提升專注力的最佳「藥方」','懷疑ADHD時請尋求兒童精神科或神經科評估'] }
 ];
+
 const milestones = [
   { age:'0–6個月', title:'感覺與反射', desc:'追視移動物體、對聲音有反應、社交性微笑出現，哺乳建立安全依附。' },
   { age:'6–12個月', title:'動作與語言萌芽', desc:'開始爬行、扶站，咿呀學語，認識熟悉面孔，可開始副食品。' },
@@ -1145,6 +1189,7 @@ const milestones = [
   { age:'6–8歲', title:'具體運算期', desc:'邏輯思維建立，能理解因果關係，規則感與公平感強烈，同儕關係變得重要。' },
   { age:'9–12歲', title:'抽象思維啟蒙', desc:'開始形成抽象概念，批判性思考萌芽，自我認同探索，青春期準備開始。' }
 ];
+
 const faqs = [
   { q:'孩子不愛吃蔬菜，需要補充維生素嗎？', a:'挑食是兒童常見現象，但在考慮補充品前，先嘗試改變烹調方式（切細、混入喜歡的食物）、反覆少量提供新食物（需15–20次嘗試），以及讓孩子參與備餐。若飲食嚴重不均衡且生長曲線異常，再請兒科醫師評估是否需要補充。' },
   { q:'小朋友可以喝乳酸菌飲料嗎？', a:'市售乳酸菌飲料糖分通常很高，不等同於醫療級益生菌。建議選擇無糖優格或經臨床驗證的益生菌產品（如LGG菌株）。1歲以下嬰兒的益生菌補充需先諮詢兒科醫師。' },
@@ -1153,21 +1198,25 @@ const faqs = [
   { q:'幾歲開始可以讓孩子喝咖啡或茶？', a:'美國兒科學會建議12歲以下兒童完全不攝取咖啡因，12–18歲青少年每日不超過100mg（約1杯咖啡）。咖啡因會影響鈣質吸收、干擾睡眠並增加焦慮感，成長中的孩子應盡量避免。' },
   { q:'孩子需要補充DHA嗎？用魚油還是藻油？', a:'DHA對兒童腦部和視覺發育確實有益。如果孩子每週能吃2–3次深海魚（鮭魚、鯖魚），通常不需額外補充。若飲食攝取不足，可考慮補充：藻油適合素食家庭且不含重金屬疑慮；魚油須選擇通過重金屬檢驗的品牌。' }
 ];
+
 const workBasics = [
   { emoji:'👂', tag:'傾聽技巧', title:'主動傾聽：溝通最被忽略的技能', desc:'研究顯示，多數人在傾聽時只能記住25%的內容。主動傾聽不只是「不打斷對方」，而是真正理解對方的意圖與情緒。', tips:['眼神接觸+點頭，給予對方被重視的感受','適時摘要對方說的話：「你的意思是……，我理解正確嗎？」','先聽完再回應，避免邊聽邊準備反駁','注意非語言訊號：語調、表情、姿態','暫時放下手機和電腦，給予全神貫注','問開放式問題（「你是怎麼看的？」）促進深度對話'] },
   { emoji:'📣', tag:'表達技巧', title:'清晰表達：讓訊息不打折', desc:'「我以為對方懂了」是職場溝通最大的陷阱。有結構地表達，能大幅減少誤解與重工。', tips:['BLUF原則：先說結論（Bottom Line Up Front），再解釋原因','一次只傳達一個核心訊息，避免資訊轟炸','用對方熟悉的語言和例子說明（避免行話）','確認對方接收：「不知道你這樣理解對嗎？」','書面溝通特別重要：主旨清楚、段落分明','重要事項用條列式，而非長篇大論'] },
   { emoji:'🎯', tag:'目標對齊', title:'確保共識：別讓「應該」害了你', desc:'「他應該知道」、「我以為大家都清楚」——這些假設是溝通失敗的根源。建立清晰的期望值需要主動確認。', tips:['明確說出誰負責、做什麼、何時完成（WHO/WHAT/WHEN）','會議結束前確認行動項目和負責人','用書面確認口頭承諾，減少記憶落差','若有疑慮，寧願多問一次也不要猜測','對齊優先順序：「這件事和X相比，哪個更重要？」','定期回顧進度，及早發現偏差'] }
 ];
+
 const workUpward = [
   { emoji:'📊', tag:'回報技巧', title:'如何有效向主管彙報', desc:'好的彙報能讓主管放心授權，建立你「可靠、有條理」的專業形象。掌握結構，讓每次回報都加分。', tips:['先講結果再講過程：「專案進度超前，預計提早兩天完成，原因是……」','壞消息要早報告：問題最好在失控前讓主管知道','帶著方案去問問題：「我遇到X問題，我想到A和B兩個方案，你覺得？」','定期主動更新，不讓主管追問你的進度','了解主管偏好：有人喜歡郵件、有人喜歡直接當面說','彙報前先想：主管最關心的是什麼？（成本/時間/品質/風險）'] },
   { emoji:'🙋', tag:'爭取資源', title:'如何請求主管支持與資源', desc:'爭取資源不是「求人幫忙」，而是讓主管理解為何這對組織目標有益，讓支持你成為合理的決定。', tips:['連結組織目標：「這個需求能幫助我們達成Q3的KPI……」','量化影響：「如果有這個資源，預估可節省X小時/增加Y產出」','提供選擇而非單一要求：「方案一需要這些，方案二只需要那些……」','了解主管的考量點，主動回應可能的顧慮','選對時機：主管心情好、不忙的時候才開口','接受被拒絕，並問清楚：「什麼條件達到後可以重新評估？」'] },
   { emoji:'💬', tag:'回饋接收', title:'如何接受主管的批評與回饋', desc:'能優雅接受批評，是職場成熟度的重要指標。正確的回應方式能讓批評成為成長的養分，而非關係的破壞。', tips:['不要立即防禦，先說「謝謝你的回饋，我需要一點時間消化」','問清楚改善方向：「你覺得下次怎麼做會更好？」','區分批評行為和批評人格，不把工作批評等同於否定自我','批評若模糊不清，請對方舉具體例子','之後主動回報改善成果，展示你真的在聽','私下情緒處理後再回應，避免當場情緒化反應'] }
 ];
+
 const workConflict = [
   { emoji:'🔥', tag:'衝突預防', title:'防患未然：減少職場衝突的習慣', desc:'大部分職場衝突不是因為人壞，而是期望不一致、資訊不透明或壓力下的情緒反應。好的習慣能大幅降低衝突機率。', tips:['早溝通、早對齊：不要到最後一刻才揭露問題','信守承諾，做不到要提前說，不要讓人等到失望','邊界清晰：工作範圍有疑慮時主動澄清','避免在第三方面前批評同事（容易流言傳回去）','情緒激動時先暫停，深呼吸後再繼續','把「你錯了」改成「我的理解是不是……？」'] },
   { emoji:'🧊', tag:'衝突降溫', title:'衝突發生了：如何冷靜化解', desc:'衝突發生時，大腦的杏仁核容易「劫持」理性判斷。掌握幾個降溫技巧，能讓對話從激烈走向解決。', tips:['承認對方的感受：「我理解這件事讓你很挫敗」','用「我」陳述而非「你」指責：「我覺得……」vs「你總是……」','把對話焦點從「對錯」轉向「解決方案」','若氣氛太僵，提議先暫停：「我們休息10分鐘再繼續？」','找共同目標：「我們都希望這個專案成功，對吧？」','嚴重衝突考慮引入第三方（HR或中立同事）調解'] },
   { emoji:'📋', tag:'後續跟進', title:'衝突後如何修復關係', desc:'衝突的善後比衝突本身更重要。如何在風暴後重建信任，決定了你在職場的長期人際資本。', tips:['事後主動找對方私下談：「上次的事我想再溝通一下」','不在其他人面前提及衝突細節，保護對方尊嚴','真誠道歉時要具體：「我那樣說不妥，因為……對不起」','行動勝於言語：用後續的表現重建信任','給彼此時間，不強求立即和好','若關係持續惡化，需考慮是否請主管協助'] }
 ];
+
 const workPhrases = [
   { situation:'提出不同意見', bad:'你這樣不對，應該要……', good:'我有一個不同的角度想分享，不知道是否適合？……你覺得這個方向怎麼樣？' },
   { situation:'拒絕額外要求', bad:'我沒時間，你去找別人。', good:'我目前手上有A和B兩個優先任務，如果要處理這件事，您希望我怎麼安排優先順序？' },
@@ -1178,6 +1227,7 @@ const workPhrases = [
   { situation:'催促對方回覆', bad:'你怎麼還沒回？', good:'不好意思再次打擾，想確認一下上次關於X的問題，方便的話能否告知您的想法？謝謝！' },
   { situation:'給予負面回饋', bad:'你這個做得很差。', good:'我注意到這份報告在X部分可以更精確。如果把Y改成Z，整體說服力會更強。下次可以試試看！' }
 ];
+
 const workScenarios = [
   { q:'👩‍💼 情境：主管突然交辦一個急件，但你手上已有三個進行中專案', a:'這種情況需要讓主管做出優先順序決定，而不是讓你自己扛所有的事。', template:'主管，我收到了這個新任務。目前我手上有[A、B、C]三個專案，預計[時間]完成。如果要優先處理新任務，[A或B]的進度會受到影響。您希望我怎麼安排優先順序？或是有其他資源可以協助嗎？' },
   { q:'🤝 情境：跨部門同事一直沒有回應你的協作請求，影響了你的工作進度', a:'催促時要顧及對方顏面，同時清楚說明影響，讓對方理解配合的重要性。', template:'您好，不好意思再次提起關於[事項]的請求。因為這個部分會影響到[X專案在Y日期]的進度，想確認一下目前的狀況。如果有任何我可以協助的地方，或需要調整方式，請告訴我，謝謝！' },
@@ -1185,6 +1235,7 @@ const workScenarios = [
   { q:'📈 情境：你認為主管的決策有誤，但又不想直接衝突', a:'用「請教」的姿態提出疑問，讓主管自己發現問題，而非直接挑戰其判斷。', template:'[主管]，關於[決策X]，我想多了解一下背後的考量。我在評估時注意到[Y風險/數據/情況]，不確定這個部分是否已經納入考慮？如果您已評估過，能否讓我了解是怎麼思考的？這樣我執行起來會更放心。' },
   { q:'🎤 情境：需要在大型會議上發言，但你很緊張', a:'緊張是正常的，但可以用結構和準備來降低焦慮，讓發言更有說服力。', template:'（發言結構）先用一句話說明你的立場或結論，接著給出1–2個支持論點，最後收尾呼應開頭。\n開場範例：「我想分享關於[主題]的觀察。我的結論是[X]，原因有兩個：第一，[A]；第二，[B]。所以我建議我們[具體行動]。」' }
 ];
+
 // ═══════════════════════════════════════════
 // RENDER PRODUCTS
 // ═══════════════════════════════════════════
@@ -1204,6 +1255,7 @@ function renderProducts() {
     });
   });
 }
+
 function createProductCard(p) {
   const div = document.createElement('div');
   div.className = 'product-card';
@@ -1228,12 +1280,14 @@ function createProductCard(p) {
   });
   return div;
 }
+
 function switchTab(cat, btn) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById('tab-'+cat).classList.add('active');
 }
+
 // ═══════════════════════════════════════════
 // CHECKER
 // ═══════════════════════════════════════════
@@ -1251,6 +1305,7 @@ function runChecker() {
   html += `<p style="font-size:.75rem;color:var(--text-light);margin-top:1rem;line-height:1.7">⚕️ 此配對結果僅供參考，實際補充計畫請諮詢藥師或醫師。</p>`;
   result.innerHTML = html;
 }
+
 // ═══════════════════════════════════════════
 // EDUCATION
 // ═══════════════════════════════════════════
@@ -1300,6 +1355,7 @@ function renderEdu() {
     }
   });
 }
+
 // ═══════════════════════════════════════════
 // QUIZ
 // ═══════════════════════════════════════════
@@ -1317,6 +1373,7 @@ function renderQuiz() {
   `;
   answered = false;
 }
+
 function selectOpt(i) {
   if(answered)return; answered=true;
   const q=quizData[qi]; const opts=document.querySelectorAll('.quiz-opt');
@@ -1327,6 +1384,7 @@ function selectOpt(i) {
   else{fb.className='quiz-feedback show err';fb.innerHTML='❌ 答錯了。'+q.explain;}
   nxt.className='quiz-next show';
 }
+
 function nextQ() {
   qi++;
   if(qi>=quizData.length){
@@ -1343,6 +1401,7 @@ function nextQ() {
     document.getElementById('score-desc').textContent=desc;
   } else { renderQuiz(); }
 }
+
 function restartQuiz() {
   qi=0;score=0;
   document.getElementById('quiz-question-area').style.display='';
@@ -1350,6 +1409,7 @@ function restartQuiz() {
   document.getElementById('quiz-score').className='quiz-score';
   renderQuiz();
 }
+
 // ═══════════════════════════════════════════
 // KIDS
 // ═══════════════════════════════════════════
@@ -1362,22 +1422,26 @@ function renderKids() {
   const fl=document.getElementById('faq-list');
   faqs.forEach(f=>{const div=document.createElement('div');div.className='faq-item';div.innerHTML=`<div class="faq-q" onclick="toggleFaq(this.parentElement)"><span>${f.q}</span><span class="faq-icon">+</span></div><div class="faq-a">${f.a}</div>`;fl.appendChild(div);});
 }
+
 function buildKidsCard(k) {
   const div=document.createElement('div'); div.className='kids-card';
   div.innerHTML=`<div class="kids-card-header"><div class="kids-card-emoji">${k.emoji}</div><div class="kids-card-meta"><div class="kids-card-age">${k.age}</div><h3>${k.title}</h3></div></div><div class="kids-card-body"><p>${k.desc}</p><ul class="kids-tips">${k.tips.map(t=>`<li>${t}</li>`).join('')}</ul></div>`;
   return div;
 }
+
 function switchKidsTab(cat, btn) {
   document.querySelectorAll('.kids-tab').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.kids-tab-content').forEach(t=>t.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById('kids-'+cat).classList.add('active');
 }
+
 function toggleFaq(el) {
   const wasOpen=el.classList.contains('open');
   document.querySelectorAll('.faq-item').forEach(f=>f.classList.remove('open'));
   if(!wasOpen)el.classList.add('open');
 }
+
 // ═══════════════════════════════════════════
 // WORKPLACE
 // ═══════════════════════════════════════════
@@ -1401,22 +1465,26 @@ function renderWorkplace() {
     sl.appendChild(div);
   });
 }
+
 function buildWorkCard(w) {
   const div=document.createElement('div'); div.className='work-card';
   div.innerHTML=`<div class="work-card-header"><div class="work-card-emoji">${w.emoji}</div><div class="work-card-meta"><div class="work-card-tag">${w.tag}</div><h3>${w.title}</h3></div></div><div class="work-card-body"><p>${w.desc}</p><ul class="work-tips">${w.tips.map(t=>`<li>${t}</li>`).join('')}</ul></div>`;
   return div;
 }
+
 function switchWorkTab(cat, btn) {
   document.querySelectorAll('.work-tab').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.work-tab-content').forEach(t=>t.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById('work-'+cat).classList.add('active');
 }
+
 function toggleScenario(el) {
   const wasOpen=el.classList.contains('open');
   document.querySelectorAll('.work-scenario').forEach(s=>s.classList.remove('open'));
   if(!wasOpen)el.classList.add('open');
 }
+
 // ═══════════════════════════════════════════
 // INIT
 // ═══════════════════════════════════════════

@@ -1,1 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>Lisa老師職涯反思問卷</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.8;
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        background: #f9f9f9;
+    }
+    h1 {
+        text-align: center;
+    }
+    .question {
+        margin-bottom: 25px;
+        padding: 15px;
+        background: white;
+        border-radius: 8px;
+    }
+    .result {
+        margin-top: 30px;
+        padding: 20px;
+        background: #eef;
+        border-radius: 8px;
+    }
+    button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
 
+<h1>🌱 職涯反思問卷（反直覺版）</h1>
+<p>請選擇最接近你真實感受的答案，而不是「應該選的」。</p>
+
+<form id="quiz">
+
+<div class="question">
+<p>1. 沒有學生再叫你的名字時：</p>
+<label><input type="radio" name="q1" value="A"> A. 鬆一口氣</label><br>
+<label><input type="radio" name="q1" value="B"> B. 之後開始空虛</label><br>
+<label><input type="radio" name="q1" value="C"> C. 少了重要連結</label><br>
+<label><input type="radio" name="q1" value="D"> D. 想回到教學</label>
+</div>
+
+<div class="question">
+<p>2. 每天做行政工作時：</p>
+<label><input type="radio" name="q2" value="A"> A. 穩定但單調</label><br>
+<label><input type="radio" name="q2" value="B"> B. 懷疑價值</label><br>
+<label><input type="radio" name="q2" value="C"> C. 覺得可取代</label><br>
+<label><input type="radio" name="q2" value="D"> D. 失去投入感</label>
+</div>
+
+<div class="question">
+<p>3. 家族企業遇到不合理要求：</p>
+<label><input type="radio" name="q3" value="A"> A. 忍耐</label><br>
+<label><input type="radio" name="q3" value="B"> B. 想溝通但顧慮</label><br>
+<label><input type="radio" name="q3" value="C"> C. 委屈難說</label><br>
+<label><input type="radio" name="q3" value="D"> D. 影響生活</label>
+</div>
+
+<div class="question">
+<p>4. 如果不累了：</p>
+<label><input type="radio" name="q4" value="A"> A. 仍想離開</label><br>
+<label><input type="radio" name="q4" value="B"> B. 重新考慮</label><br>
+<label><input type="radio" name="q4" value="C"> C. 不太想離開</label><br>
+<label><input type="radio" name="q4" value="D"> D. 想調整方式</label>
+</div>
+
+<div class="question">
+<p>5. 學生回來感謝你：</p>
+<label><input type="radio" name="q5" value="A"> A. 不多想</label><br>
+<label><input type="radio" name="q5" value="B"> B. 感動但還好</label><br>
+<label><input type="radio" name="q5" value="C"> C. 有點遺憾</label><br>
+<label><input type="radio" name="q5" value="D"> D. 很希望還在</label>
+</div>
+
+<div class="question">
+<p>6. 留下但調整工作：</p>
+<label><input type="radio" name="q6" value="A"> A. 收入壓力</label><br>
+<label><input type="radio" name="q6" value="B"> B. 需適應</label><br>
+<label><input type="radio" name="q6" value="C"> C. 找回樂趣</label><br>
+<label><input type="radio" name="q6" value="D"> D. 更有掌控</label>
+</div>
+
+<div class="question">
+<p>7. 新工作變無聊：</p>
+<label><input type="radio" name="q7" value="A"> A. 接受穩定</label><br>
+<label><input type="radio" name="q7" value="B"> B. 懷疑選擇</label><br>
+<label><input type="radio" name="q7" value="C"> C. 想再轉職</label><br>
+<label><input type="radio" name="q7" value="D"> D. 發現只是逃避</label>
+</div>
+
+<div class="question">
+<p>8. 先休息後：</p>
+<label><input type="radio" name="q8" value="A"> A. 發現只是累</label><br>
+<label><input type="radio" name="q8" value="B"> B. 問題可調整</label><br>
+<label><input type="radio" name="q8" value="C"> C. 有新看法</label><br>
+<label><input type="radio" name="q8" value="D"> D. 更清楚方向</label>
+</div>
+
+<div class="question">
+<p>9. 家族與工作衝突：</p>
+<label><input type="radio" name="q9" value="A"> A. 壓力不能說</label><br>
+<label><input type="radio" name="q9" value="B"> B. 家庭尷尬</label><br>
+<label><input type="radio" name="q9" value="C"> C. 界線模糊</label><br>
+<label><input type="radio" name="q9" value="D"> D. 長期不滿</label>
+</div>
+
+<div class="question">
+<p>10. 五年後最不希望：</p>
+<label><input type="radio" name="q10" value="A"> A. 當時太衝動</label><br>
+<label><input type="radio" name="q10" value="B"> B. 因累離開</label><br>
+<label><input type="radio" name="q10" value="C"> C. 錯過適合職涯</label><br>
+<label><input type="radio" name="q10" value="D"> D. 問題沒解決</label>
+</div>
+
+<button type="button" onclick="calculateResult()">查看結果</button>
+
+</form>
+
+<div id="result" class="result"></div>
+
+<script>
+function calculateResult() {
+    let counts = {A:0, B:0, C:0, D:0};
+    let form = document.forms["quiz"];
+
+    for (let i = 1; i <= 10; i++) {
+        let q = form["q" + i];
+        for (let j = 0; j < q.length; j++) {
+            if (q[j].checked) {
+                counts[q[j].value]++;
+            }
+        }
+    }
+
+    let max = Object.keys(counts).reduce((a,b)=>counts[a]>counts[b]?a:b);
+
+    let resultText = "";
+
+    if (max === "A") {
+        resultText = "你偏向逃離壓力，建議先休息，而不是立刻轉職。";
+    } else if (max === "B") {
+        resultText = "你處於過渡期，建議先調整現況再做決定。";
+    } else if (max === "C") {
+        resultText = "你重視價值感，離開教學可能帶來長期失落。";
+    } else {
+        resultText = "你其實是過度消耗，問題在狀態而不是職業本身。";
+    }
+
+    document.getElementById("result").innerHTML = "<strong>評估結果：</strong><br>" + resultText;
+}
+</script>
+
+</body>
+</html>

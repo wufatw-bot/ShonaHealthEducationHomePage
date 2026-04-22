@@ -34,6 +34,11 @@
     --star-light: #4A7FD4;
     --star-gold: #F5C842;
     --star-bg: #EEF4FF;
+    /* New: self-awareness palette */
+    --rose-dark: #9D174D;
+    --rose-mid: #DB2777;
+    --rose-light: #FBCFE8;
+    --rose-bg: #FDF2F8;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior: smooth; }
@@ -854,6 +859,101 @@
     background:rgba(76,175,80,0.07); border-radius:8px; padding:.5rem .8rem; line-height:1.6;
   }
   .phrase-good::before { content:'✓ 推薦：'; font-weight:700; display:block; font-size:.72rem; margin-bottom:.2rem; }
+
+  /* ── SELF-AWARENESS TAB ── */
+  .self-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px,1fr));
+    gap: 1.5rem;
+  }
+  /* The questionnaire link card */
+  .self-quiz-card {
+    text-decoration: none;
+    display: block;
+    background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%);
+    border-radius: 24px;
+    padding: 2.2rem;
+    border: 1.5px solid rgba(219,39,119,0.2);
+    box-shadow: 0 4px 30px rgba(157,23,77,0.08);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .self-quiz-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #FBCFE8, #DB2777, #FBCFE8);
+    border-radius: 24px 24px 0 0;
+  }
+  .self-quiz-card::after {
+    content: '◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦';
+    position: absolute; top: 12px; right: 12px;
+    font-size: .9rem;
+    color: rgba(219,39,119,0.12);
+    letter-spacing: .5rem;
+    line-height: 2.5;
+    pointer-events: none;
+    width: 120px;
+    word-break: break-all;
+  }
+  .self-quiz-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 44px rgba(157,23,77,0.16);
+    border-color: rgba(219,39,119,0.45);
+  }
+  .self-quiz-card .sq-icon-wrap {
+    width: 60px; height: 60px; border-radius: 16px;
+    background: linear-gradient(135deg, #FBCFE8, #DB2777);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem; margin-bottom: 1.2rem;
+  }
+  .self-quiz-card .sq-badge {
+    font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+    color: var(--rose-mid); text-transform: uppercase;
+    margin-bottom: .5rem; display: block;
+  }
+  .self-quiz-card h3 {
+    font-size: 1.1rem; font-weight: 700; color: var(--text-dark);
+    margin-bottom: .5rem; line-height: 1.4;
+  }
+  .self-quiz-card p {
+    font-size: .85rem; color: var(--text-mid); line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+  .self-quiz-card .sq-read-more {
+    display: inline-flex; align-items: center; gap: .4rem;
+    color: var(--rose-dark); font-size: .88rem; font-weight: 700;
+    transition: gap .2s;
+  }
+  .self-quiz-card:hover .sq-read-more { gap: .7rem; }
+
+  /* Info card for self-awareness section */
+  .self-info-card {
+    background: white;
+    border-radius: 24px;
+    padding: 2.2rem;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  .self-info-card .si-icon { font-size: 2.2rem; margin-bottom: .8rem; }
+  .self-info-card h4 {
+    font-size: 1rem; font-weight: 700; color: var(--text-dark);
+    margin-bottom: .6rem;
+  }
+  .self-info-card p {
+    font-size: .84rem; color: var(--text-mid); line-height: 1.8;
+  }
+  .self-tips { list-style: none; margin-top: .8rem; }
+  .self-tips li {
+    font-size: .82rem; color: var(--text-mid); line-height: 1.75;
+    padding: .3rem 0 .3rem 1.4rem; position: relative;
+  }
+  .self-tips li::before {
+    content: '🪞'; position: absolute; left: 0;
+    font-size: .65rem; top: .45rem;
+  }
+
   /* ── SECTION LABEL variants ── */
   .section-label.indigo { color: var(--indigo); }
   /* ── DISCLAIMER BANNER ── */
@@ -940,7 +1040,6 @@
   <h2 class="section-title">兒童神經發展・深度閱讀</h2>
   <p class="section-sub">從不自主動作的醫學知識，到追逐繁星的孩子的全球視角，再到追風少年的成長故事——幫助家長更深入理解孩子的神經發展世界。</p>
   <div class="movement-cards-row">
-    <!-- Card 1: Involuntary Movement -->
     <a href="MedicalWorld/InvoluntaryMovement.html" class="movement-link-card">
       <div class="card-icon-wrap">🧠</div>
       <span class="card-badge">完整文章 · 醫學知識</span>
@@ -948,7 +1047,6 @@
       <p>了解抽動症、舞蹈病、震顫、肌張力不全等常見類型，認識警示徵兆，協助家長及早辨識與就醫。</p>
       <span class="read-more">閱讀完整內容 →</span>
     </a>
-    <!-- Card 2: Chase Lost Voices / Global View -->
     <a href="ChaseLostVoices/GlobalView.html" class="star-link-card">
       <div class="card-icon-wrap">✨</div>
       <span class="card-badge">完整文章 · 全球視角</span>
@@ -956,7 +1054,6 @@
       <p>從全球的視角出發，探索特殊孩子的內心世界，理解他們如何在星光中找到屬於自己的路。</p>
       <span class="read-more">閱讀完整內容 →</span>
     </a>
-    <!-- Card 3: Wind Chaser -->
     <a href="WindChaser/WindChaserView.html" class="wind-link-card">
       <div class="card-icon-wrap">🏃</div>
       <span class="card-badge">完整文章 · 成長故事</span>
@@ -1029,7 +1126,8 @@
     </div>
   </div>
   <div class="workplace-nav-tabs">
-    <button class="work-tab active" onclick="switchWorkTab('basics',this)">🗣 溝通基礎</button>
+    <button class="work-tab active" onclick="switchWorkTab('basics',this)">🗣 溝通基礎，向上管理...</button>
+    <button class="work-tab" onclick="switchWorkTab('self',this)">🪞 理解自己</button>
     <button class="work-tab" onclick="switchWorkTab('upward',this)">⬆️ 向上管理</button>
     <button class="work-tab" onclick="switchWorkTab('conflict',this)">🔥 衝突處理</button>
     <button class="work-tab" onclick="switchWorkTab('phrases',this)">📝 實用話術</button>
@@ -1037,6 +1135,43 @@
   </div>
   <div id="work-basics" class="work-tab-content active">
     <div class="work-grid" id="work-basics-grid"></div>
+  </div>
+  <!-- ★ NEW: 理解自己 tab content -->
+  <div id="work-self" class="work-tab-content">
+    <div class="self-grid">
+      <!-- Questionnaire link card -->
+      <a href="Others/LeaveQuestionaire.html" class="self-quiz-card">
+        <div class="sq-icon-wrap">🌱</div>
+        <span class="sq-badge">互動問卷 · 職涯反思</span>
+        <h3>職涯反思問卷（反直覺版）</h3>
+        <p>透過10道情境題，繞過「應該選的」答案，直探內心真實感受——幫你釐清現在的狀態究竟是「累了」還是「不適合」。</p>
+        <span class="sq-read-more">開始問卷 →</span>
+      </a>
+      <!-- Info card 1 -->
+      <div class="self-info-card">
+        <div class="si-icon">🔍</div>
+        <h4>為什麼要先認識自己？</h4>
+        <p>溝通技巧再好，若不清楚自己的需求、價值觀與情緒模式，仍容易在關鍵時刻卡住。自我認識是所有溝通的地基。</p>
+        <ul class="self-tips">
+          <li>了解自己的溝通風格（直接型 vs 迂迴型）</li>
+          <li>辨識情緒觸發點，避免在壓力下失控</li>
+          <li>認識自己的核心需求，才能清楚表達</li>
+          <li>釐清「我真的不滿意」還是「我只是累了」</li>
+        </ul>
+      </div>
+      <!-- Info card 2 -->
+      <div class="self-info-card">
+        <div class="si-icon">⚡</div>
+        <h4>職涯轉換前的自我檢視</h4>
+        <p>衝動離職 vs 深思熟慮的轉換，差別往往在於是否做過充分的自我評估。這些問題值得在做決定前好好思考：</p>
+        <ul class="self-tips">
+          <li>是工作本身問題，還是當下狀態的問題？</li>
+          <li>休息後，你的想法是否還一樣？</li>
+          <li>五年後，你最不希望後悔哪件事？</li>
+          <li>外部壓力（家庭、財務）是否干擾了判斷？</li>
+        </ul>
+      </div>
+    </div>
   </div>
   <div id="work-upward" class="work-tab-content">
     <div class="work-grid" id="work-upward-grid"></div>

@@ -1,1 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>衛教刊物列表 | ShonaHealthEducation</title>
+    <style>
+        :root {
+            --primary-color: #2c7a7b;
+            --secondary-color: #4fd1c5;
+            --bg-color: #f7fafc;
+            --text-color: #2d3748;
+            --card-bg: #ffffff;
+        }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+
+        .search-container {
+            margin-bottom: 30px;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        .search-bar:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .publication-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .publication-item {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+
+        .publication-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .btn-html {
+            background-color: #ebf8ff;
+            color: #2b6cb0;
+        }
+
+        .btn-html:hover {
+            background-color: #bee3f8;
+        }
+
+        .btn-pdf {
+            background-color: #fff5f5;
+            color: #c53030;
+        }
+
+        .btn-pdf:hover {
+            background-color: #fed7d7;
+        }
+
+        @media (max-width: 600px) {
+            .publication-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            .links {
+                width: 100%;
+                justify-content: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>衛教刊物與出版品</h1>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-bar" placeholder="輸入關鍵字搜尋刊物...">
+    </div>
+
+    <div class="publication-list" id="pubList">
+        
+        <div class="publication-item">
+            <span class="title">南非醉茄與睡眠</span>
+            <div class="links">
+                <a href="南非醉茄與睡眠.html" class="btn btn-html" target="_blank">線上閱讀 (HTML)</a>
+                <a href="南非醉茄與睡眠.pdf" class="btn btn-pdf" download>下載 PDF</a>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <span class="title">淺談保健食品</span>
+            <div class="links">
+                <a href="淺談保健食品.html" class="btn btn-html" target="_blank">線上閱讀 (HTML)</a>
+                <a href="淺談保健食品.pdf" class="btn btn-pdf" download>下載 PDF</a>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <span class="title">淺談助眠藥物</span>
+            <div class="links">
+                <a href="淺談助眠藥物.html" class="btn btn-html" target="_blank">線上閱讀 (HTML)</a>
+                <a href="淺談助眠藥物.pdf" class="btn btn-pdf" download>下載 PDF</a>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <span class="title">淺談賦形劑</span>
+            <div class="links">
+                <a href="淺談賦形劑.html" class="btn btn-html" target="_blank">線上閱讀 (HTML)</a>
+                <a href="淺談賦形劑.pdf" class="btn btn-pdf" download>下載 PDF</a>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <span class="title">高山症治療</span>
+            <div class="links">
+                <a href="高山症治療.html" class="btn btn-html" target="_blank">線上閱讀 (HTML)</a>
+                <a href="高山症治療.pdf" class="btn btn-pdf" download>下載 PDF</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // 即時搜尋功能
+    document.getElementById('searchInput').addEventListener('input', function(e) {
+        const keyword = e.target.value.toLowerCase();
+        const items = document.querySelectorAll('.publication-item');
+        
+        items.forEach(item => {
+            const title = item.querySelector('.title').textContent.toLowerCase();
+            if (title.includes(keyword)) {
+                item.style.display = 'flex';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

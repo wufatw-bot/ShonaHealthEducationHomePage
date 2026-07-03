@@ -34,7 +34,6 @@
     --star-light: #4A7FD4;
     --star-gold: #F5C842;
     --star-bg: #EEF4FF;
-    /* New: self-awareness palette */
     --rose-dark: #9D174D;
     --rose-mid: #DB2777;
     --rose-light: #FBCFE8;
@@ -48,7 +47,6 @@
     font-family: 'Noto Sans TC', sans-serif;
     overflow-x: hidden;
   }
-  /* ── HEADER ── */
   header {
     position: sticky; top:0; z-index:100;
     background: rgba(250,246,240,0.95);
@@ -77,7 +75,6 @@
     position: relative;
     padding: .2rem 0;
   }
-  <a href="#publications">衛教刊物</a>
   nav a::after {
     content:''; position:absolute; bottom:-3px; left:0;
     width:0; height:2px; background: var(--sage);
@@ -86,7 +83,6 @@
   }
   nav a:hover { color: var(--sage-dark); }
   nav a:hover::after { width:100%; }
-  /* ── HERO ── */
   .hero {
     min-height: 88vh;
     display: grid; grid-template-columns: 1fr 1fr;
@@ -209,7 +205,6 @@
   .herb-icon { font-size: 2rem; margin-bottom:.8rem; }
   .herb-card h3 { font-size:.9rem; font-weight:600; color:var(--text-dark); }
   .herb-card p { font-size:.75rem; color:var(--text-light); margin-top:.3rem; line-height:1.6; }
-  /* ── SECTION COMMON ── */
   section { padding: 5rem 8vw; }
   .section-label {
     font-size: .72rem;
@@ -233,7 +228,6 @@
     line-height: 1.8;
     max-width: 600px;
   }
-  /* ── MOVEMENT SECTION (兒童神經發展) ── */
   #movement {
     background: var(--violet-bg);
     padding: 5rem 8vw;
@@ -244,7 +238,6 @@
     gap: 1.5rem;
     margin-top: 2rem;
   }
-  /* Involuntary Movement card */
   .movement-link-card {
     text-decoration: none;
     display: block;
@@ -294,7 +287,6 @@
     transition: gap .2s;
   }
   .movement-link-card:hover .read-more { gap: .7rem; }
-  /* Star-chasing card */
   .star-link-card {
     text-decoration: none;
     display: block;
@@ -358,7 +350,6 @@
     transition: gap .2s;
   }
   .star-link-card:hover .read-more { gap: .7rem; }
-  /* Wind-chaser card */
   .wind-link-card {
     text-decoration: none;
     display: block;
@@ -422,200 +413,102 @@
     transition: gap .2s;
   }
   .wind-link-card:hover .read-more { gap: .7rem; }
-  <section id="publications" style="background: var(--warm-white);">
-  <div class="section-label">Publications & Downloads</div>
-  <h2 class="section-title">衛教刊物<em>與出版品</em></h2>
-  <p class="section-sub">點選下方圖示可直接線上閱讀 HTML 網頁版，或直接下載專業 PDF 檔，隨時掌握家庭與自身的健康管理核心要素。</p>
-
-  <style>
-    .pub-search-container {
-      margin: 2.5rem 0 2rem;
-      max-width: 500px;
-    }
-    .pub-search-bar {
-      width: 100%;
-      padding: .8rem 1.5rem;
-      font-size: .9rem;
-      font-family: 'Noto Sans TC', sans-serif;
-      border: 1.5px solid var(--border);
-      border-radius: 50px;
-      background: white;
-      color: var(--text-dark);
-      transition: all 0.3s;
-      box-shadow: var(--shadow);
-    }
-    .pub-search-bar:focus {
-      outline: none;
-      border-color: var(--sage-dark);
-      box-shadow: 0 4px 20px rgba(77,122,90,0.15);
-    }
-    .pub-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-    .pub-card {
-      background: white;
-      border-radius: 24px;
-      padding: 1.8rem;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      transition: all .3s;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .pub-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 40px rgba(61,43,26,0.12);
-      border-color: var(--sage-light);
-    }
-    .pub-meta {
-      display: flex;
-      align-items: center;
-      gap: .8rem;
-      margin-bottom: 1.2rem;
-    }
-    .pub-icon {
-      font-size: 1.8rem;
-      width: 48px;
-      height: 48px;
-      background: rgba(123,158,135,0.1);
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .pub-title h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text-dark);
-    }
-    .pub-action-btns {
-      display: flex;
-      gap: .8rem;
-      margin-top: 1rem;
-    }
-    .pub-btn {
-      flex: 1;
-      text-align: center;
-      text-decoration: none;
-      padding: .6rem 0;
-      border-radius: 50px;
-      font-size: .82rem;
-      font-weight: 600;
-      transition: all .25s;
-    }
-    .pub-btn-html {
-      background: rgba(123,158,135,0.12);
-      color: var(--sage-dark);
-      border: 1px solid transparent;
-    }
-    .pub-btn-html:hover {
-      background: var(--sage-dark);
-      color: white;
-    }
-    .pub-btn-pdf {
-      background: transparent;
-      color: var(--text-mid);
-      border: 1px solid var(--border);
-    }
-    .pub-btn-pdf:hover {
-      background: rgba(61,43,26,0.05);
-      color: var(--text-dark);
-    }
-  </style>
-
-  <div class="pub-search-container">
-    <input type="text" id="pubSearchInput" class="pub-search-bar" placeholder="輸入關鍵字篩選衛教刊物...">
-  </div>
-
-  <div class="pub-grid" id="pubCardList">
-    
-    <div class="pub-card">
-      <div class="pub-meta">
-        <div class="pub-icon">🪻</div>
-        <div class="pub-title">
-          <h3>南非醉茄與睡眠</h3>
-        </div>
-      </div>
-      <div class="pub-action-btns">
-        <a href="南非醉茄與睡眠.html" class="pub-btn pub-btn-html" target="_blank">線上閱讀</a>
-        <a href="南非醉茄與睡眠.pdf" class="pub-btn pub-btn-pdf" download>下載 PDF</a>
-      </div>
-    </div>
-
-    <div class="pub-card">
-      <div class="pub-meta">
-        <div class="pub-icon">🥗</div>
-        <div class="pub-title">
-          <h3>淺談保健食品</h3>
-        </div>
-      </div>
-      <div class="pub-action-btns">
-        <a href="淺談保健食品.html" class="pub-btn pub-btn-html" target="_blank">線上閱讀</a>
-        <a href="淺談保健食品.pdf" class="pub-btn pub-btn-pdf" download>下載 PDF</a>
-      </div>
-    </div>
-
-    <div class="pub-card">
-      <div class="pub-meta">
-        <div class="pub-icon">💊</div>
-        <div class="pub-title">
-          <h3>淺談助眠藥物</h3>
-        </div>
-      </div>
-      <div class="pub-action-btns">
-        <a href="淺談助眠藥物.html" class="pub-btn pub-btn-html" target="_blank">線上閱讀</a>
-        <a href="淺談助眠藥物.pdf" class="pub-btn pub-btn-pdf" download>下載 PDF</a>
-      </div>
-    </div>
-
-    <div class="pub-card">
-      <div class="pub-meta">
-        <div class="pub-icon">🧬</div>
-        <div class="pub-title">
-          <h3>淺談賦形劑</h3>
-        </div>
-      </div>
-      <div class="pub-action-btns">
-        <a href="淺談賦形劑.html" class="pub-btn pub-btn-html" target="_blank">線上閱讀</a>
-        <a href="淺談賦形劑.pdf" class="pub-btn pub-btn-pdf" download>下載 PDF</a>
-      </div>
-    </div>
-
-    <div class="pub-card">
-      <div class="pub-meta">
-        <div class="pub-icon">🏔️</div>
-        <div class="pub-title">
-          <h3>高山症治療</h3>
-        </div>
-      </div>
-      <div class="pub-action-btns">
-        <a href="高山症治療.html" class="pub-btn pub-btn-html" target="_blank">線上閱讀</a>
-        <a href="高山症治療.pdf" class="pub-btn pub-btn-pdf" download>下載 PDF</a>
-      </div>
-    </div>
-
-  </div>
-
-  <script>
-    document.getElementById('pubSearchInput').addEventListener('input', function(e) {
-      const keyword = e.target.value.toLowerCase().trim();
-      const cards = document.querySelectorAll('.pub-card');
-      
-      cards.forEach(card => {
-        const title = card.querySelector('.pub-title h3').textContent.toLowerCase();
-        if (title.includes(keyword)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  </script>
-</section>
-  /* ── TABS (Products) ── */
+  .pub-search-container {
+    margin: 2.5rem 0 2rem;
+    max-width: 500px;
+  }
+  .pub-search-bar {
+    width: 100%;
+    padding: .8rem 1.5rem;
+    font-size: .9rem;
+    font-family: 'Noto Sans TC', sans-serif;
+    border: 1.5px solid var(--border);
+    border-radius: 50px;
+    background: white;
+    color: var(--text-dark);
+    transition: all 0.3s;
+    box-shadow: var(--shadow);
+  }
+  .pub-search-bar:focus {
+    outline: none;
+    border-color: var(--sage-dark);
+    box-shadow: 0 4px 20px rgba(77,122,90,0.15);
+  }
+  .pub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .pub-card {
+    background: white;
+    border-radius: 24px;
+    padding: 1.8rem;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: all .3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .pub-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(61,43,26,0.12);
+    border-color: var(--sage-light);
+  }
+  .pub-meta {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    margin-bottom: 1.2rem;
+  }
+  .pub-icon {
+    font-size: 1.8rem;
+    width: 48px;
+    height: 48px;
+    background: rgba(123,158,135,0.1);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pub-title h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+  .pub-action-btns {
+    display: flex;
+    gap: .8rem;
+    margin-top: 1rem;
+  }
+  .pub-btn {
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+    padding: .6rem 0;
+    border-radius: 50px;
+    font-size: .82rem;
+    font-weight: 600;
+    transition: all .25s;
+  }
+  .pub-btn-html {
+    background: rgba(123,158,135,0.12);
+    color: var(--sage-dark);
+    border: 1px solid transparent;
+  }
+  .pub-btn-html:hover {
+    background: var(--sage-dark);
+    color: white;
+  }
+  .pub-btn-pdf {
+    background: transparent;
+    color: var(--text-mid);
+    border: 1px solid var(--border);
+  }
+  .pub-btn-pdf:hover {
+    background: rgba(61,43,26,0.05);
+    color: var(--text-dark);
+  }
   #products { background: var(--warm-white); }
   .tabs {
     display: flex; gap: .5rem; flex-wrap:wrap;
@@ -707,7 +600,6 @@
     padding-top:.1rem;
   }
   .detail-text { font-size:.82rem; color:var(--text-mid); line-height:1.7; }
-  /* ── INTERACTIVE CHECKER ── */
   #checker { background: var(--cream); }
   .checker-wrap {
     display: grid; grid-template-columns: 1fr 1fr;
@@ -758,7 +650,6 @@
     background:rgba(123,158,135,0.15); border-radius:50px;
     padding:.15rem .6rem; display:inline-block; margin-top:.5rem;
   }
-  /* ── EDUCATION ── */
   #education { background: var(--warm-white); }
   .edu-grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(340px,1fr));
@@ -826,7 +717,6 @@
     font-size:.68rem; font-weight:700; color:var(--sage-dark);
     letter-spacing:.06em; margin-bottom:.6rem;
   }
-  /* ── QUIZ ── */
   #quiz { background:var(--cream); }
   .quiz-wrap {
     max-width:720px; margin:2.5rem auto 0;
@@ -871,7 +761,6 @@
   .quiz-score .score-num { font-family:'DM Serif Display',serif; font-size:4rem; color:var(--sage-dark); }
   .quiz-score h3 { font-size:1.4rem; font-weight:700; margin:.5rem 0; }
   .quiz-score p { color:var(--text-mid); margin-bottom:1.5rem; }
-  /* ── KIDS SECTION ── */
   #kids { background: var(--cream); }
   .kids-intro-banner {
     background: linear-gradient(135deg, #FFF8E7 0%, #E8F5E9 100%);
@@ -958,7 +847,6 @@
   .faq-item.open .faq-icon { transform:rotate(45deg); }
   .faq-a { display:none; padding:0 1.5rem 1.2rem; font-size:.85rem; color:var(--text-mid); line-height:1.8; }
   .faq-item.open .faq-a { display:block; animation:fadeUp .3s ease; }
-  /* ── WORKPLACE COMMUNICATION ── */
   #workplace { background: var(--warm-white); }
   .workplace-intro-banner {
     background: linear-gradient(135deg, #EEF0FB 0%, #D8DCF5 100%);
@@ -1053,14 +941,11 @@
     background:rgba(76,175,80,0.07); border-radius:8px; padding:.5rem .8rem; line-height:1.6;
   }
   .phrase-good::before { content:'✓ 推薦：'; font-weight:700; display:block; font-size:.72rem; margin-bottom:.2rem; }
-
-  /* ── SELF-AWARENESS TAB ── */
   .self-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px,1fr));
     gap: 1.5rem;
   }
-  /* The questionnaire link card */
   .self-quiz-card {
     text-decoration: none;
     display: block;
@@ -1121,8 +1006,6 @@
     transition: gap .2s;
   }
   .self-quiz-card:hover .sq-read-more { gap: .7rem; }
-
-  /* Info card for self-awareness section */
   .self-info-card {
     background: white;
     border-radius: 24px;
@@ -1147,10 +1030,7 @@
     content: '🪞'; position: absolute; left: 0;
     font-size: .65rem; top: .45rem;
   }
-
-  /* ── SECTION LABEL variants ── */
   .section-label.indigo { color: var(--indigo); }
-  /* ── DISCLAIMER BANNER ── */
   .disclaimer {
     background: rgba(212,168,71,0.12); border: 1px solid rgba(212,168,71,0.3);
     border-radius:16px; padding:1rem 1.5rem; margin-bottom:2rem;
@@ -1158,7 +1038,6 @@
     display:flex; gap:.8rem; align-items:flex-start;
   }
   .disclaimer .icon { font-size:1.2rem; flex-shrink:0; }
-  /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity:0; transform:translateY(18px); }
     to   { opacity:1; transform:translateY(0); }
@@ -1166,7 +1045,6 @@
   @keyframes twinkle {
     0%,100% { opacity:.15; } 50% { opacity:.5; }
   }
-  /* ── RESPONSIVE ── */
   @media (max-width: 860px) {
     .hero { grid-template-columns:1fr; min-height:auto; }
     .hero-visual { display:none; }
@@ -1180,7 +1058,6 @@
 </style>
 </head>
 <body>
-<!-- HEADER -->
 <header>
   <div class="logo">芝芝<span>♡</span>學習保健站</div>
   <nav>
@@ -1192,9 +1069,9 @@
     <a href="#checker">健康配對</a>
     <a href="#education">健康知識</a>
     <a href="#quiz">小測驗</a>
+    <a href="#publications">衛教刊物</a>
   </nav>
 </header>
-<!-- HERO -->
 <section class="hero">
   <div>
     <div class="hero-badge">🌿 藥師親身推薦・專業把關</div>
@@ -1228,7 +1105,6 @@
     </div>
   </div>
 </section>
-<!-- ① 兒童神經發展 / INVOLUNTARY MOVEMENT -->
 <section id="movement">
   <div class="section-label" style="color:#7C3AED;">🧠 兒童神經發展</div>
   <h2 class="section-title">兒童神經發展・深度閱讀</h2>
@@ -1257,7 +1133,66 @@
     </a>
   </div>
 </section>
-<!-- ② 學童教養與教育 -->
+<section id="publications" style="background: var(--warm-white);">
+  <div class="section-label">Publications & Downloads</div>
+  <h2 class="section-title">衛教刊物<em>與出版品</em></h2>
+  <p class="section-sub">點選下方圖示可直接線上閱讀 HTML 網頁版，或直接下載專業 PDF 檔，隨時掌握家庭與自身的健康管理核心要素。</p>
+  <div class="pub-search-container">
+    <input type="text" id="pubSearchInput" class="pub-search-bar" placeholder="輸入關鍵字篩選衛教刊物...">
+  </div>
+  <div class="pub-grid" id="pubCardList">
+    <div class="pub-card">
+      <div class="pub-meta">
+        <div class="pub-icon">🪻</div>
+        <div class="pub-title"><h3>南非醉茄與睡眠</h3></div>
+      </div>
+      <div class="pub-action-btns">
+        <a href="南非醉茄與睡眠.html" class="pub-btn pub-btn-html" target="_blank">線上閱讀</a>
+        <a href="南非醉茄與睡眠.pdf" class="pub-btn pub-btn-pdf" download>下載 PDF</a>
+      </div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-meta">
+        <div class="pub-icon">🥗</div>
+        <div class="pub-title"><h3>淺談保健食品</h3></div>
+      </div>
+      <div class="pub-action-btns">
+        <a href="淺談保健食品.html" class="pub-btn pub-btn-html" target="_blank">線上閱讀</a>
+        <a href="淺談保健食品.pdf" class="pub-btn pub-btn-pdf" download>下載 PDF</a>
+      </div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-meta">
+        <div class="pub-icon">💊</div>
+        <div class="pub-title"><h3>淺談助眠藥物</h3></div>
+      </div>
+      <div class="pub-action-btns">
+        <a href="淺談助眠藥物.html" class="pub-btn pub-btn-html" target="_blank">線上閱讀</a>
+        <a href="淺談助眠藥物.pdf" class="pub-btn pub-btn-pdf" download>下載 PDF</a>
+      </div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-meta">
+        <div class="pub-icon">🧬</div>
+        <div class="pub-title"><h3>淺談賦形劑</h3></div>
+      </div>
+      <div class="pub-action-btns">
+        <a href="淺談賦形劑.html" class="pub-btn pub-btn-html" target="_blank">線上閱讀</a>
+        <a href="淺談賦形劑.pdf" class="pub-btn pub-btn-pdf" download>下載 PDF</a>
+      </div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-meta">
+        <div class="pub-icon">🏔️</div>
+        <div class="pub-title"><h3>高山症治療</h3></div>
+      </div>
+      <div class="pub-action-btns">
+        <a href="高山症治療.html" class="pub-btn pub-btn-html" target="_blank">線上閱讀</a>
+        <a href="高山症治療.pdf" class="pub-btn pub-btn-pdf" download>下載 PDF</a>
+      </div>
+    </div>
+  </div>
+</section>
 <section id="kids">
   <div class="section-label">🎒 學童教養與教育</div>
   <h2 class="section-title">陪伴孩子健康成長</h2>
@@ -1307,7 +1242,6 @@
     <div class="faq-list" id="faq-list"></div>
   </div>
 </section>
-<!-- ③ 職場溝通 -->
 <section id="workplace">
   <div class="section-label indigo">💼 職場溝通</div>
   <h2 class="section-title">說對話・做對事</h2>
@@ -1330,10 +1264,8 @@
   <div id="work-basics" class="work-tab-content active">
     <div class="work-grid" id="work-basics-grid"></div>
   </div>
-  <!-- ★ NEW: 理解自己 tab content -->
   <div id="work-self" class="work-tab-content">
     <div class="self-grid">
-      <!-- Questionnaire link card -->
       <a href="Others/LeaveQuestionaire.html" class="self-quiz-card">
         <div class="sq-icon-wrap">🌱</div>
         <span class="sq-badge">互動問卷 · 職涯反思</span>
@@ -1341,7 +1273,6 @@
         <p>透過10道情境題，繞過「應該選的」答案，直探內心真實感受——幫你釐清現在的狀態究竟是「累了」還是「不適合」。</p>
         <span class="sq-read-more">開始問卷 →</span>
       </a>
-      <!-- Info card 1 -->
       <div class="self-info-card">
         <div class="si-icon">🔍</div>
         <h4>為什麼要先認識自己？</h4>
@@ -1353,7 +1284,6 @@
           <li>釐清「我真的不滿意」還是「我只是累了」</li>
         </ul>
       </div>
-      <!-- Info card 2 -->
       <div class="self-info-card">
         <div class="si-icon">⚡</div>
         <h4>職涯轉換前的自我檢視</h4>
@@ -1380,7 +1310,6 @@
     <div class="work-scenario-wrap" id="work-scenarios-list"></div>
   </div>
 </section>
-<!-- ④ 保健食品 -->
 <section id="products">
   <div class="section-label">🌱 保健食品圖書館</div>
   <h2 class="section-title">成分・功能・注意事項</h2>
@@ -1406,7 +1335,6 @@
   <div id="tab-heart" class="tab-content"><div class="product-grid" id="heart-grid"></div></div>
   <div id="tab-brain" class="tab-content"><div class="product-grid" id="brain-grid"></div></div>
 </section>
-<!-- ⑤ 健康配對 -->
 <section id="checker">
   <div class="section-label">🔍 個人化配對</div>
   <h2 class="section-title">找到最適合你的<br>保健食品</h2>
@@ -1447,14 +1375,12 @@
     </div>
   </div>
 </section>
-<!-- ⑥ 健康知識專欄 -->
 <section id="education">
   <div class="section-label">📚 健康知識專欄</div>
   <h2 class="section-title">健康知識・藥師精選</h2>
   <p class="section-sub">藥師精選衛教主題，從兒童營養到老年保健，讓全家人都能獲得正確知識。</p>
   <div class="edu-grid" id="edu-grid"></div>
 </section>
-<!-- ⑦ 小測驗 -->
 <section id="quiz">
   <div class="section-label">🎯 互動測驗</div>
   <h2 class="section-title">考考你的保健知識</h2>
@@ -1470,7 +1396,6 @@
     </div>
   </div>
 </section>
-<!-- FOOTER -->
 <footer style="background:var(--deep-brown);color:rgba(255,255,255,0.7);padding:3rem 8vw;text-align:center;">
   <span class="logo" style="color:white;margin-bottom:.5rem;display:block;">芝芝♡學習保健站</span>
   <p style="font-size:.8rem;line-height:1.8;">本網站由藥師專業製作，資訊僅供衛教參考，不可取代醫療診斷。<br>
@@ -1478,9 +1403,14 @@
   <p style="margin-top:1rem;font-size:.75rem;opacity:.5;">© 2025 芝芝學習保健站・All Rights Reserved</p>
 </footer>
 <script>
-// ═══════════════════════════════════════════
-// PRODUCTS DATA
-// ═══════════════════════════════════════════
+document.getElementById('pubSearchInput').addEventListener('input', function(e) {
+  const keyword = e.target.value.toLowerCase().trim();
+  const cards = document.querySelectorAll('.pub-card');
+  cards.forEach(card => {
+    const title = card.querySelector('.pub-title h3').textContent.toLowerCase();
+    card.style.display = title.includes(keyword) ? 'flex' : 'none';
+  });
+});
 const products = [
   { id:'p1', cat:'antioxidant', icon:'🫐', name:'花青素（Anthocyanin）', tag:'抗氧化 • 護眼', summary:'強效抗氧化成分，廣泛存在於藍莓、紫葡萄、蔓越莓等深色漿果中。', ingredient:'花青素為多酚類植化素，以前花青素（OPC）為主要活性型態，常見來源：葡萄籽萃取物、山桑子、藍莓萃取物。', function:'保護視網膜、改善視力疲勞；清除自由基、延緩細胞氧化；維持微血管彈性；改善循環、減少夜盲問題。', indication:'長期用眼疲勞者（如電腦族、學生）、糖尿病性視網膜病變輔助保健、紫外線傷害高風險族群。', caution:'極少發生不良反應；高劑量可能造成輕微腸胃不適；孕婦使用建議諮詢醫師；花粉過敏者慎用山桑子。', note:'建議劑量80–160mg/天；與維生素C合用可增強抗氧化效果；飯後服用吸收更佳。', need:['eye','immunity'] },
   { id:'p2', cat:'heart', icon:'🐟', name:'魚油（Omega-3 / EPA＋DHA）', tag:'心血管 • 抗發炎', summary:'富含EPA與DHA的不飽和脂肪酸，對心血管健康與抗發炎有顯著益處。', ingredient:'EPA（二十碳五烯酸）、DHA（二十二碳六烯酸），來源為深海魚（鮭魚、沙丁魚）或藻油。', function:'降低三酸甘油酯（TG）、調節血脂；抗發炎，減少心臟病風險；DHA維持腦神經及視網膜健康；EPA改善情緒。', indication:'高三酸甘油酯血症、心血管疾病風險者、素食者補充DHA（藻油）、孕婦補充DHA（促進胎兒腦發育）。', caution:'高劑量（>3g/天）可能增加出血風險；服用抗凝血藥（如warfarin）者須與醫師討論；可能有魚腥嗝氣。', note:'EPA+DHA合計≥1000mg/天；手術前兩週停用；冷凍或餐後服用可減少嗝氣；建議選擇第三方認證品牌。', need:['heart','brain','eye'] },
@@ -1595,9 +1525,6 @@ const workScenarios = [
   { q:'📈 情境：你認為主管的決策有誤，但又不想直接衝突', a:'用「請教」的姿態提出疑問，讓主管自己發現問題，而非直接挑戰其判斷。', template:'[主管]，關於[決策X]，我想多了解一下背後的考量。我在評估時注意到[Y風險/數據/情況]，不確定這個部分是否已經納入考慮？如果您已評估過，能否讓我了解是怎麼思考的？這樣我執行起來會更放心。' },
   { q:'🎤 情境：需要在大型會議上發言，但你很緊張', a:'緊張是正常的，但可以用結構和準備來降低焦慮，讓發言更有說服力。', template:'（發言結構）先用一句話說明你的立場或結論，接著給出1–2個支持論點，最後收尾呼應開頭。\n開場範例：「我想分享關於[主題]的觀察。我的結論是[X]，原因有兩個：第一，[A]；第二，[B]。所以我建議我們[具體行動]。」' }
 ];
-// ═══════════════════════════════════════════
-// RENDER PRODUCTS
-// ═══════════════════════════════════════════
 function renderProducts() {
   const grids = { all: document.getElementById('all-grid') };
   ['antioxidant','immunity','bone','gut','heart','brain'].forEach(c => { grids[c] = document.getElementById(c+'-grid'); });
@@ -1644,9 +1571,6 @@ function switchTab(cat, btn) {
   btn.classList.add('active');
   document.getElementById('tab-'+cat).classList.add('active');
 }
-// ═══════════════════════════════════════════
-// CHECKER
-// ═══════════════════════════════════════════
 function runChecker() {
   const checked = [...document.querySelectorAll('.checker-form input:checked')].map(i=>i.value);
   const result = document.getElementById('checker-result');
@@ -1661,9 +1585,6 @@ function runChecker() {
   html += `<p style="font-size:.75rem;color:var(--text-light);margin-top:1rem;line-height:1.7">⚕️ 此配對結果僅供參考，實際補充計畫請諮詢藥師或醫師。</p>`;
   result.innerHTML = html;
 }
-// ═══════════════════════════════════════════
-// EDUCATION
-// ═══════════════════════════════════════════
 function renderEdu() {
   const grid = document.getElementById('edu-grid');
   eduCards.forEach(e => {
@@ -1710,9 +1631,6 @@ function renderEdu() {
     }
   });
 }
-// ═══════════════════════════════════════════
-// QUIZ
-// ═══════════════════════════════════════════
 let qi = 0, score = 0, answered = false;
 function renderQuiz() {
   const prog = document.getElementById('quiz-progress');
@@ -1760,9 +1678,6 @@ function restartQuiz() {
   document.getElementById('quiz-score').className='quiz-score';
   renderQuiz();
 }
-// ═══════════════════════════════════════════
-// KIDS
-// ═══════════════════════════════════════════
 function renderKids() {
   const ng=document.getElementById('kids-nutrition-grid'); kidsNutrition.forEach(k=>ng.appendChild(buildKidsCard(k)));
   const pg=document.getElementById('kids-parenting-grid'); kidsParenting.forEach(k=>pg.appendChild(buildKidsCard(k)));
@@ -1788,9 +1703,6 @@ function toggleFaq(el) {
   document.querySelectorAll('.faq-item').forEach(f=>f.classList.remove('open'));
   if(!wasOpen)el.classList.add('open');
 }
-// ═══════════════════════════════════════════
-// WORKPLACE
-// ═══════════════════════════════════════════
 function renderWorkplace() {
   const bg=document.getElementById('work-basics-grid');
   workBasics.forEach(w=>bg.appendChild(buildWorkCard(w)));
@@ -1827,9 +1739,6 @@ function toggleScenario(el) {
   document.querySelectorAll('.work-scenario').forEach(s=>s.classList.remove('open'));
   if(!wasOpen)el.classList.add('open');
 }
-// ═══════════════════════════════════════════
-// INIT
-// ═══════════════════════════════════════════
 renderKids();
 renderProducts();
 renderEdu();

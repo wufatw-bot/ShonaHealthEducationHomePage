@@ -600,56 +600,6 @@
     padding-top:.1rem;
   }
   .detail-text { font-size:.82rem; color:var(--text-mid); line-height:1.7; }
-  #checker { background: var(--cream); }
-  .checker-wrap {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 3rem; margin-top: 3rem;
-  }
-  .checker-form {
-    background:white; border-radius:24px; padding:2.5rem;
-    border:1px solid var(--border); box-shadow:var(--shadow);
-  }
-  .form-group { margin-bottom: 1.5rem; }
-  .form-group label {
-    display:block; font-size:.82rem; font-weight:600;
-    color:var(--text-dark); margin-bottom:.5rem; letter-spacing:.03em;
-  }
-  .checkbox-group {
-    display: grid; grid-template-columns: 1fr 1fr; gap:.5rem;
-  }
-  .check-item {
-    display:flex; align-items:center; gap:.5rem;
-    padding:.5rem .8rem;
-    border-radius:10px; border:1.5px solid var(--border);
-    cursor:pointer; transition:all .2s;
-    font-size:.8rem; color:var(--text-mid);
-  }
-  .check-item:hover { border-color:var(--sage); color:var(--sage-dark); }
-  .check-item input { accent-color:var(--sage-dark); }
-  .checker-result {
-    background:white; border-radius:24px; padding:2.5rem;
-    border:1px solid var(--border); box-shadow:var(--shadow);
-    min-height:200px;
-  }
-  .result-placeholder {
-    text-align:center; padding:3rem 1rem;
-    color:var(--text-light); font-size:.9rem;
-  }
-  .result-placeholder .big-icon { font-size:3rem; margin-bottom:1rem; opacity:.4; }
-  .result-item {
-    padding:1rem; border-radius:14px;
-    border:1px solid var(--border);
-    margin-bottom:.8rem;
-    background:rgba(123,158,135,0.06);
-    animation: fadeUp .3s ease both;
-  }
-  .result-item h4 { font-size:.9rem; font-weight:700; color:var(--text-dark); }
-  .result-item p { font-size:.8rem; color:var(--text-mid); margin-top:.3rem; line-height:1.6; }
-  .result-match {
-    font-size:.7rem; font-weight:700; color:var(--sage-dark);
-    background:rgba(123,158,135,0.15); border-radius:50px;
-    padding:.15rem .6rem; display:inline-block; margin-top:.5rem;
-  }
   #education { background: var(--warm-white); }
   .edu-grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(340px,1fr));
@@ -1048,7 +998,6 @@
   @media (max-width: 860px) {
     .hero { grid-template-columns:1fr; min-height:auto; }
     .hero-visual { display:none; }
-    .checker-wrap { grid-template-columns:1fr; }
     .kids-feature-row { grid-template-columns:1fr; }
     .kids-intro-banner { flex-direction:column; text-align:center; }
     .workplace-intro-banner { flex-direction:column; text-align:center; }
@@ -1065,7 +1014,7 @@
     <a href="WindChaser/WindChaserView.html">追風少年</a>
     <a href="#kids">教養教育</a>
     <a href="#workplace">職場溝通</a>
-
+    <a href="#products">保健食品</a>
     <a href="#education">健康知識</a>
     <a href="#quiz">小測驗</a>
     <a href="#publications">衛教刊物</a>
@@ -1079,28 +1028,6 @@
     <div class="hero-cta">
       <a href="#movement" class="btn-primary">兒童神經發展 →</a>
       <a href="#kids" class="btn-outline">教養教育</a>
-    </div>
-  </div>
-  <div class="hero-visual">
-    <div class="herb-card">
-      <div class="herb-icon">🧠</div>
-      <h3>神經發展</h3>
-      <p>了解不自主動作成因，早期辨識與介入</p>
-    </div>
-    <div class="herb-card">
-      <div class="herb-icon">👨‍👩‍👧</div>
-      <h3>教養教育</h3>
-      <p>兒童營養、發展里程碑與教養策略</p>
-    </div>
-    <div class="herb-card">
-      <div class="herb-icon">💼</div>
-      <h3>職場溝通</h3>
-      <p>說對話、做對事，建立良好工作關係</p>
-    </div>
-    <div class="herb-card">
-      <div class="herb-icon">🌿</div>
-      <h3>保健知識</h3>
-      <p>藥師專業把關，正確補充保健食品</p>
     </div>
   </div>
 </section>
@@ -1307,6 +1234,29 @@
     <div class="work-scenario-wrap" id="work-scenarios-list"></div>
   </div>
 </section>
+<section id="products">
+  <p class="section-sub">點選分類標籤，深入了解各項保健成分的專業知識，做出最適合自己的選擇。</p>
+  <div class="disclaimer">
+    <span class="icon">⚠️</span>
+    <span>本頁資訊僅供衛教參考，無法取代醫師或藥師個別評估。服用前請諮詢專業醫療人員，特別是孕婦、哺乳婦及慢性病患者。</span>
+  </div>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('all',this)">全部</button>
+    <button class="tab" onclick="switchTab('antioxidant',this)">抗氧化</button>
+    <button class="tab" onclick="switchTab('immunity',this)">免疫</button>
+    <button class="tab" onclick="switchTab('bone',this)">骨骼關節</button>
+    <button class="tab" onclick="switchTab('gut',this)">腸胃</button>
+    <button class="tab" onclick="switchTab('heart',this)">心血管</button>
+    <button class="tab" onclick="switchTab('brain',this)">腦部</button>
+  </div>
+  <div id="tab-all" class="tab-content active"><div class="product-grid" id="all-grid"></div></div>
+  <div id="tab-antioxidant" class="tab-content"><div class="product-grid" id="antioxidant-grid"></div></div>
+  <div id="tab-immunity" class="tab-content"><div class="product-grid" id="immunity-grid"></div></div>
+  <div id="tab-bone" class="tab-content"><div class="product-grid" id="bone-grid"></div></div>
+  <div id="tab-gut" class="tab-content"><div class="product-grid" id="gut-grid"></div></div>
+  <div id="tab-heart" class="tab-content"><div class="product-grid" id="heart-grid"></div></div>
+  <div id="tab-brain" class="tab-content"><div class="product-grid" id="brain-grid"></div></div>
+</section>
 <section id="education">
   <div class="section-label">📚 健康知識專欄</div>
   <h2 class="section-title">健康知識・藥師精選</h2>
@@ -1314,6 +1264,9 @@
   <div class="edu-grid" id="edu-grid"></div>
 </section>
 <section id="quiz">
+  <div class="section-label">🎯 互動測驗</div>
+  <h2 class="section-title">考考你的保健知識</h2>
+  <p class="section-sub">完成小測驗，檢視自己對保健食品的認知是否正確！</p>
   <div class="quiz-wrap" id="quiz-wrap">
     <div class="quiz-progress" id="quiz-progress"></div>
     <div id="quiz-question-area"></div>
@@ -1354,22 +1307,6 @@ const products = [
   { id:'p11', cat:'bone', icon:'🦵', name:'葡萄糖胺（Glucosamine）', tag:'關節 • 軟骨', summary:'軟骨的天然成分，有助於維持關節健康，緩解退化性關節炎不適感。', ingredient:'葡萄糖胺鹽酸鹽或硫酸鹽，常搭配軟骨素（Chondroitin）使用，來源多為甲殼類（蝦蟹殼）。', function:'刺激軟骨細胞合成蛋白聚醣；減緩軟骨退化；緩解關節疼痛；改善關節活動度。', indication:'輕至中度退化性關節炎（膝關節最多研究支持）、關節運動傷害輔助、中老年人關節保養。', caution:'海鮮過敏者慎用（蝦蟹來源）；可能影響血糖，糖尿病患者需監測；與抗凝血藥可能有交互作用。', note:'建議劑量1500mg/天；需持續使用至少8–12週才能評估效果；孕婦及哺乳婦不建議使用；植物來源（發酵）適合海鮮過敏者。', need:['joint','bone'] },
   { id:'p12', cat:'immunity', icon:'🌼', name:'維生素C（Vitamin C）', tag:'免疫 • 抗氧化', summary:'最廣為人知的抗氧化維生素，對免疫功能、膠原蛋白合成及鐵質吸收至關重要。', ingredient:'抗壞血酸（Ascorbic acid），緩衝型維生素C（抗壞血酸鈣/鎂）對胃較溫和。', function:'強化免疫細胞功能，縮短感冒病程；促進膠原蛋白合成（皮膚、傷口癒合）；增加非血鐵質鐵質吸收；抗氧化。', indication:'免疫力低下者、皮膚修復需求、素食者促進鐵吸收、吸菸者（需求量增加）。', caution:'高劑量（>2000mg/天）可能引起腹瀉、腎結石（草酸鈣結石）；突然停用高劑量建議逐漸減量（反彈性壞血病）。', note:'建議成人100–200mg/天，補充上限2000mg/天；水溶性，分次服用效果優於單次大劑量；隨餐服用減少胃部不適。', need:['immunity','skin','energy'] }
 ];
-const checkerRec = {
-  eye:       { name:'葉黃素 + 花青素', icon:'👁', desc:'保護視網膜，過濾藍光，適合長期使用3C或有AMD風險者。' },
-  heart:     { name:'魚油 Omega-3 + 膳食纖維', icon:'❤️', desc:'降低三酸甘油酯，改善血脂，降低心血管疾病風險。' },
-  bone:      { name:'鈣質 + 維生素D3', icon:'🦴', desc:'強化骨骼，預防骨質疏鬆，需搭配規律運動效果更佳。' },
-  gut:       { name:'益生菌 + 膳食纖維', icon:'🫙', desc:'平衡腸道菌叢，改善消化，維持腸道免疫屏障。' },
-  brain:     { name:'磷脂醯絲胺酸 + B群', icon:'🧠', desc:'支持腦神經代謝，維持記憶與專注力，適合腦力工作者。' },
-  immunity:  { name:'維生素C + 維生素D3 + 靈芝', icon:'🛡', desc:'多管齊下強化免疫，建議從單一品項開始，評估反應。' },
-  sleep:     { name:'鎂（Magnesium） + 茶胺酸', icon:'😴', desc:'鎂幫助放鬆神經與肌肉，茶胺酸可改善睡眠品質。' },
-  skin:      { name:'膠原蛋白 + 維生素C', icon:'✨', desc:'維生素C是膠原合成必需輔酶，兩者搭配事半功倍。' },
-  energy:    { name:'B群 + 輔酶Q10', icon:'⚡', desc:'B群促進能量代謝，Q10改善粒線體功能，恢復活力。' },
-  joint:     { name:'葡萄糖胺 + 軟骨素', icon:'🦵', desc:'軟骨保護組合，需持續8–12週以上才能感受效果。' },
-  pregnant:  { name:'⚠️ 注意', icon:'🤰', desc:'孕婦需特別謹慎！葉酸400–800μg/天必須補充，魚油選擇低汞品牌，避免高劑量維生素A，所有補充請先諮詢婦產科醫師。' },
-  senior:    { name:'銀髮族特別方案', icon:'👴', desc:'優先補充：維生素D3（>800IU）＋鈣質＋B12（吸收下降）＋魚油，並定期追蹤血液檢驗。' },
-  'blood-thinner': { name:'⚠️ 藥物交互作用警示', icon:'💊', desc:'服用抗凝血藥（warfarin）者，魚油高劑量、靈芝、維生素E都可能加強抗凝效果，請務必告知您的醫師或藥師再補充！' },
-  diabetes:  { name:'⚠️ 血糖監測提醒', icon:'🩸', desc:'葡萄糖胺、鉻補充劑可能影響血糖；部分益生菌對血糖有幫助但需監測。使用任何保健品前請告知糖尿病照護團隊。' }
-};
 const eduCards = [
   { color:'teal', icon:'💛', cat:'心血管健康', title:'認識好的膽固醇（HDL）', desc:'HDL被稱為「好的膽固醇」，它能將膽固醇從血管壁帶回肝臟代謝，有效保護心血管健康。', isLink: true, href:'Health_Education/Good_Cholesterol.html', points:[] },
   { color:'green', icon:'🧒', cat:'兒童教養', title:'孩子需要補充鈣質嗎？', desc:'成長期兒童骨骼發育快速，鈣質需求量高。但「補鈣」不等於吃保健品，認識哪些食物才是最好的鈣來源。', isLink: false, points:['7–9歲每日需800mg、10–12歲1000mg，13–18歲1200mg鈣','豆腐、牛奶、起司、小魚乾都是優質鈣來源','維生素D不足時鈣吸收大幅下降，戶外活動非常重要','碳酸飲料中的磷酸會阻礙鈣吸收，應限制飲用','補鈣同時需搭配規律負重運動才能有效強化骨骼'] },
@@ -1499,20 +1436,6 @@ function switchTab(cat, btn) {
   document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById('tab-'+cat).classList.add('active');
-}
-function runChecker() {
-  const checked = [...document.querySelectorAll('.checker-form input:checked')].map(i=>i.value);
-  const result = document.getElementById('checker-result');
-  if (!checked.length) { result.innerHTML = '<div class="result-placeholder"><div class="big-icon">🤔</div><p>請先勾選您的健康需求喔！</p></div>'; return; }
-  const warnings = checked.filter(c => ['pregnant','blood-thinner','diabetes'].includes(c));
-  const needs = checked.filter(c => !['pregnant','blood-thinner','diabetes','senior'].includes(c));
-  const special = checked.filter(c => ['senior'].includes(c));
-  let html = `<h3 style="font-size:1rem;font-weight:700;color:var(--text-dark);margin-bottom:1rem;">🌿 配對結果</h3>`;
-  warnings.forEach(w => { const r=checkerRec[w]; html+=`<div class="result-item" style="border-color:#EF5350;background:rgba(239,83,80,0.06)"><h4>${r.icon} ${r.name}</h4><p>${r.desc}</p></div>`; });
-  special.forEach(s => { const r=checkerRec[s]; html+=`<div class="result-item" style="border-color:var(--amber);background:rgba(212,168,71,0.06)"><h4>${r.icon} ${r.name}</h4><p>${r.desc}</p></div>`; });
-  needs.forEach(n => { const r=checkerRec[n]; if(!r)return; html+=`<div class="result-item"><h4>${r.icon} ${r.name}</h4><p>${r.desc}</p><span class="result-match">✓ 符合您的需求</span></div>`; });
-  html += `<p style="font-size:.75rem;color:var(--text-light);margin-top:1rem;line-height:1.7">⚕️ 此配對結果僅供參考，實際補充計畫請諮詢藥師或醫師。</p>`;
-  result.innerHTML = html;
 }
 function renderEdu() {
   const grid = document.getElementById('edu-grid');
@@ -1669,6 +1592,7 @@ function toggleScenario(el) {
   if(!wasOpen)el.classList.add('open');
 }
 renderKids();
+renderProducts();
 renderEdu();
 renderQuiz();
 renderWorkplace();
